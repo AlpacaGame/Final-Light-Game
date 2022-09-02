@@ -1081,6 +1081,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16d58042109f3d24abdd926381be0127, type: 3}
 --- !u!4 &548654982
@@ -3142,7 +3146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1434342531
 Transform:
   m_ObjectHideFlags: 0
@@ -5009,6 +5013,8 @@ MonoBehaviour:
   "\u89C0\u770B\u6575\u4EBA\u53EF\u653B\u64CA": 0
   "\u653B\u64CA\u6642\u9593\u5224\u5B9A": 0
   "\u81EA\u884C\u8A2D\u5B9A\u5C0D\u73A9\u5BB6\u8981\u591A\u5C11\u50B7\u5BB3": 0
+  "\u8ABF\u6574\u6559\u5B78\u6642\u9593": 5
+  "\u65B0\u624B\u6559\u5B78\u6B7B\u4EA1": 0
 --- !u!50 &1812139636
 Rigidbody2D:
   serializedVersion: 4
