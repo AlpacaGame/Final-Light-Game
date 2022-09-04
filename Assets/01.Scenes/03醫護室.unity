@@ -2504,6 +2504,50 @@ MonoBehaviour:
   - {x: 3.526198, y: -5.462085, z: 0}
   - {x: 1.707511, y: -0.055852413, z: -0.00000047683716}
   - {x: -1.3543768, y: -1.0764422, z: 0}
+--- !u!1 &736557035
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736557037}
+  - component: {fileID: 736557036}
+  m_Layer: 0
+  m_Name: _FungusState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &736557036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736557035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedFlowchart: {fileID: 0}
+--- !u!4 &736557037
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736557035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &746182538
 GameObject:
   m_ObjectHideFlags: 0
@@ -4992,7 +5036,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.40625, y: 1.15625}
+    oldSize: {x: 1.84, y: 1.92}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5051,8 +5095,7 @@ SpriteRenderer:
   m_SortingLayerID: 1025896137
   m_SortingLayer: 5
   m_SortingOrder: 5
-  m_Sprite: {fileID: 6262228535383671566, guid: 3600da3de784e6c4b840b3361bb59b97,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 625a8aea4a64f5247b4a3449f7035e6c, type: 3}
   m_Color: {r: 0, g: 0.41863346, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6999,6 +7042,7 @@ MonoBehaviour:
   "\u653B\u64CA\u6642\u9593\u5224\u5B9A": 0
   "\u81EA\u884C\u8A2D\u5B9A\u5C0D\u73A9\u5BB6\u8981\u591A\u5C11\u50B7\u5BB3": 0
   "\u8ABF\u6574\u6559\u5B78\u6642\u9593": 5
+  "\u65B0\u624B\u6559\u5B78\u6B7B\u4EA1": 0
 --- !u!50 &1663631301
 Rigidbody2D:
   serializedVersion: 4
@@ -7244,6 +7288,7 @@ MonoBehaviour:
   "\u653B\u64CA\u6642\u9593\u5224\u5B9A": 0
   "\u81EA\u884C\u8A2D\u5B9A\u5C0D\u73A9\u5BB6\u8981\u591A\u5C11\u50B7\u5BB3": 1
   "\u8ABF\u6574\u6559\u5B78\u6642\u9593": 5
+  "\u65B0\u624B\u6559\u5B78\u6B7B\u4EA1": 0
 --- !u!50 &1761358206
 Rigidbody2D:
   serializedVersion: 4
