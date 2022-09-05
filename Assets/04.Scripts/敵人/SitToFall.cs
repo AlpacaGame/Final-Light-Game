@@ -31,6 +31,11 @@ public class SitToFall : MonoBehaviour
         動畫開 = true;
     }
 
+    public void 掉頭音效()
+    {
+        SoundManager.instance.Enemy_AttackSource();
+    }
+
     void OnTriggerEnter2D(Collider2D Fall)
     {
         if (Fall.gameObject.tag == "Player")

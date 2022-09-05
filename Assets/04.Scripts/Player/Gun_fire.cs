@@ -19,6 +19,8 @@ public class Gun_fire : MonoBehaviour
 
     public GameObject 左槍口, 右槍口;
 
+    public GameObject 槍口亮光;
+
     public static bool 可開火開關 = true;
 
 
@@ -43,6 +45,7 @@ public class Gun_fire : MonoBehaviour
             Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
             Instantiate(子彈預設物, 槍口pos, 左槍口.transform.rotation);
             Instantiate(彈殼動畫, 槍口pos, 左槍口.transform.rotation);
+            Instantiate(槍口亮光, 槍口pos, 左槍口.transform.rotation);
             子彈 -= 1;
             SoundManager.instance.FireSource();
 
@@ -54,6 +57,7 @@ public class Gun_fire : MonoBehaviour
             Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
             Instantiate(子彈預設物, 槍口pos, 右槍口.transform.rotation);
             Instantiate(彈殼動畫, 槍口pos, 右槍口.transform.rotation);
+            Instantiate(槍口亮光, 槍口pos, 右槍口.transform.rotation);
             子彈 -= 1;
             SoundManager.instance.FireSource();
 

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7710,6 +7710,7 @@ MonoBehaviour:
     type: 3}
   "\u5DE6\u69CD\u53E3": {fileID: 129090994}
   "\u53F3\u69CD\u53E3": {fileID: 624450476}
+  "\u69CD\u53E3\u4EAE\u5149": {fileID: 0}
 --- !u!82 &696452681
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11719,6 +11720,7 @@ MonoBehaviour:
     type: 3}
   "\u5DE6\u69CD\u53E3": {fileID: 129090994}
   "\u53F3\u69CD\u53E3": {fileID: 624450476}
+  "\u69CD\u53E3\u4EAE\u5149": {fileID: 0}
 --- !u!82 &1160012632
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15120,6 +15122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414522694202987026, guid: 2b219ece3514e514387cc2ab62a9bab8,
+        type: 3}
+      propertyPath: "\u6D88\u5931\u6642\u9593"
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2373449718758499008, guid: 2b219ece3514e514387cc2ab62a9bab8,
         type: 3}
@@ -26693,6 +26700,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1270638700705118338, guid: ec85d9d8c23ea7a4c8c7fb4df7a280af,
+        type: 3}
+      propertyPath: "\u69CD\u53E3\u4EAE\u5149"
+      value: 
+      objectReference: {fileID: 6357610210855324365, guid: 2b219ece3514e514387cc2ab62a9bab8,
+        type: 3}
     - target: {fileID: 1270638701270639433, guid: ec85d9d8c23ea7a4c8c7fb4df7a280af,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -26818,6 +26831,12 @@ PrefabInstance:
       propertyPath: "\u73A9\u5BB6\u751F\u547D\u6700\u5927\u503C"
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1270638702254824861, guid: ec85d9d8c23ea7a4c8c7fb4df7a280af,
+        type: 3}
+      propertyPath: "\u69CD\u53E3\u4EAE\u5149"
+      value: 
+      objectReference: {fileID: 6357610210855324365, guid: 2b219ece3514e514387cc2ab62a9bab8,
+        type: 3}
     - target: {fileID: 1270638702679538148, guid: ec85d9d8c23ea7a4c8c7fb4df7a280af,
         type: 3}
       propertyPath: m_IsActive
