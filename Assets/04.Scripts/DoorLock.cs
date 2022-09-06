@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class DoorLock : MonoBehaviour
 {
-    public static bool DoorOpen = false;
+    public GameObject GlassDoor;
+    public Animator anim;
+
+    void Start()
+    {
+        anim = GlassDoor.GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            DoorOpen = true;
+            anim.Play("Open");
         }
     }
 }
