@@ -22,11 +22,9 @@ public class DoorLock : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.transform.position.x < transform.position.x)
         {
             anim.Play("Close");
         }
     }
-
-    
 }
