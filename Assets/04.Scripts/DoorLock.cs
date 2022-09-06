@@ -19,4 +19,14 @@ public class DoorLock : MonoBehaviour
             anim.Play("Open");
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            anim.Play("Close");
+        }
+    }
+
+    
 }
