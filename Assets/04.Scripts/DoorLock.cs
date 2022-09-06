@@ -6,6 +6,7 @@ public class DoorLock : MonoBehaviour
 {
     public GameObject GlassDoor;
     public Animator anim;
+    public float t;
 
     void Start()
     {
@@ -25,6 +26,14 @@ public class DoorLock : MonoBehaviour
         if (other.CompareTag("Player") && other.transform.position.x < transform.position.x)
         {
             anim.Play("Close");
+            t = 0;
+            InvokeRepeating("SetCamFieldOfViewTo110", 1, 0.01f);
         }
+    }
+
+    public void SetCamFieldOfViewTo110()
+    {
+        Camera.main.fieldOfView = Mathf.Lerp(90,110,t);
+        t += 0.01f;
     }
 }
