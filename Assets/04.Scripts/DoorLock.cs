@@ -6,7 +6,8 @@ public class DoorLock : MonoBehaviour
 {
     public GameObject GlassDoor;
     public Animator anim;
-    public float t;
+    private float t;
+    public float FieldOfViewMax = 120;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class DoorLock : MonoBehaviour
 
     public void SetCamFieldOfViewTo110()
     {
-        Camera.main.fieldOfView = Mathf.Lerp(90,110,t);
+        Camera.main.fieldOfView = Mathf.Lerp(90, FieldOfViewMax, t);
         t += 0.01f;
     }
 }
