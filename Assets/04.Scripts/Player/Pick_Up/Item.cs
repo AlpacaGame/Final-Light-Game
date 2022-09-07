@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class Item : MonoBehaviour
 {
@@ -8,9 +9,18 @@ public class Item : MonoBehaviour
 
     public bool 門禁卡, 密碼鎖密碼, 手槍 =false;
 
+
+    public static Flowchart flowchartManager;
+    public Flowchart talkFlowchart;
+    public string onTriggerEnter2D;
+
+
     //public static bool 鑰匙拾取過 = false;
 
     // Start is called before the first frame update
+
+
+
     void Start()
     {
         /*
@@ -27,7 +37,7 @@ public class Item : MonoBehaviour
     {
         撿拾哪一種道具();
         撿過就刪除();
-
+        
         /*
          if (Input.GetKey(KeyCode.E) && 撿拾道具)
         {
@@ -45,6 +55,9 @@ public class Item : MonoBehaviour
             Destroy(gameObject);
             GameManager.擁有門禁卡 = true;
             SoundManager.instance.PickUpSource();
+
+            Block targetBlock = talkFlowchart.FindBlock(onTriggerEnter2D);
+            talkFlowchart.ExecuteBlock(targetBlock);
         }
 
         else if (Input.GetKey(KeyCode.E) && 撿拾道具 && 密碼鎖密碼)

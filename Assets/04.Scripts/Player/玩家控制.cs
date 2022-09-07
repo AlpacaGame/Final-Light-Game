@@ -81,6 +81,7 @@ public class 玩家控制 : MonoBehaviour
 
     void Update()
     {
+        //&&!GameManager.正在對話
         if (!GameManager.角色死亡 && !切換使用敵人攝影機)
         {
             走路();

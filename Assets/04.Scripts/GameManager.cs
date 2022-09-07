@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Fungus;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,34 @@ public class GameManager : MonoBehaviour
     public GameObject 門禁卡, 密碼鎖密碼, 手槍;
     public float 觀看時間 = 0f;
 
+
+
+    public static Flowchart flowchartManager;
+
+    void Awake()
+    {
+        
+    }
+
+
+    //靜態對話開關
+    public static bool 正在對話
+    {
+        get
+        {
+            return flowchartManager.GetBooleanVariable("對話中");
+        }
+    }
+
+    //靜態時停開關
+    public static bool 正在時停
+    {
+        get
+        {
+            return flowchartManager.GetBooleanVariable("時停");
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,10 +92,22 @@ public class GameManager : MonoBehaviour
         彈出選單();
         彈出撿拾道具();
         //觀看結束();
+
+        if(正在時停)
+        {
+            Time.timeScale = 0f;
+        }
+        else if (!正在時停)
+        {
+            Time.timeScale = 1f;
+        }
+
     }
 
     void 查詢BUG()
     {
+        flowchartManager = GameObject.Find("對話管理器").GetComponent<Flowchart>();
+
         目前擁有彈匣數量 = Gun_fire.彈匣數量;
 
         if (檢查道具擁有狀態)
@@ -107,7 +148,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    /*
     void 時間控制器()
     {
 
@@ -132,7 +173,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    */
     void 重生()
     {
         if (重生點 == null)
@@ -218,13 +259,15 @@ public class GameManager : MonoBehaviour
             開啟選單 = !開啟選單;
         }
 
-        if (開啟選單)
+        if (開啟選單 && !正在對話)
         {
             選單介面.SetActive(true);
+            Time.timeScale = 0f;
         }
-        else if (!開啟選單)
+        else if (!開啟選單 && !正在對話)
         {
             選單介面.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 
@@ -234,6 +277,7 @@ public class GameManager : MonoBehaviour
         {
             Item_on_off.門禁卡 = true;
             //門禁卡.SetActive(true);
+            
             觀看一次門禁卡 = false;
             //Time.timeScale = 0f;
         }

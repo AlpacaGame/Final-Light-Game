@@ -132,7 +132,7 @@ public class keypad : MonoBehaviour
         }
         
         // Disable sections when keypadScreen is set to true
-
+        /*
         if (keypadScreen)
         {
             objectToEnable.SetActive(true);
@@ -146,7 +146,7 @@ public class keypad : MonoBehaviour
             Time.timeScale = 1f;
             Gun_fire.可開火開關 = true;
         }
-        
+        */
     }
 
     public void ValueEntered(string valueEntered)
