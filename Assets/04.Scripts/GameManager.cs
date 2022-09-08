@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         //時間控制器();
         背景音樂();
         彈出選單();
-        彈出撿拾道具();
+        //彈出撿拾道具();
         //觀看結束();
 
         if(正在時停)
@@ -275,7 +275,7 @@ public class GameManager : MonoBehaviour
     {
         if(擁有門禁卡 && 觀看一次門禁卡)
         {
-            Item_on_off.門禁卡 = true;
+            //Item_on_off.門禁卡 = true;
             //門禁卡.SetActive(true);
             
             觀看一次門禁卡 = false;
