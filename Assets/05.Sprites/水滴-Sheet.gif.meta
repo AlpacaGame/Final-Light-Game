@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: c7c1e15c04400c344b4185fd3940e3dc
+guid: e8efe311210b52946a17bab9484856da
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2117850485696572580
-    second: "\u6C34\u6EF4_0"
+      213: -8700301791336139796
+    second: "\u6C34\u6EF4-Sheet_0"
+  - first:
+      213: -401731734600944347
+    second: "\u6C34\u6EF4-Sheet_1"
+  - first:
+      213: 4977486203703287731
+    second: "\u6C34\u6EF4-Sheet_2"
+  - first:
+      213: 3679036811190682457
+    second: "\u6C34\u6EF4-Sheet_3"
+  - first:
+      213: -146948045427305323
+    second: "\u6C34\u6EF4-Sheet_4"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -34,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 96
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -90,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u6C34\u6EF4_0"
+      name: "\u6C34\u6EF4-Sheet_0"
       rect:
         serializedVersion: 2
-        x: 11
-        y: 8
-        width: 11
-        height: 19
+        x: 1
+        y: 12
+        width: 36
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,8 +116,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ac255fbbcd146d10800000000000000
-      internalID: 2117850485696572580
+      spriteID: ce3f6b0fd91524780800000000000000
+      internalID: -8700301791336139796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6C34\u6EF4-Sheet_1"
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 12
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525fb18ad13cc6af0800000000000000
+      internalID: -401731734600944347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6C34\u6EF4-Sheet_2"
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 12
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf54269455931540800000000000000
+      internalID: 4977486203703287731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6C34\u6EF4-Sheet_3"
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 12
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9534b96cc709e0330800000000000000
+      internalID: 3679036811190682457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6C34\u6EF4-Sheet_4"
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 12
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5941edff78fe5fdf0800000000000000
+      internalID: -146948045427305323
       vertices: []
       indices: 
       edges: []

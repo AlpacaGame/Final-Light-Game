@@ -82,7 +82,7 @@ public class 玩家控制 : MonoBehaviour
     void Update()
     {
         //&&!GameManager.正在對話
-        if (!GameManager.角色死亡 && !切換使用敵人攝影機)
+        if (!GameManager.角色死亡 && !切換使用敵人攝影機 && !GameManager.正在對話)
         {
             走路();
             跑步();
@@ -95,6 +95,11 @@ public class 玩家控制 : MonoBehaviour
            
         }
         心靈控制();
+        if(GameManager.正在對話)
+        {
+            anim.Play("待機");
+            rg.Sleep();
+        }
     }
 
     void 走路()
