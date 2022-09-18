@@ -18,14 +18,17 @@ public class Pivot_Head : MonoBehaviour
 
             float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
-            if (rotationZ < -90 || rotationZ > 90)//left
+            if (rotationZ > 90)//left up
             {
-                transform.localRotation = Quaternion.Euler(180, 180, -rotationZ);
+                transform.localRotation = Quaternion.Euler(180, 180, -rotationZ/2 -90);
             }
-
+            else if(rotationZ < -90)//left down
+            {
+                transform.localRotation = Quaternion.Euler(180, 180, -rotationZ/2 +90);
+            }
             else if (rotationZ > -90 || rotationZ < 90)//right
             {
-                transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+                transform.localRotation = Quaternion.Euler(0, 0, rotationZ/2);
             }
         }
     }

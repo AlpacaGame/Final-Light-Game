@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeDestroy : MonoBehaviour
 {
-    public float 消失時間 = 1;
+    public float 消失時間 = 7;
 
     // Start is called before the first frame update
     void Start()

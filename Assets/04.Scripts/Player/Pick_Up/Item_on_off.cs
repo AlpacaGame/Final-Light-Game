@@ -15,6 +15,7 @@ public class Item_on_off : MonoBehaviour
     }
 
     // Update is called once per frame
+    
     void Update()
     {
         觀看關了門禁卡 = 門禁卡;
@@ -25,12 +26,12 @@ public class Item_on_off : MonoBehaviour
 
         if (門禁卡)
         {
-            卡.SetActive(true);
-            Time.timeScale = 0f;
+            //卡.SetActive(true);
+            //Time.timeScale = 0f;
         }
         else if(!門禁卡)
         {
-            卡.SetActive(false);
+            //卡.SetActive(false);
         }
 
         if(密碼)
@@ -55,7 +56,7 @@ public class Item_on_off : MonoBehaviour
             槍.SetActive(false);
         }
     }
-
+    
     void 按下任意鍵()
     {
 
@@ -83,5 +84,7 @@ public class Item_on_off : MonoBehaviour
             手槍 = false;
         }
         */
+    
     }
+
 }

@@ -64,7 +64,9 @@ public class 敵人health : MonoBehaviour
 
         if(新手教學死亡)
         {
+            //anim.SetBool("新手殭屍", true);
             anim.Play("教學結束");
+            Active_Object.開關 = false;
         }
     
     }
@@ -74,13 +76,16 @@ public class 敵人health : MonoBehaviour
         anim.Play("教學");
         Invoke("打頭", 調整教學時間);
         新手教學用 = false;
-        
+        Active_Object.開關 = true;
 
     }
 
     void 打頭()
     {
-        anim.Play("試著打頭");
+        if(敵人生命 > 0)
+        {
+            anim.Play("試著打頭");
+        }
     }
 
     void 敵人攻擊()

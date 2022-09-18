@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Fungus;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,34 @@ public class GameManager : MonoBehaviour
     public GameObject 門禁卡, 密碼鎖密碼, 手槍;
     public float 觀看時間 = 0f;
 
+    public int 點擊次數 = 0;
+
+    public static Flowchart flowchartManager;
+
+    void Awake()
+    {
+        
+    }
+
+
+    //靜態對話開關
+    public static bool 正在對話
+    {
+        get
+        {
+            return flowchartManager.GetBooleanVariable("對話中");
+        }
+    }
+
+    //靜態時停開關
+    public static bool 正在時停
+    {
+        get
+        {
+            return flowchartManager.GetBooleanVariable("時停");
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,25 +77,22 @@ public class GameManager : MonoBehaviour
         遊戲主控 = this;
         DontDestroyOnLoad(this);
         測試背景音樂 = true;
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        //死亡();
         查詢BUG();
         重生();
-        //時間控制器();
         背景音樂();
         彈出選單();
-        彈出撿拾道具();
-        //觀看結束();
+        監測是否正在對話();
     }
 
     void 查詢BUG()
     {
+        flowchartManager = GameObject.Find("對話管理器").GetComponent<Flowchart>();
+
         目前擁有彈匣數量 = Gun_fire.彈匣數量;
 
         if (檢查道具擁有狀態)
@@ -107,7 +133,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    /*
     void 時間控制器()
     {
 
@@ -132,7 +158,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    */
     void 重生()
     {
         if (重生點 == null)
@@ -205,7 +231,7 @@ public class GameManager : MonoBehaviour
     {
         if (測試背景音樂)
         {
-            SoundManager.instance.Background_SourceMusic();
+            SoundManager.instance.Boosfight_SourceMusic();
             測試背景音樂 = false;
         }
 
@@ -218,84 +244,33 @@ public class GameManager : MonoBehaviour
             開啟選單 = !開啟選單;
         }
 
-        if (開啟選單)
+        if (開啟選單 && !正在對話)
         {
             選單介面.SetActive(true);
+            Time.timeScale = 0f;
         }
-        else if (!開啟選單)
+        else if (!開啟選單 && !正在對話)
         {
             選單介面.SetActive(false);
-        }
-    }
-
-    public void 彈出撿拾道具()
-    {
-        if(擁有門禁卡 && 觀看一次門禁卡)
-        {
-            Item_on_off.門禁卡 = true;
-            //門禁卡.SetActive(true);
-            觀看一次門禁卡 = false;
-            //Time.timeScale = 0f;
-        }
-
-        else if (擁有密碼鎖密碼 && 觀看一次密碼鎖密碼)
-        {
-            Item_on_off.密碼 = true;
-            //密碼鎖密碼.SetActive(true);
-            觀看一次密碼鎖密碼 = false;
-            //Time.timeScale = 0f;
-        }
-
-        else if (擁有手槍 && 觀看一次手槍)
-        {
-            Item_on_off.手槍 = true;
-            //手槍.SetActive(true);
-            觀看一次手槍 = false;
-            //Time.timeScale = 0f;
-        }
-
-        if (觀看時間>= 1f)
-        {
-            觀看時間 = 1f;
-        }
-
-    }
-    /*
-    void 觀看結束()
-    {
-        
-        if (Input.anyKeyDown && 擁有門禁卡)
-        {
-            門禁卡.SetActive(false);
-            觀看時間 = 0f;
             Time.timeScale = 1f;
         }
-        else if (Input.anyKeyDown && 擁有密碼鎖密碼)
-        {
-            密碼鎖密碼.SetActive(false);
-            觀看時間 = 0f;
-            Time.timeScale = 1f;
-        }
-        else if (Input.anyKeyDown && 擁有手槍)
-        {//&& !觀看一次手槍
-            手槍.SetActive(false);
-            觀看時間 = 0f;
-            Time.timeScale = 1f;
-        }
-        
-    }
-    */
-    /*
-    void OnEnable()
-    {
-        //時間暫停
-        Time.timeScale = 0f;
     }
 
-    void OnDisable()
+    public void 監測是否正在對話()
     {
-        //時間運行
-        Time.timeScale = 1f;
+        if (正在時停)
+        {
+            Time.timeScale = 0f;
+        }
+        else if (!正在時停)
+        {
+            Time.timeScale = 1f;
+        }
     }
-    */
+    
+    public void UI運作是否正常()
+    {
+        點擊次數 += 1;
+    }
+
 }

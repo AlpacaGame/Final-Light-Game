@@ -32,6 +32,7 @@ public class keypad : MonoBehaviour
     public Animator anim;
 
     public GameObject 亮光;
+    public GameObject 密碼提示;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +75,11 @@ public class keypad : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && 開啟密碼鎖開關)
         {
             keypadScreen = true;
+        }
+
+        if(GameManager.擁有密碼鎖密碼)
+        {
+            密碼提示.SetActive(true);
         }
 
         
@@ -132,15 +138,15 @@ public class keypad : MonoBehaviour
         }
         
         // Disable sections when keypadScreen is set to true
-
-        if (keypadScreen)
+        
+        if (keypadScreen && !GameManager.正在時停)
         {
             objectToEnable.SetActive(true);
             Time.timeScale = 0f;
             Gun_fire.可開火開關 = false;
         }
 
-        else if(!keypadScreen && !Item_on_off.門禁卡)
+        else if(!keypadScreen && !Item_on_off.門禁卡 && !GameManager.正在時停)
         {
             objectToEnable.SetActive(false);
             Time.timeScale = 1f;

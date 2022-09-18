@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    static CameraFollow 不可重複;
+    //static CameraFollow 不可重複;
 
     public float FollowSpeed = 2f;
     public float yOffset = 1f;
@@ -14,6 +14,7 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
+        /*
         if (不可重複 != null)
         {
             Destroy(gameObject);
@@ -22,6 +23,7 @@ public class CameraFollow : MonoBehaviour
         不可重複 = this;
 
         DontDestroyOnLoad(this);
+    */
     }
 
     void Update()
