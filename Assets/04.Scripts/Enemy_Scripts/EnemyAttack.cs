@@ -24,6 +24,7 @@ public class EnemyAttack : MonoBehaviour
         if (AttackBox.gameObject.tag == "Player")
         {
             敵人health.敵人可攻擊 = true;
+            Enemy_Zombie.敵人可攻擊 = true;
         }
     }
 
@@ -32,6 +33,7 @@ public class EnemyAttack : MonoBehaviour
         if (AttackBox.gameObject.tag == "Player")
         {
             敵人health.敵人可攻擊 = false;
+            Enemy_Zombie.敵人可攻擊 = false;
         }
     }
 

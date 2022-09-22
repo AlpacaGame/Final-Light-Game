@@ -68,7 +68,7 @@ public class Item : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.擁有手槍 = true;
-            敵人health.新手教學用 = true;
+            Enemy_Zombie.新手教學用 = true;
             SoundManager.instance.PickUpSource();
         }
     }

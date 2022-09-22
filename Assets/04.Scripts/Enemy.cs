@@ -5,40 +5,46 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public int 敵人生命最大值 = 100;
-    public int 敵人生命 = 0;
+    private int 敵人生命;
+    [SerializeField] private int 敵人生命最大值;
+    [SerializeField] protected private int 敵人速度 = 10;
 
-    // Start is called before the first frame update
+    [SerializeField] protected private bool 殭屍存活;
+
+
+    public static bool 敵人可攻擊;
+    public bool 觀看敵人可攻擊;
+    public bool 攻擊時間判定;
+
+    public int 自行設定對玩家要多少傷害;
+    public static int 給予攻擊傷害點;
+
+    protected private Animator anim;
+
     void Start()
     {
+        anim = GetComponent<Animator>();
+
         敵人生命 = 敵人生命最大值;
+        給予攻擊傷害點 = 自行設定對玩家要多少傷害;
+
+        殭屍存活 = true;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         損血機制();
     }
 
+
     void 損血機制()
     {
-        if(敵人生命 <= 0)
+        if (敵人生命 <= 0)
         {
-            Destroy(gameObject);
-        }
-
-        else
-        {
-
+            敵人生命 = 0;
+            殭屍存活 = false;
         }
     }
 
-
-    void OnTriggerEnter2D(Collider2D Damage)
-    {
-        if(Damage.gameObject.tag == "Bullet")
-        {
-            敵人生命 -= 20;
-        }
-    }
 }
