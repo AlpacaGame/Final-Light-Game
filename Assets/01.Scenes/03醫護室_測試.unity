@@ -12178,6 +12178,7 @@ GameObject:
   - component: {fileID: 1761358207}
   - component: {fileID: 1761358206}
   - component: {fileID: 1761358205}
+  - component: {fileID: 1761358209}
   - component: {fileID: 1761358208}
   m_Layer: 0
   m_Name: "Zombie_01 (\u65B0\u624B\u6559\u5B78\u7528)"
@@ -12215,7 +12216,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761358203}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a96f9e0fdd299e409ac77cb9c383936, type: 3}
   m_Name: 
@@ -12289,6 +12290,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u7269\u54C1": {fileID: 1617508108}
+--- !u!114 &1761358209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761358203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68efeaf782c9ba641a2d03cdf4901ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "\u6575\u4EBA\u751F\u547D\u6700\u5927\u503C": 100
+  "\u6575\u4EBA\u751F\u547D": 0
+  "\u89C0\u770B\u6575\u4EBA\u751F\u547D": 0
+  "\u6BAD\u5C4D\u5B58\u6D3B": 0
+  "\u7BC4\u570D\u5DE6": {fileID: 967185338}
+  "\u7BC4\u570D\u53F3": {fileID: 522525934}
+  "\u7BC4\u570D\u4E2D": {fileID: 970254758}
+  "\u6575\u4EBA\u5075\u6E2C\u5230\u73A9\u5BB6": {fileID: 0}
+  "\u6575\u4EBA\u901F\u5EA6": 0
+  "\u6A5F\u7387\u5047\u6B7B": 0
+  "\u6A5F\u7387\u4E8B\u4EF6": 1
+  "\u89C0\u770B\u6575\u4EBA\u53EF\u653B\u64CA": 0
+  "\u653B\u64CA\u6642\u9593\u5224\u5B9A": 0
+  "\u81EA\u884C\u8A2D\u5B9A\u5C0D\u73A9\u5BB6\u8981\u591A\u5C11\u50B7\u5BB3": 1
+  "\u8ABF\u6574\u6559\u5B78\u6642\u9593": 5
+  "\u65B0\u624B\u6559\u5B78\u6B7B\u4EA1": 0
 --- !u!1 &1781189789
 GameObject:
   m_ObjectHideFlags: 0
