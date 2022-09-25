@@ -50,6 +50,18 @@ public class RippleEffect : MonoBehaviour
             time = 0;
         }
 
+        //增加指定位置
+        public void Reset(Transform transform)
+        {
+            position = new Vector2(transform.position.x, transform.position.y);
+            time = 0;
+        }
+        public void Reset(float x, float y)
+        {
+            position = new Vector2(x, y);
+            time = 0;
+        }
+
         public void Update()
         {
             time += Time.deltaTime;
@@ -105,18 +117,38 @@ public class RippleEffect : MonoBehaviour
         UpdateShaderParameters();
     }
 
+    public bool EffectCountModel;
+    public static int EffectCount = 0;
+    public static bool PlayEffect = false;
+    
     void Update()
     {
-        if (dropInterval > 0)
+        if(EffectCountModel)
         {
-            timer += Time.deltaTime;
-            while (timer > dropInterval)
+            if (dropInterval > 0 && EffectCount >= 1 && PlayEffect)
             {
-                Emit();
-                timer -= dropInterval;
+                timer += Time.deltaTime;
+                while (timer > dropInterval && EffectCount >= 1)
+                {
+                    Emit();
+                    timer -= dropInterval;
+                    EffectCount -= 1;
+                }
             }
         }
-
+        else
+        {
+            if (dropInterval > 0)
+            {
+                timer += Time.deltaTime;
+                while (timer > dropInterval)
+                {
+                    Emit();
+                    timer -= dropInterval;
+                }
+            }
+        }
+        
         foreach (var d in droplets) d.Update();
 
         UpdateShaderParameters();
@@ -129,6 +161,28 @@ public class RippleEffect : MonoBehaviour
 
     public void Emit()
     {
-        droplets[dropCount++ % droplets.Length].Reset();
+        if(TargetModel)
+        {
+            //droplets[dropCount++ % droplets.Length].Reset(Target);
+            droplets[dropCount++ % droplets.Length].Reset(posX, posY);
+        }
+        else
+        {
+            droplets[dropCount++ % droplets.Length].Reset();
+        }
+    }
+
+    //public static Transform Target;
+    public bool TargetModel;
+    public static float posX;
+    public static float posY;
+    public static void PlayRippleEffect(int effectCount, float x, float y)
+    {
+        EffectCount = effectCount;
+        //Target.position = new Vector3(x, y, 0);
+        posX = x;
+        posY = y;
+        PlayEffect = true;
+        Debug.Log("播放ripple特效");
     }
 }
