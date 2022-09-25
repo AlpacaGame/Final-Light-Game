@@ -21,7 +21,8 @@ public class EnemyDamage : MonoBehaviour
     {
         if (Damage.gameObject.tag == "Player")
         {
-            PlayerHealth.玩家生命 -= 敵人health.給予攻擊傷害點;
+            //PlayerHealth.玩家生命 -= 敵人health.給予攻擊傷害點;
+            PlayerHealth.玩家生命 -= Enemy_Zombie.給予攻擊傷害點;
             SoundManager.instance.Enemy_AttackSource();
         }
     }
