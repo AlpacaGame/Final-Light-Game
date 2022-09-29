@@ -13,7 +13,10 @@ public class ShowBoos : MonoBehaviour
 
     void Update()
     {
-
+        if(Input.GetKey(KeyCode.K))
+        {
+            RippleEffect.PlayRippleEffect(3, 0.6f, 0.6f);
+        }
     }
 
     void 執行動畫()

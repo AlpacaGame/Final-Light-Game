@@ -40,6 +40,8 @@ public class 玩家控制 : MonoBehaviour
     public bool 開啟切換手臂 = false;
     public GameObject 持槍手, 未持槍手;
 
+    public bool 禁用滑鼠;
+
     private void FixedUpdate()//偵測鼠標調整角色左右面向
     {
         if (!滑行測試開關 && !切換使用敵人攝影機)
@@ -50,17 +52,21 @@ public class 玩家控制 : MonoBehaviour
 
             float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
-            if (rotationZ < -90 || rotationZ > 90)
+            if(!禁用滑鼠)
             {
-                direction = -1;
-                transform.localScale = new Vector3(direction, 1, 1);
-            }
+                if (rotationZ < -90 || rotationZ > 90)
+                {
+                    direction = -1;
+                    transform.localScale = new Vector3(direction, 1, 1);
+                }
 
-            else if (rotationZ > -90 || rotationZ < 90)
-            {
-                direction = 1;
-                transform.localScale = new Vector3(direction, 1, 1);
+                else if (rotationZ > -90 || rotationZ < 90)
+                {
+                    direction = 1;
+                    transform.localScale = new Vector3(direction, 1, 1);
+                }
             }
+            
         }
     }
 
