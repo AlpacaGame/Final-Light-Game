@@ -41,7 +41,7 @@ public class ShowBoos : MonoBehaviour
         SoundManager.instance.EnemyBoos_AttackSource();
         //RippleEffect.PlayEffect = true;
 
-        RippleEffect.PlayRippleEffect(3, 0.6f, 0.6f);
+        RippleEffect.PlayRippleEffect(3, 0.7f, 0.7f);
     }
 
     public void 移動()
