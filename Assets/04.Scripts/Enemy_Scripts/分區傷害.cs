@@ -10,6 +10,7 @@ public class 分區傷害 : MonoBehaviour
     public static int 分享數值;
 
     public 敵人health 殭屍主體;
+    public Enemy_Zombie 新程式殭屍;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class 分區傷害 : MonoBehaviour
         if (Damage.gameObject.tag == "Bullet")
         {
             殭屍主體.敵人生命 -= 給予分區傷害數值;
+            新程式殭屍.敵人生命 -= 給予分區傷害數值;
         }
     }
 }
