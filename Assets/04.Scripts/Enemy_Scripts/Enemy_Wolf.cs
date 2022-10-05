@@ -114,7 +114,7 @@ public class Enemy_Wolf : MonoBehaviour
         }
 
     }
-
+    /*
     void FixedUpdate()
     {
         if (殭屍存活)//如果殭屍活著
@@ -162,6 +162,50 @@ public class Enemy_Wolf : MonoBehaviour
                 anim.SetBool("追逐", true);
             }
             
+        }
+    }
+    */
+
+    void FixedUpdate()
+    {
+        if (殭屍存活)//如果殭屍活著
+        {
+            anim.SetBool("待機", true);
+            anim.SetBool("追逐", false);
+
+            //左右翻轉
+            if (direction > 0)//向左
+            {
+                if (範圍中.position.x + 0.1f < 敵人偵測到玩家.position.x && 範圍右.position.x > 敵人偵測到玩家.position.x)//玩家在殭屍右側
+                {
+                    direction = -0.15f;//往右
+                    transform.localScale = new Vector3(direction, 0.15f, 0.15f);
+                }
+            }
+
+            if (direction < 0)//向右
+            {
+                if (範圍中.position.x > 敵人偵測到玩家.position.x && 範圍右.position.x < 敵人偵測到玩家.position.x)//玩家在殭屍左側
+                {
+                    direction = 0.15f;//往左
+                    transform.localScale = new Vector3(direction, 0.15f, 0.15f);
+                }
+            }
+
+            //移動
+            if (範圍中.position.x > 敵人偵測到玩家.position.x && 範圍左.position.x < 敵人偵測到玩家.position.x && !攻擊時間判定)//玩家在殭屍左側
+            {
+                transform.Translate(Vector2.left * 敵人速度 * Time.deltaTime * 0.2f);
+                anim.SetBool("待機", false);
+                anim.SetBool("追逐", true);
+            }
+
+            if (範圍中.position.x < 敵人偵測到玩家.position.x && 範圍左.position.x > 敵人偵測到玩家.position.x && !攻擊時間判定)//玩家在殭屍右側
+            {
+                transform.Translate(Vector2.right * 敵人速度 * Time.deltaTime * 0.2f);
+                anim.SetBool("待機", false);
+                anim.SetBool("追逐", true);
+            }
         }
     }
 }
