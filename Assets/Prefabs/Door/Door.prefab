@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1881811632282938768}
   - component: {fileID: 1881811632282938769}
   - component: {fileID: 1881811632282938774}
-  - component: {fileID: 1881811632282938775}
   - component: {fileID: 1881811632282938772}
+  - component: {fileID: 5401704041317949448}
   m_Layer: 12
   m_Name: Door
   m_TagString: Untagged
@@ -103,7 +103,26 @@ MonoBehaviour:
   anim: {fileID: 0}
   "\u76F4\u63A5\u958B\u9580\u958B\u95DC": 0
   "\u4EAE\u5149": {fileID: 1881811632695464722}
---- !u!60 &1881811632282938775
+--- !u!114 &1881811632282938772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881811632282938771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6138a7a024d3c41bfbab812d0faf1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "\u5C0D\u8A71\u6846\u958B\u95DC": 0
+  "\u64BF\u9053\u5177\u89F8\u767C": 0
+  "\u76F4\u63A5\u89F8\u767C": 1
+  "\u89F8\u767C\u6D88\u5931": 0
+  "\u6253\u4E0D\u958B\u7684\u9580": 0
+  talkFlowchart: {fileID: 0}
+  onTriggerEnter2D: "\u4E92\u52D5\u5C0D\u8A71\u6846"
+--- !u!60 &5401704041317949448
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,32 +147,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.83, y: 2.125}
-      - {x: -0.91999996, y: 2.125}
-      - {x: -1.29, y: 1.675}
-      - {x: -1.35, y: 1.605}
-      - {x: -1.35, y: -2.125}
-      - {x: 1.35, y: -2.125}
-      - {x: 1.35, y: 1.655}
---- !u!114 &1881811632282938772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881811632282938771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf6138a7a024d3c41bfbab812d0faf1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "\u5C0D\u8A71\u6846\u958B\u95DC": 0
-  "\u64BF\u9053\u5177\u89F8\u767C": 0
-  "\u76F4\u63A5\u89F8\u767C": 1
-  "\u89F8\u767C\u6D88\u5931": 0
-  "\u6253\u4E0D\u958B\u7684\u9580": 0
-  talkFlowchart: {fileID: 0}
-  onTriggerEnter2D: "\u4E92\u52D5\u5C0D\u8A71\u6846"
+    - - {x: 0.9, y: 2.085}
+      - {x: 0.82, y: 2.175}
+      - {x: -0.83, y: 2.175}
+      - {x: -1.1899999, y: 1.7249999}
+      - {x: -1.27, y: 1.635}
+      - {x: -1.27, y: -2.175}
+      - {x: 1.27, y: -2.175}
+      - {x: 1.27, y: 1.635}
+      - {x: 0.98999995, y: 1.9749999}
 --- !u!1 &1881811632695464722
 GameObject:
   m_ObjectHideFlags: 0
