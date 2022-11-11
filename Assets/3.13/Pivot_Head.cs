@@ -17,7 +17,7 @@ public class Pivot_Head : MonoBehaviour
             difference.Normalize();
 
             float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-
+            
             if (rotationZ > 90)//left up
             {
                 transform.localRotation = Quaternion.Euler(180, 180, -rotationZ/2 -90);
@@ -30,6 +30,18 @@ public class Pivot_Head : MonoBehaviour
             {
                 transform.localRotation = Quaternion.Euler(0, 0, rotationZ/2);
             }
+            
+            /*
+             * 修改前頭部骨折程式
+            if (rotationZ < -90 || rotationZ > 90)//left down
+            {
+                transform.localRotation = Quaternion.Euler(180, 180, -rotationZ);
+            }
+            else if (rotationZ > -90 || rotationZ < 90)//right
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+            }
+            */
         }
     }
 }

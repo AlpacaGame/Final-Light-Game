@@ -9,6 +9,7 @@ public class 玩家控制 : MonoBehaviour
     public float inputX = 0.0f;
     public float 走路速度 = 5f;
     public float 跑步速度 = 10f;
+    public float 掛跑步速度 = 10f;
     public float 滑鏟速度 = 1f;
     public static bool 跑步中;
     public bool 跑步中觀看;
@@ -40,6 +41,8 @@ public class 玩家控制 : MonoBehaviour
     public bool 開啟切換手臂 = false;
     public GameObject 持槍手, 未持槍手;
 
+    public bool 禁用滑鼠;
+
     private void FixedUpdate()//偵測鼠標調整角色左右面向
     {
         if (!滑行測試開關 && !切換使用敵人攝影機)
@@ -50,17 +53,21 @@ public class 玩家控制 : MonoBehaviour
 
             float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
-            if (rotationZ < -90 || rotationZ > 90)
+            if(!禁用滑鼠)
             {
-                direction = -1;
-                transform.localScale = new Vector3(direction, 1, 1);
-            }
+                if (rotationZ < -90 || rotationZ > 90)
+                {
+                    direction = -1;
+                    transform.localScale = new Vector3(direction, 1, 1);
+                }
 
-            else if (rotationZ > -90 || rotationZ < 90)
-            {
-                direction = 1;
-                transform.localScale = new Vector3(direction, 1, 1);
+                else if (rotationZ > -90 || rotationZ < 90)
+                {
+                    direction = 1;
+                    transform.localScale = new Vector3(direction, 1, 1);
+                }
             }
+            
         }
     }
 
@@ -108,7 +115,7 @@ public class 玩家控制 : MonoBehaviour
         anim.SetBool("isWalk", false);
         if (!isSliding)
         {
-            rg.velocity = new Vector2(inputX * 走路速度 * 跑步速度, rg.velocity.y);
+            rg.velocity = new Vector2(inputX * 走路速度 * 掛跑步速度, rg.velocity.y);
 
         }
 
@@ -134,7 +141,8 @@ public class 玩家控制 : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.A) && PlayerHealth.玩家體力 >= 0.03f)//跑步
         {
             //PlayerHealth.玩家體力 -= 0.3f;
-            跑步速度 = 3f;
+            掛跑步速度 = 跑步速度;
+            //跑步速度 = 3f;
             //PlayerHealth.instance.耗力(0.03f);
             PlayerHealth.玩家體力 -= 0.03f;
             PlayerHealth.回復體力 = false;
@@ -145,7 +153,8 @@ public class 玩家控制 : MonoBehaviour
         else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.D) && PlayerHealth.玩家體力 >= 0.03f)//跑步
         {
             //PlayerHealth.玩家體力 -= 0.3f;
-            跑步速度 = 3f;
+            掛跑步速度 = 跑步速度;
+            //跑步速度 = 3f;
             //PlayerHealth.instance.耗力(0.03f);
             PlayerHealth.玩家體力 -= 0.03f;
             PlayerHealth.回復體力 = false;
@@ -156,7 +165,8 @@ public class 玩家控制 : MonoBehaviour
         else
         {
             anim.SetBool("isRun", false);
-            跑步速度 = 1f;
+            掛跑步速度 = 1f;
+            //跑步速度 = 1f;
             PlayerHealth.回復體力 = true;
             跑步中 = false;
             跑步中觀看 = false;

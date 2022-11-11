@@ -13,7 +13,12 @@ public class ShowBoos : MonoBehaviour
 
     void Update()
     {
-
+        /*
+        if(Input.GetKey(KeyCode.K))
+        {
+            RippleEffect.PlayRippleEffect(3, 0.6f, 0.6f);
+        }
+        */
     }
 
     void 執行動畫()
@@ -36,6 +41,9 @@ public class ShowBoos : MonoBehaviour
     public void 怒吼()
     {
         SoundManager.instance.EnemyBoos_AttackSource();
+        //RippleEffect.PlayEffect = true;
+
+        RippleEffect.PlayRippleEffect(3, 0.7f, 0.7f);
     }
 
     public void 移動()
