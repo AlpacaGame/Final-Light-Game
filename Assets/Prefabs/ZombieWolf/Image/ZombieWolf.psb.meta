@@ -91,7 +91,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-7"
+  - name: Head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -843,7 +843,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -451, y: 236}
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-6"
+  - name: Jaw
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1540,7 +1540,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -466, y: 611}
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-5"
+  - name: RFLeg
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -2058,7 +2058,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -1546, y: 202}
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-4"
+  - name: RBLeg
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -2706,7 +2706,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -423, y: 778}
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-3"
+  - name: Body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -3606,7 +3606,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -18, y: -619}
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-2"
+  - name: LFLeg
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -4131,7 +4131,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -1309, y: 778}
-  - name: "\u5716\u5C64 0"
+  - name: LBLeg
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -4798,50 +4798,50 @@ ScriptedImporter:
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-7"
-    spriteName: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-7"
+  - name: Head
+    spriteName: Head
     isGroup: 0
     parentIndex: -1
     spriteID: e009a164ef58ad64385df5d2cc3213e4
     layerID: 9
     mosaicPosition: {x: 1321, y: 1192}
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-6"
-    spriteName: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-6"
+  - name: Jaw
+    spriteName: Jaw
     isGroup: 0
     parentIndex: -1
     spriteID: b4e6297bac858ad49a8e35bf35cec6be
     layerID: 8
     mosaicPosition: {x: 1321, y: 1489}
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-5"
-    spriteName: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-5"
+  - name: RFLeg
+    spriteName: RFLeg
     isGroup: 0
     parentIndex: -1
     spriteID: 973fb1a5b98a8b14195bc14770fdd662
     layerID: 7
     mosaicPosition: {x: 4, y: 637}
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-4"
-    spriteName: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-4"
+  - name: RBLeg
+    spriteName: RBLeg
     isGroup: 0
     parentIndex: -1
     spriteID: 65cd8016d3a62bc4ea0c59fcdc13a15a
     layerID: 6
     mosaicPosition: {x: 497, y: 1192}
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-3"
-    spriteName: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-3"
+  - name: Body
+    spriteName: Body
     isGroup: 0
     parentIndex: -1
     spriteID: 220f0fbac65014f4ba9a0f2cac1c6bab
     layerID: 5
     mosaicPosition: {x: 4, y: 4}
-  - name: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-2"
-    spriteName: "\u672A\u547D\u540D\u7684\u4F5C\u54C1-2"
+  - name: LFLeg
+    spriteName: LFLeg
     isGroup: 0
     parentIndex: -1
     spriteID: 65ffd4ad1c8ad6848aded9963d328287
     layerID: 4
     mosaicPosition: {x: 4, y: 1192}
-  - name: "\u5716\u5C64 0"
-    spriteName: "\u5716\u5C64 0"
+  - name: LBLeg
+    spriteName: LBLeg
     isGroup: 0
     parentIndex: -1
     spriteID: b2f3a531e646a514297d1e8fdfce4d61
