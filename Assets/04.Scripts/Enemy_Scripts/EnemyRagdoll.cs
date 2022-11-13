@@ -13,7 +13,32 @@ public class EnemyRagdoll : MonoBehaviour
 
     void Start()
     {
-        
+        ToggleRagdoll(false);
+    }
+
+    public void ToggleRagdoll(bool ragdollOn) 
+    {
+        _anim.enabled = !ragdollOn;
+
+        foreach (var col in _colliders)
+        {
+            col.enabled = ragdollOn;
+        }
+
+        foreach (var joint in _joints)
+        {
+            joint.enabled = ragdollOn;
+        }
+
+        foreach (var rb in _rbs)
+        {
+            rb.simulated = ragdollOn;
+        }
+
+        foreach (var solver in _solvers)
+        {
+            solver.weight = ragdollOn ? 0 : 1;
+        }
     }
 
     // Update is called once per frame
