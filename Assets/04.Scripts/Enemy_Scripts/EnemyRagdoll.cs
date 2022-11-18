@@ -10,6 +10,7 @@ public class EnemyRagdoll : MonoBehaviour
     [SerializeField] private List<HingeJoint2D> _joints;
     [SerializeField] private List<Rigidbody2D> _rbs;
     [SerializeField] private List<LimbSolver2D> _solvers;
+    [SerializeField] private List<CCDSolver2D> _CCDsolvers;
 
     void Start()
     {
@@ -38,6 +39,12 @@ public class EnemyRagdoll : MonoBehaviour
         foreach (var solver in _solvers)
         {
             solver.weight = ragdollOn ? 0 : 1;
+        }
+
+        foreach (var solver in _CCDsolvers)
+        {
+            //solver.weight = ragdollOn ? 0 : 1;
+            solver.weight = 0;
         }
     }
 
