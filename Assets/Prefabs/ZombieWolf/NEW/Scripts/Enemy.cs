@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D.IK;
 
-public class EnemyRagdoll : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
+    [Header("生命值")]
+    public int health = 100;
+    //public GameObject deathEffect;
+
+    //[Space(20)]
+    [Header("Ragdoll切換需要的物件")]
     [SerializeField] private Animator _anim;
     [SerializeField] private List<Collider2D> _colliders;
     [SerializeField] private List<HingeJoint2D> _joints;
@@ -46,6 +52,28 @@ public class EnemyRagdoll : MonoBehaviour
             //solver.weight = ragdollOn ? 0 : 1;
             solver.weight = 0;
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        ToggleRagdoll(true);
+        Invoke("Disappear", 5);
+    }
+
+    public void Disappear()
+    {
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

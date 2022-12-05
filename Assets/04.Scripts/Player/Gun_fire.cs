@@ -43,7 +43,7 @@ public class Gun_fire : MonoBehaviour
         {
             Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
             Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
-            Instantiate(子彈預設物, 槍口pos, 左槍口.transform.rotation);
+            //Instantiate(子彈預設物, 槍口pos, 左槍口.transform.rotation);
             Instantiate(彈殼動畫, 槍口pos, 左槍口.transform.rotation);
             Instantiate(槍口亮光, 槍口pos, 左槍口.transform.rotation);
             子彈 -= 1;

@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
 
     public int 子彈消失時間 = 1;
 
+    public int damage = 20;
     // Update is called once per frame
     void Update()
     {
@@ -23,19 +24,26 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 子彈消失時間);
     }
 
-    void OnTriggerEnter2D(Collider2D Debullet)
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
-
-        if (Debullet.gameObject.tag == "Enemy")
+        if (hitInfo.gameObject.tag == "Enemy")
         {
             Instantiate(子彈傷害動畫, transform.position, transform.rotation);
             Destroy(gameObject);
         }
 
-        else if (Debullet.gameObject.tag == "floor")
+        else if (hitInfo.gameObject.tag == "floor")
         {
             Instantiate(子彈特效動畫, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+
+        Enemy enemy = hitInfo.GetComponent<Enemy>();
+        if(enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
+        Instantiate(子彈特效動畫, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

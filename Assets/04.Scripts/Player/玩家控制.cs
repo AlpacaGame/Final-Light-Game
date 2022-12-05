@@ -4,6 +4,9 @@ public class 玩家控制 : MonoBehaviour
 {
     static 玩家控制 不可重複;
 
+    [Header("跳過甦醒動畫")]
+    public bool NoWakeUpAnim = false;
+
     [Header("基礎設定值")]
     //public float jumpPower = 10f;
     public float inputX = 0.0f;
@@ -84,6 +87,12 @@ public class 玩家控制 : MonoBehaviour
         不可重複 = this;
 
         DontDestroyOnLoad(this);
+
+        if (NoWakeUpAnim)
+        {
+            anim.Play("待機");
+            NoWakeUpAnim = false;
+        }
     }
 
     void Update()
