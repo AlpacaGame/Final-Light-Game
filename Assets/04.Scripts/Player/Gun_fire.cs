@@ -44,6 +44,7 @@ public class Gun_fire : MonoBehaviour
             Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
             Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
             //Instantiate(子彈預設物, 槍口pos, 左槍口.transform.rotation);
+            StartCoroutine(RayShoot());
             Instantiate(彈殼動畫, 槍口pos, 左槍口.transform.rotation);
             Instantiate(槍口亮光, 槍口pos, 左槍口.transform.rotation);
             子彈 -= 1;
@@ -55,7 +56,8 @@ public class Gun_fire : MonoBehaviour
         {
             Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
             Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
-            Instantiate(子彈預設物, 槍口pos, 右槍口.transform.rotation);
+            //Instantiate(子彈預設物, 槍口pos, 右槍口.transform.rotation);
+            StartCoroutine(RayShoot());
             Instantiate(彈殼動畫, 槍口pos, 右槍口.transform.rotation);
             Instantiate(槍口亮光, 槍口pos, 右槍口.transform.rotation);
             子彈 -= 1;
@@ -78,5 +80,36 @@ public class Gun_fire : MonoBehaviour
             左槍口.SetActive(true);
             右槍口.SetActive(false);
         }
+    }
+
+    public Transform firePoint;
+    public int damage = 20;
+    public LineRenderer lineRenderer;
+    IEnumerator RayShoot()
+    {
+        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
+
+        if(hitInfo)
+        {
+            Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
+            if(enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                //Instantiate(彈殼動畫, firePoint.position, 左槍口.transform.rotation);
+            }
+            lineRenderer.SetPosition(0, firePoint.position);
+            lineRenderer.SetPosition(1, hitInfo.point);
+        }
+        else
+        {
+            lineRenderer.SetPosition(0, firePoint.position);
+            lineRenderer.SetPosition(1, firePoint.position + firePoint.right * 100);
+        }
+
+        lineRenderer.enabled = true;
+
+        yield return new WaitForSeconds(0.02f);
+
+        lineRenderer.enabled = false;
     }
 }
