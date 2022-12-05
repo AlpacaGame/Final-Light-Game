@@ -82,9 +82,12 @@ public class Gun_fire : MonoBehaviour
         }
     }
 
+    [Header("Raycast物件")]
     public Transform firePoint;
     public int damage = 20;
     public LineRenderer lineRenderer;
+    public float impactForce = 20f;
+    public GameObject bloodEffect;
     IEnumerator RayShoot()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
@@ -95,7 +98,9 @@ public class Gun_fire : MonoBehaviour
             if(enemy != null)
             {
                 enemy.TakeDamage(damage);
-                //Instantiate(彈殼動畫, firePoint.position, 左槍口.transform.rotation);
+                Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
+
+                hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
             }
             lineRenderer.SetPosition(0, firePoint.position);
             lineRenderer.SetPosition(1, hitInfo.point);
