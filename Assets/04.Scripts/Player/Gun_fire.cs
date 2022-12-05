@@ -49,6 +49,7 @@ public class Gun_fire : MonoBehaviour
             Instantiate(槍口亮光, 槍口pos, 左槍口.transform.rotation);
             子彈 -= 1;
             SoundManager.instance.FireSource();
+            
 
         }
 
@@ -97,9 +98,9 @@ public class Gun_fire : MonoBehaviour
             Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
             if(enemy != null)
             {
+                SoundManager.instance.BloodSource();
                 enemy.TakeDamage(damage);
                 Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
-
                 hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
             }
             lineRenderer.SetPosition(0, firePoint.position);

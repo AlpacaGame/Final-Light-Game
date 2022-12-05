@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
     [Header("敵人音效")]
     public AudioSource Enemy_audioSource;
     //public AudioClip Enemy_Idle, Enemy_Attack, Enemy_Hurt, Enemy_Death;
-    public AudioClip Enemy_Attack;
+    public AudioClip Enemy_Attack, Blood;
     [Header("敵人Boos音效")]
     public AudioSource EnemyBoos_audioSource;
     //public AudioClip EnemyBoos_Idle, EnemyBoos_Attack, EnemyBoos_Attack2, EnemyBoos_Roar, EnemyBoos_Hurt, EnemyBoos_Death;
@@ -201,13 +201,15 @@ public class SoundManager : MonoBehaviour
     }
     
     /// <summary>
-    /// 玩家撿拾道具音效
+    /// 玩家移動音效
     /// </summary>
     public void MoveSource()
     {
         Player_audioSource.clip = Move;
         Player_audioSource.Play();
     }
+
+    
 
     //敵人音效區域
     /*
@@ -227,6 +229,15 @@ public class SoundManager : MonoBehaviour
     public void Enemy_AttackSource()
     {
         Enemy_audioSource.clip = Enemy_Attack;
+        Enemy_audioSource.Play();
+    }
+
+    /// <summary>
+    /// 敵人被射音效
+    /// </summary>
+    public void BloodSource()
+    {
+        Enemy_audioSource.clip = Blood;
         Enemy_audioSource.Play();
     }
     /*

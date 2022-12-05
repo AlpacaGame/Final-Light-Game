@@ -56,13 +56,20 @@ MonoBehaviour:
   FlashLightOff: {fileID: 8300000, guid: 6b8ca4045ea331c49a12ba02e925c8b2, type: 3}
   Pant: {fileID: 8300000, guid: 437ad53155fda4648baab8d6af118bff, type: 3}
   PickUp: {fileID: 8300000, guid: d2cb67889c7346443b6553a794fda130, type: 3}
+  Move: {fileID: 0}
+  Blood: {fileID: 8300000, guid: 0ede5853fde40d549b2829c60cfd4e50, type: 3}
   Enemy_audioSource: {fileID: 8482033128074184917}
+  Enemy_Attack: {fileID: 0}
   EnemyBoos_audioSource: {fileID: 8482033128074184913}
+  EnemyBoos_Attack: {fileID: 0}
+  EnemyBoos_Move: {fileID: 0}
   System_audioSource: {fileID: 8482033128074184914}
   ButtonClick: {fileID: 8300000, guid: 7f9c87925441e43bdbb6399f1c1793a6, type: 3}
   FalseAnswer: {fileID: 8300000, guid: 1e06dc7f83939b7488cf73dca5b47df6, type: 3}
+  StartButton: {fileID: 0}
   Background_audioSource: {fileID: 8482033128074184916}
   Background_Source: {fileID: 8300000, guid: 3d593a251b9218048a14c6ff114b4d93, type: 3}
+  Boosfight: {fileID: 0}
 --- !u!82 &8482033128074184918
 AudioSource:
   m_ObjectHideFlags: 0
