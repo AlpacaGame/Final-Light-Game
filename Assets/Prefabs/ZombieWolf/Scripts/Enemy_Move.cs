@@ -6,6 +6,7 @@ public class Enemy_Move : StateMachineBehaviour
 {
     public float speed = 2.5f;
     public float attackRange = 3f;
+    public float playerY_Offset = -0.98f;
 
     Transform player;
     Rigidbody2D rb;
@@ -24,7 +25,7 @@ public class Enemy_Move : StateMachineBehaviour
     {
         enemy.LookAtPlayer();
 
-        Vector2 target = new Vector2(player.position.x, player.position.y);
+        Vector2 target = new Vector2(player.position.x, player.position.y + playerY_Offset);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
 

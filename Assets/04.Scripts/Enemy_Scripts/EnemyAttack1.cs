@@ -15,6 +15,8 @@ public class EnemyAttack1 : MonoBehaviour
     public float attackSpeed = 0.3f;
     private float attackMoveDistance = 0.5f;
     private Vector2 _target;
+
+    public float PlayerY_Offset = -0.98f;
         
     void Start()
     {
@@ -36,7 +38,7 @@ public class EnemyAttack1 : MonoBehaviour
         */
         //Vector2.Lerp(transform.position, player.position, attackMoveDistance);
 
-        _target = new Vector2(player.position.x, player.position.y);
+        _target = new Vector2(player.position.x, player.position.y + PlayerY_Offset);
         InvokeRepeating("JumpAttackToTarget", 0, 0.01f);
     }
 
