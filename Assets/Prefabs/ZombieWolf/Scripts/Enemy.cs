@@ -5,11 +5,17 @@ using UnityEngine.U2D.IK;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("敵人面向玩家")]
+    public Transform player;
+    public bool isFlipped = false;
+
+    [Space(5)]
     [Header("生命值")]
     public int health = 100;
+    public int disappearTime = 5;
     //public GameObject deathEffect;
 
-    //[Space(20)]
+    [Space(5)]
     [Header("Ragdoll切換需要的物件")]
     [SerializeField] private Animator _anim;
     [SerializeField] private List<Collider2D> _colliders;
@@ -20,9 +26,32 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
         ToggleRagdoll(false);
     }
 
+    //敵人面向玩家
+    public void LookAtPlayer()
+    {
+        Vector3 flipped = transform.localScale;
+        flipped.z *= -1f;
+
+        if (transform.position.x < player.position.x && isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = false;
+        }
+        else if (transform.position.x > player.position.x && !isFlipped)
+        {
+            transform.localScale = flipped;
+            transform.Rotate(0f, 180f, 0f);
+            isFlipped = true;
+        }
+    }
+
+    //Ragdoll切換
     public void ToggleRagdoll(bool ragdollOn) 
     {
         _anim.enabled = !ragdollOn;
@@ -64,19 +93,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //死亡
     public void Die()
     {
         ToggleRagdoll(true);
-        Invoke("Disappear", 5);
+        Invoke("Disappear", disappearTime);
     }
 
+    //消失
     public void Disappear()
     {
         //Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
