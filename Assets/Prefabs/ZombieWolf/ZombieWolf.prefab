@@ -1615,7 +1615,6 @@ GameObject:
   - component: {fileID: 2864833547912012920}
   - component: {fileID: 873937945784318176}
   - component: {fileID: 8306315065675812139}
-  - component: {fileID: 177919224380780258}
   - component: {fileID: 177919224380780259}
   m_Layer: 0
   m_Name: ZombieWolf
@@ -1712,6 +1711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48151ed27397b6e4f94d77e2fd3dd3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  isFlipped: 0
+  health: 100
+  disappearTime: 5
   _anim: {fileID: 5280636533163385703}
   _colliders:
   - {fileID: 2903800141754989649}
@@ -1826,20 +1829,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 15.881642, y: 8.378081}
   m_EdgeRadius: 0
---- !u!114 &177919224380780258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3642406586805939706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a70168dc7f3c35042bd1f7b5fec1258e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  isFlipped: 0
 --- !u!114 &177919224380780259
 MonoBehaviour:
   m_ObjectHideFlags: 0
