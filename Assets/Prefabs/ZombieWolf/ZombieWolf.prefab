@@ -1713,6 +1713,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isFlipped: 0
+  attackDamage: 20
+  attackOffset: {x: 1.2, y: 1, z: 0}
+  attackRange: 1
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 256
+  attackSpeed: 0.1
+  PlayerY_Offset: -0.98
   health: 100
   disappearTime: 5
   _anim: {fileID: 5280636533163385703}
@@ -1848,6 +1856,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackSpeed: 0.1
+  PlayerY_Offset: -0.98
 --- !u!1 &4087151696975007277
 GameObject:
   m_ObjectHideFlags: 0

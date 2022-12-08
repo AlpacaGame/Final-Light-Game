@@ -10,6 +10,18 @@ public class Enemy : MonoBehaviour
     public bool isFlipped = false;
 
     [Space(5)]
+    [Header("攻擊")]
+    public int attackDamage = 20;
+    public Vector3 attackOffset;
+    public float attackRange = 1f;
+    public LayerMask attackMask;
+    Rigidbody2D rb;
+    public float attackSpeed = 0.3f;
+    private float attackMoveDistance = 0.5f;
+    private Vector2 _target;
+    public float PlayerY_Offset = -0.98f;
+
+    [Space(5)]
     [Header("生命值")]
     public int health = 100;
     public int disappearTime = 5;
@@ -27,7 +39,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        rb = gameObject.GetComponent<Rigidbody2D>();
         ToggleRagdoll(false);
     }
 
@@ -48,6 +60,52 @@ public class Enemy : MonoBehaviour
             transform.localScale = flipped;
             transform.Rotate(0f, 180f, 0f);
             isFlipped = true;
+        }
+    }
+
+    //執行攻擊位移
+    public void AttackMove()
+    {
+        _target = new Vector2(player.position.x, player.position.y + PlayerY_Offset);
+        InvokeRepeating("JumpAttackToTarget", 0, 0.01f);
+    }
+
+    //移動到攻擊目標點
+
+    public void JumpAttackToTarget()
+    {
+        attackMoveDistance = attackSpeed;
+        Vector2 newPos = Vector2.MoveTowards(rb.position, _target, attackMoveDistance);
+        rb.MovePosition(newPos);
+        attackMoveDistance += attackSpeed;
+        if (attackMoveDistance >= 10)
+        {
+            CancelInvoke("JumpAttackToTarget");
+            Debug.Log("cancelInvoke");
+        }
+    }
+
+    //繪製攻擊範圍
+    void OnDrawGizmosSelected()
+    {
+        Vector3 pos = transform.position;
+        pos += transform.right * attackOffset.x;
+        pos += transform.up * attackOffset.y;
+
+        Gizmos.DrawWireSphere(pos, attackRange);
+    }
+
+    //玩家若在範圍內則給予傷害
+    public void Attack()
+    {
+        Vector3 pos = transform.position;
+        pos += transform.right * attackOffset.x;
+        pos += transform.up * attackOffset.y;
+
+        Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
+        if (colInfo != null)
+        {
+            colInfo.GetComponent<PlayerHealth1>().TakeDamage(attackDamage);
         }
     }
 

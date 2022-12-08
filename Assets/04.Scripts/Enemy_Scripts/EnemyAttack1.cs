@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack1 : MonoBehaviour
 {
+ 
     public int attackDamage = 20;
 
     public Vector3 attackOffset;
@@ -99,4 +100,6 @@ public class EnemyAttack1 : MonoBehaviour
     {
         
     }
+
+
 }
