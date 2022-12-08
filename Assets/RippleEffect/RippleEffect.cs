@@ -163,8 +163,11 @@ public class RippleEffect : MonoBehaviour
     {
         if(TargetModel)
         {
-            //droplets[dropCount++ % droplets.Length].Reset(Target);
             droplets[dropCount++ % droplets.Length].Reset(posX, posY);
+        }
+        else if(FollowTargetModel)
+        {
+            droplets[dropCount++ % droplets.Length].Reset(Target.position.x/9, Target.position.y/5);
         }
         else
         {
@@ -172,7 +175,7 @@ public class RippleEffect : MonoBehaviour
         }
     }
 
-    //public static Transform Target;
+    //定點定次撥放特效
     public bool TargetModel;
     public static float posX;
     public static float posY;
@@ -183,6 +186,11 @@ public class RippleEffect : MonoBehaviour
         posX = x;
         posY = y;
         PlayEffect = true;
-        Debug.Log("播放ripple特效");
     }
+
+    //跟隨目標播放特效(沒成功
+    [Space(5)]
+    [Header("FollowTargetModel")]
+    public bool FollowTargetModel = false;
+    public Transform Target;
 }
