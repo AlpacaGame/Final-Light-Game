@@ -71,7 +71,6 @@ public class Enemy : MonoBehaviour
     }
 
     //移動到攻擊目標點
-
     public void JumpAttackToTarget()
     {
         attackMoveDistance = attackSpeed;
