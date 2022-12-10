@@ -12,17 +12,18 @@ public class CursorFollow : MonoBehaviour
     public float miniScale = 1f;
     public float maxScale = 0.2f;
     public float scaleChange;
+
+    public Camera Orthographic;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
-        //DontDestroyOnLoad(this);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 cursorPos = Orthographic.ScreenToWorldPoint(Input.mousePosition);
         distance = Mathf.Abs(transform.position.x - cursorPos.x) + Mathf.Abs(transform.position.y - cursorPos.y);
         transform.position = Vector2.MoveTowards(transform.position, cursorPos, moveSpeed * Time.deltaTime * distance);
         if(ScaleChangeModel)
