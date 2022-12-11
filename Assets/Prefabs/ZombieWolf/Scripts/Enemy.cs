@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     [Header("生命值")]
     public int health = 100;
     public int disappearTime = 5;
-    //public GameObject deathEffect;
+    public GameObject deathEffect;
 
     [Space(5)]
     [Header("Ragdoll切換需要的物件")]
@@ -160,7 +160,7 @@ public class Enemy : MonoBehaviour
     //消失
     public void Disappear()
     {
-        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
