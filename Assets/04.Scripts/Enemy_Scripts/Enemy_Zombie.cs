@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Zombie : MonoBehaviour
+public class Enemy_Zombie : Enemy
 {
     public int 敵人生命最大值 = 100;
     public int 敵人生命 = 0;
@@ -30,7 +30,7 @@ public class Enemy_Zombie : MonoBehaviour
 
     void Start()
     {
-        敵人生命 = 敵人生命最大值;
+        
         給予攻擊傷害點 = 自行設定對玩家要多少傷害;
         anim = GetComponent<Animator>();
         殭屍存活 = true;
@@ -116,7 +116,7 @@ public class Enemy_Zombie : MonoBehaviour
 
     void 損血機制()
     {
-
+        敵人生命 = health;
         if (敵人生命 <= 0)
         {
             敵人生命 = 0;

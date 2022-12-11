@@ -37,12 +37,13 @@ public class Bullet : MonoBehaviour
             Instantiate(子彈特效動畫, transform.position, transform.rotation);
             Destroy(gameObject);
         }
-
+        /*
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if(enemy != null)
         {
             enemy.TakeDamage(damage);
         }
+        */
         Instantiate(子彈特效動畫, transform.position, transform.rotation);
         Destroy(gameObject);
     }

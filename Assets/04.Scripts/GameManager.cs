@@ -22,10 +22,12 @@ public class GameManager : MonoBehaviour
 
     public int 目前擁有彈匣數量;
 
-    public bool 測試背景音樂 = false;
+    public bool 普通背景音樂, Boos背景音樂 = false;
 
     public GameObject 選單介面;
     public bool 開啟選單 = false;
+
+    public int 關卡背景音樂 = 0;
 
     [Header("道具數量")]
     public bool 檢查道具擁有狀態 = true;
@@ -76,7 +78,7 @@ public class GameManager : MonoBehaviour
         }
         遊戲主控 = this;
         DontDestroyOnLoad(this);
-        測試背景音樂 = true;
+        //普通背景音樂 = true;
     }
 
     // Update is called once per frame
@@ -84,7 +86,7 @@ public class GameManager : MonoBehaviour
     {
         查詢BUG();
         重生();
-        背景音樂();
+        //背景音樂();
         彈出選單();
         監測是否正在對話();
     }
@@ -227,12 +229,28 @@ public class GameManager : MonoBehaviour
         Application.Quit(); // This line quits the application.
     }
 
+    public void 關卡背景音樂切換(int BGM)
+    {
+        關卡背景音樂 = BGM;
+        背景音樂();
+    }
+
     public void 背景音樂()
     {
-        if (測試背景音樂)
+
+        
+        if (關卡背景音樂 == 1)
+        {
+            SoundManager.instance.Background_SourceMusic();
+            關卡背景音樂 = 0;
+            //普通背景音樂 = false;
+        }
+
+        else if (關卡背景音樂 == 2)
         {
             SoundManager.instance.Boosfight_SourceMusic();
-            測試背景音樂 = false;
+            關卡背景音樂 = 0;
+            //Boos背景音樂 = false;
         }
 
     }
