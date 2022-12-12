@@ -23,7 +23,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip ButtonClick, FalseAnswer, StartButton;
     [Header("背景音樂")]
     public AudioSource Background_audioSource;
-    public AudioClip Background_Source, Boosfight;
+    public AudioClip Menu_Bgm,Background_Source, Boosfight;
 
     public static float Sound = 1f;
     public static float Music = 0f;
@@ -354,6 +354,12 @@ public class SoundManager : MonoBehaviour
     public void Boosfight_SourceMusic()
     {
         Background_audioSource.clip = Boosfight;
+        Background_audioSource.Play();
+    }
+    
+    public void Menu_Bgm_SourceMusic()
+    {
+        Background_audioSource.clip = Menu_Bgm;
         Background_audioSource.Play();
     }
 }

@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         重生();
         //背景音樂();
         彈出選單();
-        監測是否正在對話();
+        //監測是否正在對話();
     }
 
     void 查詢BUG()
@@ -221,7 +221,7 @@ public class GameManager : MonoBehaviour
 
     public void 返回主選單()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void 離開遊戲()
@@ -253,6 +253,11 @@ public class GameManager : MonoBehaviour
             //Boos背景音樂 = false;
         }
 
+    }
+
+    public void 按鈕點擊繼續選單()
+    {
+        開啟選單 = !開啟選單;
     }
 
     public void 彈出選單()
