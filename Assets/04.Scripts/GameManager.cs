@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public int 時間速度;
 
     public GameObject 玩家;
+    public GameObject 場景內玩家;
     public GameObject 重生點;
 
     public static bool 死亡重生 = false;
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
     public GameObject 選單介面;
     public bool 開啟選單 = false;
 
-    public int 關卡背景音樂 = 0;
+    public string 關卡背景音樂 = "";
 
     [Header("道具數量")]
     public bool 檢查道具擁有狀態 = true;
@@ -222,6 +223,7 @@ public class GameManager : MonoBehaviour
     public void 返回主選單()
     {
         SceneManager.LoadScene(0);
+        按鈕點擊繼續選單();
     }
 
     public void 離開遊戲()
@@ -229,30 +231,63 @@ public class GameManager : MonoBehaviour
         Application.Quit(); // This line quits the application.
     }
 
-    public void 關卡背景音樂切換(int BGM)
+    public void 關卡背景音樂切換(string BGM)
     {
         關卡背景音樂 = BGM;
         背景音樂();
+        switch (關卡背景音樂)
+        {
+            case "普通關卡": // QUIT
+                //objectToEnable.SetActive(false);
+                SoundManager.instance.Background_SourceMusic();
+                //關卡背景音樂 = "0";
+                break;
+
+            case "魔王關卡": //CLEAR
+                SoundManager.instance.Boosfight_SourceMusic();
+                //關卡背景音樂 = "0";
+                break;
+
+            case "標題畫面": //CLEAR
+                SoundManager.instance.Menu_Bgm_SourceMusic();
+                if(場景內玩家 != null)
+                {
+                    玩家控制.不可重複.標題消除玩家();
+                }
+                //關卡背景音樂 = "0";
+                break;
+
+            default:
+                //關卡背景音樂 = "0";
+                break;
+        }
     }
 
     public void 背景音樂()
     {
 
-        
-        if (關卡背景音樂 == 1)
+        /*
+        if (關卡背景音樂 = "1")
         {
             SoundManager.instance.Background_SourceMusic();
             關卡背景音樂 = 0;
             //普通背景音樂 = false;
         }
 
-        else if (關卡背景音樂 == 2)
+        else if (關卡背景音樂 = "1")
         {
             SoundManager.instance.Boosfight_SourceMusic();
             關卡背景音樂 = 0;
             //Boos背景音樂 = false;
         }
 
+        else if (關卡背景音樂 = "1")
+        {
+            SoundManager.instance.Menu_Bgm_SourceMusic();
+            關卡背景音樂 = 0;
+            //Boos背景音樂 = false;
+        }
+        */
     }
 
     public void 按鈕點擊繼續選單()

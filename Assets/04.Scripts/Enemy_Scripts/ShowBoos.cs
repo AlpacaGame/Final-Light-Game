@@ -40,9 +40,9 @@ public class ShowBoos : MonoBehaviour
 
     public void 怒吼()
     {
-        SoundManager.instance.EnemyBoos_AttackSource();
+        SoundManager.instance.EnemyBoos_AttackSource();//怒吼音效
         //RippleEffect.PlayEffect = true;
-
+        SoundManager.instance.Boosfight_SourceMusic(); // 切換魔王背景音樂
         RippleEffect.PlayRippleEffect(3, 0.7f, 0.7f);
     }
 

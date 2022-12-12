@@ -2,7 +2,7 @@
 
 public class 玩家控制 : MonoBehaviour
 {
-    static 玩家控制 不可重複;
+    public static 玩家控制 不可重複;
 
     [Header("跳過甦醒動畫")]
     public bool NoWakeUpAnim = false;
@@ -85,8 +85,11 @@ public class 玩家控制 : MonoBehaviour
             return;
         }
         不可重複 = this;
-
-        DontDestroyOnLoad(this);
+        if(GameManager.遊戲主控.關卡背景音樂 != "標題畫面")
+        {
+            DontDestroyOnLoad(this);
+        }
+        
 
         if (NoWakeUpAnim)
         {
@@ -309,5 +312,10 @@ public class 玩家控制 : MonoBehaviour
     public void Anime_End()//甦醒動畫結束
     {
         Pivot_Head.AnimeEnd = true;
+    }
+
+    public void 標題消除玩家()
+    {
+        Destroy(this);
     }
 }

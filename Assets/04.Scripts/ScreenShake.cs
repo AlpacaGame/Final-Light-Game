@@ -19,12 +19,12 @@ public class ScreenShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*
         if(Input.GetKeyDown(KeyCode.K))
         {
             StartShake(.5f, 1f); //測試震動相機
         }
-        
+        */
     }
 
     private void LateUpdate()

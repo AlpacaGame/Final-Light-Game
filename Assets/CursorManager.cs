@@ -8,7 +8,7 @@ public class CursorManager : MonoBehaviour
     public bool visible = true;
     void Start()
     {
-        if(!destroy)
+        if(!destroy && GameManager.遊戲主控.關卡背景音樂 != "標題畫面")
         {
             DontDestroyOnLoad(this);
         }
@@ -21,4 +21,5 @@ public class CursorManager : MonoBehaviour
             Cursor.visible = false;
         }
     }
+
 }
