@@ -12475,7 +12475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 169857297}
   - component: {fileID: 169857298}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "\u9580\u788E\u72472 (3)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37864,7 +37864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 542121166}
   - component: {fileID: 542121167}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "\u9580\u788E\u72472 (2)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54040,7 +54040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 784753474}
   - component: {fileID: 784753475}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "\u9580\u788E\u72472"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63613,7 +63613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937476410}
   - component: {fileID: 937476411}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "\u9580\u788E\u72472 (6)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68019,7 +68019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 974375079}
   - component: {fileID: 974375080}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "\u9580\u788E\u72472 (4)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77751,7 +77751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1111060203}
   - component: {fileID: 1111060204}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: "\u9580\u788E\u72472 (5)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105301,8 +105301,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1825312469
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -153630,6 +153630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488172088611551369, guid: bd96f55ca9718e04f9dcfb6f8e063042,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5388190740061744295, guid: bd96f55ca9718e04f9dcfb6f8e063042,
         type: 3}
