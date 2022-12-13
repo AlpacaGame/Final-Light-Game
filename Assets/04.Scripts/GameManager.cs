@@ -23,12 +23,13 @@ public class GameManager : MonoBehaviour
 
     public int 目前擁有彈匣數量;
 
-    public bool 普通背景音樂, Boos背景音樂 = false;
+    //public bool 普通背景音樂, Boos背景音樂 = false;
 
     public GameObject 選單介面;
     public bool 開啟選單 = false;
 
     public string 關卡背景音樂 = "";
+    public bool 關閉主角 = false;
 
     [Header("道具數量")]
     public bool 檢查道具擁有狀態 = true;
@@ -235,25 +236,25 @@ public class GameManager : MonoBehaviour
     {
         關卡背景音樂 = BGM;
         背景音樂();
-        switch (關卡背景音樂)
+        switch (BGM)
         {
             case "普通關卡": // QUIT
                 //objectToEnable.SetActive(false);
                 SoundManager.instance.Background_SourceMusic();
+                關閉主角 = false;
                 //關卡背景音樂 = "0";
                 break;
 
             case "魔王關卡": //CLEAR
                 SoundManager.instance.Boosfight_SourceMusic();
+                關閉主角 = false;
                 //關卡背景音樂 = "0";
                 break;
 
             case "標題畫面": //CLEAR
                 SoundManager.instance.Menu_Bgm_SourceMusic();
-                if(場景內玩家 != null)
-                {
-                    玩家控制.不可重複.標題消除玩家();
-                }
+                關閉主角 = true;
+                玩家控制.不可重複.標題消除玩家();
                 //關卡背景音樂 = "0";
                 break;
 

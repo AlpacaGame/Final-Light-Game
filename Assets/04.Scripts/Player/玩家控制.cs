@@ -85,10 +85,8 @@ public class 玩家控制 : MonoBehaviour
             return;
         }
         不可重複 = this;
-        if(GameManager.遊戲主控.關卡背景音樂 != "標題畫面")
-        {
-            DontDestroyOnLoad(this);
-        }
+        DontDestroyOnLoad(this);
+        
         
 
         if (NoWakeUpAnim)
@@ -100,6 +98,11 @@ public class 玩家控制 : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.遊戲主控.關閉主角)
+        {
+            標題消除玩家();
+        }
+
         //&&!GameManager.正在對話
         if (!GameManager.角色死亡 && !切換使用敵人攝影機 && !GameManager.正在對話)
         {
@@ -316,6 +319,6 @@ public class 玩家控制 : MonoBehaviour
 
     public void 標題消除玩家()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
