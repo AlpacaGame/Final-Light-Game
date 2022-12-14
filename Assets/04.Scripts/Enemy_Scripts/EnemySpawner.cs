@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public static bool StartEnemySpawn = false;
     public GameObject enemy;
     public Vector3 spawnPoint;
-    public static int EnemyLeft = 4;
+    public static int EnemyLeft = 7;
     public bool isSwitchBGM = false;
 
     void Update()
