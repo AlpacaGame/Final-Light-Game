@@ -44,6 +44,7 @@ public class ShowBoos : MonoBehaviour
         //RippleEffect.PlayEffect = true;
         SoundManager.instance.Boosfight_SourceMusic(); // 切換魔王背景音樂
         RippleEffect.PlayRippleEffect(3, 0.7f, 0.7f);
+        EnemySpawner.StartEnemySpawn = true; //生小怪
     }
 
     public void 移動()
