@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ShowBoos : MonoBehaviour
 {
+    public GameObject MainCam;
     private Animator anim;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        MainCam = GetComponent<GameObject>();
     }
 
     void Update()
@@ -41,10 +43,10 @@ public class ShowBoos : MonoBehaviour
     public void 怒吼()
     {
         SoundManager.instance.EnemyBoos_AttackSource();//怒吼音效
-        //RippleEffect.PlayEffect = true;
         SoundManager.instance.Boosfight_SourceMusic(); // 切換魔王背景音樂
         RippleEffect.PlayRippleEffect(3, 0.7f, 0.7f);
         EnemySpawner.StartEnemySpawn = true; //生小怪
+        GameObject.Find("MainCamera").GetComponent<ScreenShake>().StartShake(1.5f, 0.18f);//螢幕震動
     }
 
     public void 移動()
