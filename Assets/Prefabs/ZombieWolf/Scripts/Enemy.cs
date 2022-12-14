@@ -155,6 +155,7 @@ public class Enemy : MonoBehaviour
     {
         ToggleRagdoll(true);
         Invoke("Disappear", disappearTime);
+        EnemySpawner.EnemyLeft -= 1;
     }
 
     //消失
