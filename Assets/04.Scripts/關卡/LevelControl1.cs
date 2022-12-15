@@ -50,7 +50,7 @@ public class LevelControl1 : MonoBehaviour
         {
             StartCoroutine(Fading());
         }
-        if (另一種感應物件)
+        if (另一種感應物件 && GameManager.擁有門禁卡)
         {
             由其他物件來開門();
         }
@@ -96,6 +96,8 @@ public class LevelControl1 : MonoBehaviour
     IEnumerator  Fading()
     {
         anim.SetBool("Fade", true);
+        直接開門開關 = false;
+        間接開門 = false;
         yield return new WaitUntil(() => black.color.a == 1);
         SceneManager.LoadScene(index);
     }

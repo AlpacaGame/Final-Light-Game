@@ -5171,7 +5171,7 @@ PrefabInstance:
     - target: {fileID: 8395492523438319933, guid: aa4293da3f1b311468fdbd5a33b51e08,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.32
+      value: 6.38
       objectReference: {fileID: 0}
     - target: {fileID: 8395492523438319933, guid: aa4293da3f1b311468fdbd5a33b51e08,
         type: 3}
@@ -5557,7 +5557,7 @@ GameObject:
   m_IsActive: 1
 --- !u!114 &906334524
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5639,7 +5639,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &906334527
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5666,7 +5666,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 2133958182}
 --- !u!114 &906334528
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5693,7 +5693,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 2133958182}
 --- !u!114 &906334529
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5714,7 +5714,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &906334530
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5955,7 +5955,7 @@ MonoBehaviour:
   scrollPos: {x: 13.286516, y: 290.51773}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 34
+  blockViewHeight: 369
   zoom: 0.7300002
   scrollViewRect:
     serializedVersion: 2
@@ -5966,7 +5966,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 906334562}
   selectedCommands:
-  - {fileID: 906334559}
+  - {fileID: 906334558}
   variables: []
   description: 
   stepPause: 0
@@ -15767,7 +15767,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 2045130931}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 2045130930}
   variables:
   - {fileID: 2045130942}
   - {fileID: 2045130932}

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public int 時間速度;
 
     public GameObject 玩家;
-    public GameObject 場景內玩家;
+    //public GameObject 場景內玩家;
     public GameObject 重生點;
 
     public static bool 死亡重生 = false;
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     //public bool 普通背景音樂, Boos背景音樂 = false;
 
     public GameObject 選單介面;
-    public bool 開啟選單 = false;
+    public static bool 開啟選單 = false;
 
     public string 關卡背景音樂 = "";
     public bool 關閉主角 = false;
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         重生();
         //背景音樂();
         彈出選單();
-        //監測是否正在對話();
+        監測是否正在對話();
     }
 
     void 查詢BUG()
@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha0))
         {
+            角色死亡 = true;
             Application.LoadLevel(Application.loadedLevel);
         }
 
@@ -189,15 +190,20 @@ public class GameManager : MonoBehaviour
     {
         if (死亡重生)
         {
-            Vector3 重生點pos = this.transform.position + new Vector3(0, 0, 0);
-            Application.LoadLevel(Application.loadedLevel);
+            Vector3 重生點pos = 重生點.transform.position + new Vector3(0, 0, 0);
             Instantiate(玩家, 重生點pos, 重生點.transform.rotation);
             死亡重生 = false;
             角色死亡 = false;
+            Invoke("延遲重生", 0.1f);
+            //SceneManager.LoadScene(0);
             //重生點.SetActive(false);
 
             //遊戲結束.SetActive(false);
         }
+    }
+    void 重制遊戲()
+    {
+        Application.LoadLevel(Application.loadedLevel);
     }
 
     /*
@@ -255,6 +261,7 @@ public class GameManager : MonoBehaviour
                 SoundManager.instance.Menu_Bgm_SourceMusic();
                 關閉主角 = true;
                 玩家控制.不可重複.標題消除玩家();
+                //玩家控制.不可重複.標題消除玩家();標題玩家消除
                 //關卡背景音樂 = "0";
                 break;
 
@@ -317,14 +324,18 @@ public class GameManager : MonoBehaviour
 
     public void 監測是否正在對話()
     {
-        if (正在時停)
+        if(!開啟選單)
         {
-            Time.timeScale = 0f;
+            if (正在時停)
+            {
+                Time.timeScale = 0f;
+            }
+            else if (!正在時停)
+            {
+                Time.timeScale = 1f;
+            }
         }
-        else if (!正在時停)
-        {
-            Time.timeScale = 1f;
-        }
+        
     }
     
     public void UI運作是否正常()

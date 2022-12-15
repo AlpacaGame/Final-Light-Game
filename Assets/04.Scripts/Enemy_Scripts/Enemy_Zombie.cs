@@ -78,9 +78,14 @@ public class Enemy_Zombie : Enemy
         Invoke("打頭", 調整教學時間);
         新手教學用 = false;
         Active_Object.開關 = true;
-
+        //Time.timeScale = 0f;
     }
-
+    /*
+    public void 新手教學結束()
+    {
+        Time.timeScale = 1f;
+    }
+    */
     void 打頭()
     {
         if (敵人生命 > 0)
