@@ -46,6 +46,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -127,6 +128,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -207,6 +209,7 @@ GameObject:
   - component: {fileID: 8370915228158884781}
   - component: {fileID: 8370915228158884786}
   - component: {fileID: 8370915228158884787}
+  - component: {fileID: -127895683047378813}
   m_Layer: 0
   m_Name: ShotObj1
   m_TagString: Untagged
@@ -300,3 +303,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-127895683047378813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370915228158884784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48151ed27397b6e4f94d77e2fd3dd3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  isFlipped: 0
+  onlyHealth: 1
+  attackDamage: 20
+  attackOffset: {x: 0, y: 0, z: 0}
+  attackRange: 1
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attackSpeed: 0.3
+  PlayerY_Offset: -0.98
+  health: 15
+  disappearTime: 0.01
+  deathEffect: {fileID: 0}
+  _anim: {fileID: 0}
+  _colliders: []
+  _joints: []
+  _rbs: []
+  _solvers: []
+  _CCDsolvers: []

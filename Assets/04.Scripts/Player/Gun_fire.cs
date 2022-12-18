@@ -23,10 +23,17 @@ public class Gun_fire : MonoBehaviour
 
     public static bool 可開火開關 = true;
 
+    [Space(5)]
+    [Header("無限子彈模式")]
+
+    public bool InfiniteAmmoModel = false;
 
     void Start()
     {
-
+        if(InfiniteAmmoModel)
+        {
+            彈匣數量 += 10000;
+        }
     }
 
     // Update is called once per frame

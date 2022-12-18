@@ -48436,6 +48436,7 @@ MonoBehaviour:
   "\u5DE6\u69CD\u53E3": {fileID: 129090994}
   "\u53F3\u69CD\u53E3": {fileID: 624450476}
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 0}
+  InfiniteAmmoModel: 0
   firePoint: {fileID: 0}
   damage: 20
   lineRenderer: {fileID: 0}
@@ -80238,6 +80239,7 @@ MonoBehaviour:
   "\u5DE6\u69CD\u53E3": {fileID: 129090994}
   "\u53F3\u69CD\u53E3": {fileID: 624450476}
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 0}
+  InfiniteAmmoModel: 0
   firePoint: {fileID: 0}
   damage: 20
   lineRenderer: {fileID: 0}
@@ -122354,6 +122356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isFlipped: 0
+  onlyHealth: 0
   attackDamage: 20
   attackOffset: {x: 0, y: 0, z: 0}
   attackRange: 1
@@ -151343,6 +151346,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270638702254824861, guid: ec85d9d8c23ea7a4c8c7fb4df7a280af,
+        type: 3}
+      propertyPath: InfiniteAmmoModel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1270638702286363694, guid: ec85d9d8c23ea7a4c8c7fb4df7a280af,
         type: 3}

@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     [Space(5)]
     [Header("生命值")]
     public int health = 100;
-    public int disappearTime = 5;
+    public float disappearTime = 5;
     public GameObject deathEffect;
 
     [Space(5)]
