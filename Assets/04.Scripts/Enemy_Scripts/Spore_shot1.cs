@@ -11,9 +11,21 @@ public class Spore_shot1 : MonoBehaviour
 
     public bool IsFloor = false;
 
+
+
+
+
     //參考陳間時光
-    public float speedX;
-    public float speedY;
+
+    [Space(5)]
+    [Header("初始隨機移動速度")]
+
+    public float StartSpeedX = 5.5f;
+    public float StartSpeedY = 5.5f;
+
+    [Header("隨機增加上限")]
+    public float RandomPlusSpeedMaxValue = 5.5f;
+
     private Rigidbody2D Rg2D;
 
     //胞子炸裂
@@ -25,7 +37,7 @@ public class Spore_shot1 : MonoBehaviour
     void Start()
     {
         Rg2D = GetComponent<Rigidbody2D>();
-        Rg2D.velocity = new Vector2(Random.Range(0, 5), Random.Range(0, 5));
+        Rg2D.velocity = new Vector2(Random.Range(StartSpeedX, StartSpeedX + RandomPlusSpeedMaxValue), Random.Range(StartSpeedY, StartSpeedY + RandomPlusSpeedMaxValue));
 
         //transform.rotation = InitAngle;
 

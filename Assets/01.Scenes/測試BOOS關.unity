@@ -579,7 +579,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -4.917262, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -590,7 +590,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 35, y: 0.2}
+  m_Size: {x: 44.834526, y: 0.2}
   m_EdgeRadius: 0
 --- !u!4 &7954869
 Transform:
@@ -11666,6 +11666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 533412885}
   - component: {fileID: 533412888}
+  - component: {fileID: 533412886}
   m_Layer: 0
   m_Name: GlassDoor (2)
   m_TagString: Untagged
@@ -11687,6 +11688,32 @@ Transform:
   m_Father: {fileID: 3802931780551181495}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
+--- !u!61 &533412886
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533412884}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 40.07724, y: 4.54}
+    newSize: {x: 40.07724, y: 4.54}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 40.07724, y: 4.54}
+  m_EdgeRadius: 0
 --- !u!212 &533412888
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19232,7 +19259,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 47.79389, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -19243,7 +19270,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 35, y: 0.2}
+  m_Size: {x: 139.7829, y: 0.2}
   m_EdgeRadius: 0
 --- !u!4 &849292151
 Transform:
@@ -32679,7 +32706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354741727}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -15.69, y: 6, z: 0}
+  m_LocalPosition: {x: -20.13, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -47436,6 +47463,7 @@ MonoBehaviour:
   "\u5DE6\u69CD\u53E3": {fileID: 0}
   "\u53F3\u69CD\u53E3": {fileID: 0}
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 0}
+  InfiniteAmmoModel: 0
   firePoint: {fileID: 0}
   damage: 20
   lineRenderer: {fileID: 0}
