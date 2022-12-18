@@ -146,7 +146,7 @@ public class keypad : MonoBehaviour
             Gun_fire.可開火開關 = false;
         }
 
-        else if(!keypadScreen && !Item_on_off.門禁卡 && !GameManager.正在時停 && !GameManager.開啟選單)
+        else if(!keypadScreen && !Item_on_off.門禁卡 && !GameManager.正在時停 && !GameManager.開啟選單 && !GameManager.慢動作)
         {
             objectToEnable.SetActive(false);
             Time.timeScale = 1f;

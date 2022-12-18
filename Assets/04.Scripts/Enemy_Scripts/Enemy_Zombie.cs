@@ -28,6 +28,8 @@ public class Enemy_Zombie : Enemy
     public float 調整教學時間 = 5f;
     public bool 新手教學死亡 = false;
 
+    public static bool 看玩家死了沒 = false;
+
     void Start()
     {
         
@@ -70,6 +72,10 @@ public class Enemy_Zombie : Enemy
             Active_Object.開關 = false;
         }
 
+        if (看玩家死了沒)
+        {
+            anim.Play("重製新手");
+        }
     }
 
     void 新手教學()
@@ -78,6 +84,8 @@ public class Enemy_Zombie : Enemy
         Invoke("打頭", 調整教學時間);
         新手教學用 = false;
         Active_Object.開關 = true;
+        
+        
         //Time.timeScale = 0f;
     }
     /*

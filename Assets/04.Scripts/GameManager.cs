@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager 遊戲主控;
 
-    public bool 時間暫停 = false;
-    public int 時間速度;
+    public static bool 慢動作 = false;
+    public float 時間速度;
 
     public GameObject 玩家;
     //public GameObject 場景內玩家;
@@ -43,9 +43,11 @@ public class GameManager : MonoBehaviour
 
     public static Flowchart flowchartManager;
 
+    private float fixedDeltaTime; //時間變量
+    
     void Awake()
     {
-        
+        this.fixedDeltaTime = Time.fixedDeltaTime;
     }
 
 
@@ -88,9 +90,9 @@ public class GameManager : MonoBehaviour
     {
         查詢BUG();
         重生();
-        //背景音樂();
         彈出選單();
         監測是否正在對話();
+        時間控制器();
     }
 
     void 查詢BUG()
@@ -138,21 +140,24 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    /*
+    
     void 時間控制器()
     {
-
-        if (時間暫停)
+        if (!正在時停 && !開啟選單)
         {
-            時間速度 = 0;
-            Time.timeScale = 0f;
+            if (慢動作)
+            {
+                Time.timeScale = 時間速度;
+                Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+            }
+            else if (!慢動作)
+            {
+                Time.timeScale = 1.0f;
+                Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+            }
         }
-        else if (!時間暫停)
-        {
-            時間速度 = 1;
-            Time.timeScale = 1f;
-        }
-
+        
+        /*
         if (Input.GetKey(KeyCode.P))
         {
             時間暫停 = true;
@@ -161,9 +166,24 @@ public class GameManager : MonoBehaviour
         {
             時間暫停 = false;
         }
-
+        */
+        
+        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            慢動作 = true;
+            //Time.timeScale = 0.2f;
+            //Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+        }
+        else if (Input.GetKeyUp(KeyCode.L))
+        {
+            慢動作 = false;
+            //Time.timeScale = 1.0f;
+            //Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+        }
+        
     }
-    */
+    
     void 重生()
     {
         if (重生點 == null)
@@ -180,6 +200,7 @@ public class GameManager : MonoBehaviour
         {
             //Destroy(玩家, 0.5f);
             死亡重生 = true;
+            Enemy_Zombie.看玩家死了沒 = true;
             Invoke("延遲重生", 0f);
         }
 
@@ -241,7 +262,6 @@ public class GameManager : MonoBehaviour
     public void 關卡背景音樂切換(string BGM)
     {
         關卡背景音樂 = BGM;
-        背景音樂();
         switch (BGM)
         {
             case "普通關卡": // QUIT
@@ -271,32 +291,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void 背景音樂()
-    {
-
-        /*
-        if (關卡背景音樂 = "1")
-        {
-            SoundManager.instance.Background_SourceMusic();
-            關卡背景音樂 = 0;
-            //普通背景音樂 = false;
-        }
-
-        else if (關卡背景音樂 = "1")
-        {
-            SoundManager.instance.Boosfight_SourceMusic();
-            關卡背景音樂 = 0;
-            //Boos背景音樂 = false;
-        }
-
-        else if (關卡背景音樂 = "1")
-        {
-            SoundManager.instance.Menu_Bgm_SourceMusic();
-            關卡背景音樂 = 0;
-            //Boos背景音樂 = false;
-        }
-        */
-    }
 
     public void 按鈕點擊繼續選單()
     {
@@ -315,7 +309,7 @@ public class GameManager : MonoBehaviour
             選單介面.SetActive(true);
             Time.timeScale = 0f;
         }
-        else if (!開啟選單 && !正在對話)
+        else if (!開啟選單 && !正在對話 && !慢動作)
         {
             選單介面.SetActive(false);
             Time.timeScale = 1f;
@@ -324,7 +318,7 @@ public class GameManager : MonoBehaviour
 
     public void 監測是否正在對話()
     {
-        if(!開啟選單)
+        if(!開啟選單 && !慢動作)
         {
             if (正在時停)
             {
