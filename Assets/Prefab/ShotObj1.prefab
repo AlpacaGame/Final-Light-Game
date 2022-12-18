@@ -247,8 +247,9 @@ MonoBehaviour:
   InitAngle: {x: 0, y: 0, z: 0, w: 0}
   "\u5B50\u5F48\u6D88\u5931\u6642\u9593": 100
   IsFloor: 0
-  speedX: 0
-  speedY: 0
+  StartSpeedX: 5.5
+  StartSpeedY: 5.5
+  RandomPlusSpeedMaxValue: 5.5
   Spore_TrackAmmo: {fileID: 8355403372426128026, guid: 4024f3d2f1c183641bb572ce9cca7fe3,
     type: 3}
   "\u6389\u843D\u7269": {fileID: 211657204116479902, guid: a9f12b6bac23b2e4d8ce759a4c4dc454,
@@ -328,7 +329,8 @@ MonoBehaviour:
   PlayerY_Offset: -0.98
   health: 15
   disappearTime: 0.01
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 5407103900422474035, guid: fdc75e01eaafaf04bba4db7f95363a6a,
+    type: 3}
   _anim: {fileID: 0}
   _colliders: []
   _joints: []
