@@ -151209,6 +151209,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1270638701699393889, guid: ec85d9d8c23ea7a4c8c7fb4df7a280af,
+        type: 3}
+      propertyPath: NoWakeUpAnim
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1270638701699393894, guid: ec85d9d8c23ea7a4c8c7fb4df7a280af,
         type: 3}
       propertyPath: m_RootOrder
@@ -151304,6 +151309,11 @@ PrefabInstance:
       propertyPath: "\u9AD4\u529B\u91CF\u5EA6\u8A08"
       value: 
       objectReference: {fileID: 1509375346}
+    - target: {fileID: 1270638701699393901, guid: ec85d9d8c23ea7a4c8c7fb4df7a280af,
+        type: 3}
+      propertyPath: "\u56DE\u5FA9\u9AD4\u529B\u89C0\u770B"
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1270638701699393901, guid: ec85d9d8c23ea7a4c8c7fb4df7a280af,
         type: 3}
       propertyPath: "\u56DE\u5FA9\u9AD4\u529B\u901F\u5EA6"

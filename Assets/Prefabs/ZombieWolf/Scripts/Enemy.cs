@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour
     public bool isFlipped = false;
 
     [Space(5)]
+    [Header("只要生命值模式")]
+    public bool onlyHealth = false;
+
+    [Space(5)]
     [Header("攻擊")]
     public int attackDamage = 20;
     public Vector3 attackOffset;
@@ -38,9 +42,12 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        ToggleRagdoll(false);
+        if(!onlyHealth)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+            rb = gameObject.GetComponent<Rigidbody2D>();
+            ToggleRagdoll(false);
+        }
     }
 
     //敵人面向玩家
@@ -153,9 +160,12 @@ public class Enemy : MonoBehaviour
     //死亡
     public void Die()
     {
-        ToggleRagdoll(true);
+        if(!onlyHealth)
+        {
+            ToggleRagdoll(true);
+            EnemySpawner.EnemyLeft -= 1;
+        }
         Invoke("Disappear", disappearTime);
-        EnemySpawner.EnemyLeft -= 1;
     }
 
     //消失
