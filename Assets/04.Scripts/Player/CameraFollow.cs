@@ -49,14 +49,14 @@ public class CameraFollow : MonoBehaviour
     {
         if (target == null)
         {
-            target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            target = GameObject.FindGameObjectWithTag("CursorTargetForCam").GetComponent<Transform>();
             //target = GameObject.Find("程式整合玩家").GetComponent<Transform>();
             //target = GameObject.Find("玩家身上擺放攝影機").GetComponent<Transform>();
         }
-
+        
         if (target1 == null)
         {
-            target1 = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            target1 = GameObject.FindGameObjectWithTag("CursorTargetForCam").GetComponent<Transform>();
             //target1 = GameObject.Find("暫時沒有心靈控制").GetComponent<Transform>();
             //target1 = GameObject.Find("敵人身上擺放攝影機").GetComponent<Transform>();
         }
