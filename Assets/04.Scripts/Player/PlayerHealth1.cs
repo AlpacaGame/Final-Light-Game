@@ -9,17 +9,25 @@ public class PlayerHealth1 : MonoBehaviour
 
 	public GameObject deathEffect;
 
+	public static int BloodI;
+
 	public void TakeDamage(int damage)
 	{
 		health -= damage;
 
 		StartCoroutine(DamageAnimation());
+		
+		BloodI = Random.Range(1,1);
 		/*
 		if (health <= 0)
 		{
 			Die();
 		}
 		*/
+	}
+	void Updata()
+    {
+
 	}
 	/*
 	void Die()
@@ -30,6 +38,7 @@ public class PlayerHealth1 : MonoBehaviour
 	IEnumerator DamageAnimation()
 	{
 		SpriteRenderer[] srs = GetComponentsInChildren<SpriteRenderer>();
+		Bloodspray_Effect.主控.隨機跳血畫面();
 
 		for (int i = 0; i < 3; i++)
 		{
