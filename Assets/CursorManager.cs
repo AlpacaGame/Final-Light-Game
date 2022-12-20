@@ -12,14 +12,10 @@ public class CursorManager : MonoBehaviour
         {
             DontDestroyOnLoad(this);
         }
-    }
 
-    void Update()
-    {
-        if(!visible)
+        if (!visible)
         {
             Cursor.visible = false;
         }
     }
-
 }
