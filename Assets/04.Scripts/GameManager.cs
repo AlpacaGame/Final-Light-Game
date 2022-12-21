@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     [Header("道具數量")]
     public bool 檢查道具擁有狀態 = true;
+    public bool 清除所有道具狀態 = false;
     public bool 觀看門禁卡, 觀看密碼鎖密碼, 觀看手槍 = false;
     public static bool 擁有門禁卡, 擁有密碼鎖密碼, 擁有手槍;
     public bool 觀看一次門禁卡, 觀看一次密碼鎖密碼, 觀看一次手槍;
@@ -106,6 +107,14 @@ public class GameManager : MonoBehaviour
             觀看門禁卡 = 擁有門禁卡;
             觀看密碼鎖密碼 = 擁有密碼鎖密碼;
             觀看手槍 = 擁有手槍;
+        }
+
+        if (清除所有道具狀態)
+        {
+            擁有門禁卡 = false;
+            擁有密碼鎖密碼 = false;
+            擁有手槍 = false;
+            清除所有道具狀態 = false;
         }
 
         if (Input.GetKey(KeyCode.Alpha0))
@@ -251,11 +260,13 @@ public class GameManager : MonoBehaviour
     public void 返回主選單()
     {
         SceneManager.LoadScene(0);
+        清除所有道具狀態 = true;
         按鈕點擊繼續選單();
     }
 
     public void 離開遊戲()
     {
+        清除所有道具狀態 = true;
         Application.Quit(); // This line quits the application.
     }
 
@@ -337,4 +348,19 @@ public class GameManager : MonoBehaviour
         點擊次數 += 1;
     }
 
+    public void 第一關()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void 最後一關()
+    {
+        SceneManager.LoadScene(6);
+        擁有門禁卡 = true;
+        擁有密碼鎖密碼 = true;
+        擁有手槍 = true;
+    }
+    public void 無限子彈()
+    {
+        Gun_fire.彈匣數量 += 100000;
+    }
 }
