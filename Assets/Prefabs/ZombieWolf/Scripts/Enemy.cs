@@ -32,6 +32,11 @@ public class Enemy : MonoBehaviour
     public GameObject deathEffect;
 
     [Space(5)]
+    [Header("與Boss主體生命值同步")]
+    public bool BossHealthModel = false;
+    public Spore_Boos Boss;
+
+    [Space(5)]
     [Header("Ragdoll切換需要的物件")]
     [SerializeField] private Animator _anim;
     [SerializeField] private List<Collider2D> _colliders;
@@ -149,11 +154,18 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-
-        if(health <= 0)
+        if(BossHealthModel)
         {
-            Die();
+            Boss.Hp -= damage;
+        }
+        else
+        {
+            health -= damage;
+
+            if (health <= 0)
+            {
+                Die();
+            }
         }
     }
 

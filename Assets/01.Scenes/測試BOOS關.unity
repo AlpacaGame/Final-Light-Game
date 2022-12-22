@@ -30122,6 +30122,40 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 794045323943735648}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1255064235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255064234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48151ed27397b6e4f94d77e2fd3dd3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  isFlipped: 0
+  onlyHealth: 1
+  attackDamage: 20
+  attackOffset: {x: 0, y: 0, z: 0}
+  attackRange: 1
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attackSpeed: 0.3
+  PlayerY_Offset: -0.98
+  health: 100
+  disappearTime: 5
+  deathEffect: {fileID: 0}
+  BossHealthModel: 1
+  Boss: {fileID: 1296552232}
+  _anim: {fileID: 0}
+  _colliders: []
+  _joints: []
+  _rbs: []
+  _solvers: []
+  _CCDsolvers: []
 --- !u!114 &1255064237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36883,6 +36917,7 @@ MonoBehaviour:
   "\u95DC\u5361\u80CC\u666F\u97F3\u6A02": 
   "\u95DC\u9589\u4E3B\u89D2": 0
   "\u6AA2\u67E5\u9053\u5177\u64C1\u6709\u72C0\u614B": 1
+  "\u6E05\u9664\u6240\u6709\u9053\u5177\u72C0\u614B": 0
   "\u89C0\u770B\u9580\u7981\u5361": 0
   "\u89C0\u770B\u5BC6\u78BC\u9396\u5BC6\u78BC": 0
   "\u89C0\u770B\u624B\u69CD": 0
@@ -56872,6 +56907,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 425a8b5a0765fc246a917c1ecb7c4f0f, type: 2}
+    - target: {fileID: 5655657625373956000, guid: 19e5243279777c84894a237142338118,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5860215945434450688, guid: 19e5243279777c84894a237142338118,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
