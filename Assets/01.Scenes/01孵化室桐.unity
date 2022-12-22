@@ -48156,6 +48156,8 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   impactForce: 20
   bloodEffect: {fileID: 0}
+  SuperDamageModel: 0
+  SuperDamage: 200
 --- !u!82 &696452681
 AudioSource:
   m_ObjectHideFlags: 0
@@ -80123,6 +80125,8 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   impactForce: 20
   bloodEffect: {fileID: 0}
+  SuperDamageModel: 0
+  SuperDamage: 200
 --- !u!82 &1160012632
 AudioSource:
   m_ObjectHideFlags: 0
@@ -122493,6 +122497,8 @@ MonoBehaviour:
   health: 100
   disappearTime: 5
   deathEffect: {fileID: 0}
+  BossHealthModel: 0
+  Boss: {fileID: 0}
   _anim: {fileID: 0}
   _colliders: []
   _joints: []

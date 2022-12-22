@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
     [Header("敵人Boos音效")]
     public AudioSource EnemyBoos_audioSource;
     //public AudioClip EnemyBoos_Idle, EnemyBoos_Attack, EnemyBoos_Attack2, EnemyBoos_Roar, EnemyBoos_Hurt, EnemyBoos_Death;
-    public AudioClip EnemyBoos_Attack, EnemyBoos_Attack2,EnemyBoos_Move;
+    public AudioClip EnemyBoos_Attack, EnemyBoos_Attack2, EnemyBoos_Move, EnemyBoss_Death;
 
     [Header("系統音效")]
     public AudioSource System_audioSource;
@@ -289,6 +289,13 @@ public class SoundManager : MonoBehaviour
         EnemyBoos_audioSource.clip = EnemyBoos_Move;
         EnemyBoos_audioSource.Play();
     }
+
+    public void EnemyBoss_DeathSource()
+    {
+        EnemyBoos_audioSource.clip = EnemyBoss_Death;
+        EnemyBoos_audioSource.Play();
+    }
+
     /*
     /// <summary>
     /// 敵人Boos攻擊2音效

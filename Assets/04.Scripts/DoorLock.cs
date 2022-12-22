@@ -8,10 +8,12 @@ public class DoorLock : MonoBehaviour
     public Animator anim;
     private float t;
     public float FieldOfViewMax = 120;
+    public static bool StartBossFight = false;
 
     void Start()
     {
         anim = GlassDoor.GetComponent<Animator>();
+        StartBossFight = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,6 +31,10 @@ public class DoorLock : MonoBehaviour
             anim.Play("Close");
             t = 0;
             InvokeRepeating("SetCamFieldOfViewTo110", 1, 0.01f);
+
+            StartBossFight = true;
+            GameObject.Find("MainCamera").GetComponent<ScreenShake>().StartShake(1.5f, 0.18f);//螢幕震動4 .5
+            SoundManager.instance.EnemyBoos_AttackSource2();//怒吼音效
         }
     }
 

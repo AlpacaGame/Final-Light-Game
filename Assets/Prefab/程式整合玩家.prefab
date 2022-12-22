@@ -63,6 +63,8 @@ MonoBehaviour:
   impactForce: 20
   bloodEffect: {fileID: 5687171703807924837, guid: 24276f19ccde1b14ea0c95047d367bd8,
     type: 3}
+  SuperDamageModel: 0
+  SuperDamage: 200
 --- !u!1 &1270638700705694619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1461,8 @@ MonoBehaviour:
   impactForce: 20
   bloodEffect: {fileID: 5687171703807924837, guid: 24276f19ccde1b14ea0c95047d367bd8,
     type: 3}
+  SuperDamageModel: 0
+  SuperDamage: 200
 --- !u!1 &1270638702286363692
 GameObject:
   m_ObjectHideFlags: 0

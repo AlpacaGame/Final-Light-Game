@@ -96,6 +96,12 @@ public class Gun_fire : MonoBehaviour
     public LineRenderer lineRenderer;
     public float impactForce = 20f;
     public GameObject bloodEffect;
+
+    [Space(5)]
+    [Header("超高攻擊模式")]
+    public bool SuperDamageModel = false;
+    public int SuperDamage = 200;
+
     IEnumerator RayShoot()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
@@ -106,7 +112,16 @@ public class Gun_fire : MonoBehaviour
             if(enemy != null)
             {
                 SoundManager.instance.BloodSource();
-                enemy.TakeDamage(damage);
+
+                if(SuperDamageModel)
+                {
+                    enemy.TakeDamage(SuperDamage);
+                }
+                else
+                {
+                    enemy.TakeDamage(damage);
+                }
+                
                 Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
                 hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
             }
