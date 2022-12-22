@@ -35,6 +35,7 @@ public class DoorLock : MonoBehaviour
             StartBossFight = true;
             GameObject.Find("MainCamera").GetComponent<ScreenShake>().StartShake(1.5f, 0.18f);//螢幕震動4 .5
             SoundManager.instance.EnemyBoos_AttackSource2();//怒吼音效
+            SoundManager.instance.Boosfight_SourceMusic(); // 切換魔王背景音樂
         }
     }
 
