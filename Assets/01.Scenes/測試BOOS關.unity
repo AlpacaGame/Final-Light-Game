@@ -4176,7 +4176,7 @@ GameObject:
   - component: {fileID: 171191391}
   - component: {fileID: 171191392}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4369,9 +4369,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 171191386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Script: {fileID: 11500000, guid: 98bc64696596f1f429e883a153e7bee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationMultiplier: 7.5
 --- !u!4 &171912774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6036151728133769240, guid: 14d8339429f2f604ba460a2ff2b3ef97,
@@ -10635,7 +10636,7 @@ RectTransform:
   m_GameObject: {fileID: 487179518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1797034945}
   - {fileID: 1180172909}
@@ -10643,9 +10644,9 @@ RectTransform:
   m_Father: {fileID: 1582680197709976904}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 138}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 89.399994}
   m_SizeDelta: {x: 195.99, y: 51.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &487179520
@@ -21269,14 +21270,14 @@ RectTransform:
   m_GameObject: {fileID: 893058332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08364992, y: 0.08364992, z: 0.08364992}
+  m_LocalScale: {x: 0.16729982, y: 0.16729982, z: 0.08364991}
   m_Children: []
   m_Father: {fileID: 1582680197709976904}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 0, y: 0.25}
-  m_AnchoredPosition: {x: 419.8, y: 250.6}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 39.599968, y: 88.59996}
   m_SizeDelta: {x: 33, y: 96.03271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &893058334
@@ -21849,15 +21850,15 @@ RectTransform:
   m_GameObject: {fileID: 932416272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.86172, y: 0.86172, z: 0.86172}
+  m_LocalScale: {x: 1.7234399, y: 1.7234399, z: 0.86171997}
   m_Children: []
   m_Father: {fileID: 1582680197709976904}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 4.0999756, y: 137}
-  m_SizeDelta: {x: -604.00995, y: -199.17996}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 8.199936, y: 86.4}
+  m_SizeDelta: {x: 195.99005, y: 25.820038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &932416274
 MonoBehaviour:
@@ -47234,14 +47235,14 @@ RectTransform:
   m_GameObject: {fileID: 1934830682}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08364992, y: 0.08364992, z: 0.08364992}
+  m_LocalScale: {x: 0.16729982, y: 0.16729982, z: 0.08364991}
   m_Children: []
   m_Father: {fileID: 1582680197709976904}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 0, y: 0.25}
-  m_AnchoredPosition: {x: 367.5998, y: 250.6}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -64.800415, y: 88.59996}
   m_SizeDelta: {x: 33, y: 96.03271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1934830684
@@ -57406,12 +57407,17 @@ PrefabInstance:
     - target: {fileID: 794045322505144955, guid: 19e5243279777c84894a237142338118,
         type: 3}
       propertyPath: Hp
-      value: 500
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 794045322505144955, guid: 19e5243279777c84894a237142338118,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008211745998513597, guid: 19e5243279777c84894a237142338118,
+        type: 3}
+      propertyPath: SpawnTime
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1177930156089214588, guid: 19e5243279777c84894a237142338118,
         type: 3}
