@@ -372,7 +372,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554549806200795123}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
   m_Name: 
@@ -2632,6 +2632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8569510674921823932}
   - component: {fileID: 8509573794619560714}
+  - component: {fileID: 3754091925037165059}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -2673,6 +2674,72 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3754091925037165059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569510674921823935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d04a114191e0d4e999ca9a01a81a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  _anim: {fileID: 8509573794619560714}
+  _colliders:
+  - {fileID: 4545847185624355632}
+  - {fileID: 7016275285391512685}
+  - {fileID: 5709371252886460643}
+  - {fileID: 4350296864647126633}
+  - {fileID: 393021452761776736}
+  - {fileID: 1639058816825685287}
+  - {fileID: 7627405841345894442}
+  - {fileID: 2135357560473516605}
+  - {fileID: 1937015018984856475}
+  - {fileID: 3215049887502276458}
+  - {fileID: 4074250198393015537}
+  - {fileID: 4914255785921425074}
+  - {fileID: 6521759572368461347}
+  - {fileID: 3344791556835084786}
+  - {fileID: 4988657879474322683}
+  _joints:
+  - {fileID: 559781326977196244}
+  - {fileID: 9091965396951887848}
+  - {fileID: 5864348818411800854}
+  - {fileID: 1684954010516492053}
+  - {fileID: 595617989503501568}
+  - {fileID: 6346031061590495632}
+  - {fileID: 2244287083791323543}
+  - {fileID: 1596707462410619262}
+  - {fileID: 457938695832250404}
+  - {fileID: 2207003604218353670}
+  - {fileID: 7393879649132572450}
+  - {fileID: 6260413139942111078}
+  - {fileID: 7909863186423150669}
+  - {fileID: 3830439145133203743}
+  _rbs:
+  - {fileID: 5426907505474621474}
+  - {fileID: 7858826417855519073}
+  - {fileID: 8168884646929353991}
+  - {fileID: 3163306847192213021}
+  - {fileID: 5915721482650257385}
+  - {fileID: 7092503736999736268}
+  - {fileID: 2817312687857986227}
+  - {fileID: 8291037356398625458}
+  - {fileID: 5801517142207423947}
+  - {fileID: 7883934854737503287}
+  - {fileID: 698417218631190658}
+  - {fileID: 3075495945088340154}
+  - {fileID: 8079967124410682004}
+  - {fileID: 2267928830075350740}
+  - {fileID: 4190567092162600619}
+  _solvers:
+  - {fileID: 8569510675977825352}
+  - {fileID: 8569510674818965969}
+  - {fileID: 8569510674784106152}
+  - {fileID: 8569510675067624922}
 --- !u!1 &8569510675067624900
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
             rb = gameObject.GetComponent<Rigidbody2D>();
-            ToggleRagdoll(false);
+            ToggleRagdoll(false);//開始時關閉布娃娃系統
         }
     }
 
