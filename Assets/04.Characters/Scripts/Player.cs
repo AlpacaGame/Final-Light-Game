@@ -6,8 +6,8 @@ using UnityEngine.U2D.IK;
 public class Player : MonoBehaviour
 {
     [Header("玩家面向")]
-    public static int direction = 1;//左右面向(向右=1，向左=-1)
     public Camera Orthographic;//平行攝影機
+    public static int direction = 1;//左右面向(向右=1，向左=-1)
 
     [Header("玩家體力值")]
     public float energy = 100;//玩家體力
@@ -54,12 +54,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
+        PlayerMove();
     }
 
     private void FixedUpdate()
     {
-        PlayerMove();
+        
         PlayerDirection();
     }
 

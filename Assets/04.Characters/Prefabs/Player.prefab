@@ -2689,15 +2689,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d04a114191e0d4e999ca9a01a81a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Orthographic: {fileID: 0}
   energy: 100
   breatheEnergy: 50
-  inputX: 0
-  walkSpeed: 1.4
-  runSpeed: 4
-  runEnergyDecrease: 0.5
+  runEnergyDecrease: 0.05
+  slideEnergyDecrease: 50
+  runEnergy: 25
+  slideEnergy: 50
   walkEnergyIncrease: 0
-  idleEnergyIncrease: 1
-  slide: 0
+  idleEnergyIncrease: 0.1
+  inputX: 0
+  walkSpeed: 1.5
+  runSpeed: 5
+  slideSpeed: 15
+  sliding: 0
   breath: 0
   playerSpeed: 0
   playerMaxSpeed: 0
