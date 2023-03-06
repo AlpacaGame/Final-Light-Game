@@ -5,16 +5,26 @@ using UnityEngine.U2D.IK;
 
 public class Player : MonoBehaviour
 {
-    [Header("玩家移動")]
+    [Header("玩家面向")]
+    public static int direction = 1;//左右面向(向右=1，向左=-1)
+    public Camera Orthographic;//平行攝影機
+
+    [Header("玩家體力值")]
     public float energy = 100;//玩家體力
     public float breatheEnergy = 50;//喘氣體力值
+    public float runEnergyDecrease = 5f;//跑步體力消耗
+    public float slideEnergyDecrease = 50;//滑行體力消耗
+    public float walkEnergyIncrease = 0f;//走路體力增加
+    public float idleEnergyIncrease = 1f;//待機體力增加
+
+    [Header("玩家移動")]
     public float inputX = 0;//左右移動值
     public float walkSpeed = 1.4f;//走路速度
     public float runSpeed = 10;//跑步速度
-    public float runEnergyDecrease = 0.5f;//跑步體力消耗
-    public float walkEnergyIncrease = 0f;//走路體力增加
-    public float idleEnergyIncrease = 1f;//待機體力增加
-    public bool slide = false;
+    public float slideSpeed = 20;//滑行速度
+
+    [Header("玩家動畫")]
+    public bool sliding = false;//滑行中
     public bool breath = false;
     public float playerSpeed = 0;
     public float playerMaxSpeed = 5;
@@ -50,6 +60,29 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         PlayerMove();
+        PlayerDirection();
+    }
+
+    //玩家面向 偵測鼠標調整角色左右面向
+    public void PlayerDirection()
+    {
+        Vector3 difference = Orthographic.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+
+        difference.Normalize();
+
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+
+        if (rotationZ < -90 || rotationZ > 90)
+        {
+            direction = -1;
+            transform.localScale = new Vector3(direction, 1, 1);
+        }
+
+        else if (rotationZ > -90 || rotationZ < 90)
+        {
+            direction = 1;
+            transform.localScale = new Vector3(direction, 1, 1);
+        }
     }
 
     //玩家移動
@@ -59,47 +92,49 @@ public class Player : MonoBehaviour
 
         if(health > 0)
         {
-            if (inputX != 0)
+            if(Input.GetKeyDown(KeyCode.C) && energy > slideEnergyDecrease && !sliding)
             {
-                if (Input.GetKey(KeyCode.LeftShift) && energy > 50)//按下Shift鍵 & 體力不為0
+                Slide();
+            }
+            else if (inputX != 0)
+            {
+                if (Input.GetKey(KeyCode.LeftShift) && energy > runEnergyDecrease)
                 {
                     Run();
-                    anim.SetBool("isRun", true);
-                }
-                else if (Input.GetKey(KeyCode.LeftShift) && energy > 0)//按下Shift鍵 & 體力不為0
-                {
-                    Run();
-                    anim.SetBool("isFastWalk", true);
                 }
                 else
                 {
                     Walk();
-                    anim.SetBool("isWalk", true);
-                    anim.SetBool("isFastWalk", false);
                 }
             }
             else
             {
                 Idle();
-                anim.SetBool("isWalk", false);
-                anim.SetBool("isRun", false);
             }
+        }
+
+        if(energy >= 100)
+        {
+            energy = 100;
         }
     }
 
     //待機
     public void Idle()
     {
-        //anim.Play("Idle");
         energy += idleEnergyIncrease;//能量增加
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isRunning", false);
     }
 
     //走路
     public void Walk()
     {
         rg.velocity = new Vector2(inputX * walkSpeed, rg.velocity.y);
-        //anim.Play("Walk");
         energy += walkEnergyIncrease;//能量增加
+
+        anim.SetBool("isWalking", true);
+        anim.SetBool("isRunning", false);
     }
 
     //跑步
@@ -108,6 +143,9 @@ public class Player : MonoBehaviour
         rg.velocity = new Vector2(inputX * runSpeed, rg.velocity.y);
         //anim.Play("Run");
         energy -= runEnergyDecrease;//能量消耗
+
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isRunning", true);
 
         //喘氣聲
         if (energy <= breatheEnergy && !breath)
@@ -122,6 +160,23 @@ public class Player : MonoBehaviour
     public void BreatheTime()
     {
         breath = false;
+    }
+
+    //滑行
+    public void Slide()
+    {
+        sliding = true;
+        anim.SetBool("isSliding", true);
+        energy -= slideEnergyDecrease;
+        rg.velocity = new Vector2(direction * slideSpeed, rg.velocity.y);
+    }
+
+    //滑行結束
+    public void SlideOver()
+    {
+        sliding = false;
+        anim.SetBool("isSliding", false);
+        rg.velocity = new Vector2(0, rg.velocity.y);
     }
 
     //Ragdoll切換
