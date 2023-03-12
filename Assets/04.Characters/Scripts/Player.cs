@@ -5,6 +5,10 @@ using UnityEngine.U2D.IK;
 
 public class Player : MonoBehaviour
 {
+    [Header("本更じン")]
+    private Rigidbody2D rg;
+    private Animator anim;
+
     [Header("產")]
     public Camera Orthographic;//キ︽尼紇诀
     public static int direction = 1;//オ(=1オ=-1)
@@ -40,9 +44,13 @@ public class Player : MonoBehaviour
     [SerializeField] private List<Rigidbody2D> _rbs;
     [SerializeField] private List<LimbSolver2D> _solvers;
 
-    [Header("本更じン")]
-    private Rigidbody2D rg;
-    private Animator anim;
+    [Header("ち传も羥")]
+    public bool switchingHand = false;//秨币ち传も羥
+    public GameObject handF, handB;//ゼ簀も
+    public GameObject pistolHand;//簀も
+
+    [Header("も簀非琍蛤繦公夹")]
+    public GameObject pistolTarget;
 
     void Start()
     {
@@ -55,11 +63,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         PlayerMove();
+        SwitchingHand();
     }
 
     private void FixedUpdate()
     {
-        
+        //GunHandFollowCursor();
         PlayerDirection();
     }
 
@@ -84,6 +93,15 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(direction, 1, 1);
         }
     }
+
+    /*
+    public void GunHandFollowCursor()
+    {
+        
+        handTargetF.transform.position = new Vector3(Orthographic.ScreenToWorldPoint(Input.mousePosition).x, Orthographic.ScreenToWorldPoint(Input.mousePosition).y);
+        handTargetB.transform.position = new Vector3(Orthographic.ScreenToWorldPoint(Input.mousePosition).x, Orthographic.ScreenToWorldPoint(Input.mousePosition).y);
+    }
+    */
 
     //產簿笆
     public void PlayerMove()
@@ -177,6 +195,34 @@ public class Player : MonoBehaviour
         sliding = false;
         anim.SetBool("isSliding", false);
         rg.velocity = new Vector2(0, rg.velocity.y);
+    }
+
+    //ち传も羥
+    void SwitchingHand()
+    {
+        if (GameManager.局Τも簀)
+        {
+            switchingHand = true;
+        }
+
+        if (switchingHand)
+        {
+            pistolHand.SetActive(true);
+            handF.SetActive(false);
+            handB.SetActive(false);
+        }
+        else if (!switchingHand)
+        {
+            pistolHand.SetActive(false);
+            handF.SetActive(true);
+            handB.SetActive(true);
+        }
+    }
+
+    //も簀非琍蛤繦公夹
+    public void PistolTargetFollowCursor()
+    {
+        pistolTarget.transform.position = new Vector3(Orthographic.ScreenToWorldPoint(Input.mousePosition).x, Orthographic.ScreenToWorldPoint(Input.mousePosition).y);
     }
 
     //Ragdollち传
