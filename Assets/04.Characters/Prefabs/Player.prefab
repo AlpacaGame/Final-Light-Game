@@ -1622,7 +1622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1609045739145165287}
   m_Layer: 6
-  m_Name: GameObject
+  m_Name: PistolHandPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3139,10 +3139,10 @@ MonoBehaviour:
   - {fileID: 8569510674818965969}
   - {fileID: 8569510674784106152}
   - {fileID: 8569510675067624922}
+  switchingHand: 0
   handF: {fileID: 4954790616656581174}
   handB: {fileID: 3648603288164203035}
-  pistolHand: {fileID: 0}
-  pistolOnHand: 0
+  pistolHand: {fileID: 4689187698856731967}
   pistolTarget: {fileID: 0}
 --- !u!50 &2495346585770116533
 Rigidbody2D:

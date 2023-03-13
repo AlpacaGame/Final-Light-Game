@@ -692,11 +692,6 @@ PrefabInstance:
       objectReference: {fileID: 797519830}
     - target: {fileID: 3754091925037165059, guid: b63c86381d47485429267e757d12418b,
         type: 3}
-      propertyPath: pistolHand
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3754091925037165059, guid: b63c86381d47485429267e757d12418b,
-        type: 3}
       propertyPath: handTargetB
       value: 
       objectReference: {fileID: 1587196805}
@@ -759,6 +754,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.000044398636
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689187698856731967, guid: b63c86381d47485429267e757d12418b,
+        type: 3}
+      propertyPath: m_Name
+      value: PistolHandPivot
       objectReference: {fileID: 0}
     - target: {fileID: 4954790616656581174, guid: b63c86381d47485429267e757d12418b,
         type: 3}

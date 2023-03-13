@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
             {
                 Slide();
             }
-            else if (inputX != 0)
+            else if (inputX != 0 && !sliding)
             {
                 if (Input.GetKey(KeyCode.LeftShift) && energy > runEnergyDecrease)
                 {
@@ -169,7 +169,7 @@ public class Player : MonoBehaviour
         if (energy <= breatheEnergy && !breath)
         {
             breath = true;
-            SoundManager.instance.PantSource();
+            //SoundManager.instance.PantSource();
             Invoke("BreatheTime", 5);
         }
     }
