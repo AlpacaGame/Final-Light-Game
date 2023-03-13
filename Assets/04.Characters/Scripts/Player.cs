@@ -49,6 +49,10 @@ public class Player : MonoBehaviour
     public GameObject handF, handB;//未持槍手
     public GameObject pistolHand;//持槍手
 
+    [Header("手電筒")]
+    public bool flashlightSwitch = true;//手電筒開關
+    public GameObject flashlight, flashlightMask;//手電筒, 手電筒遮罩
+
     [Header("手槍準星跟隨鼠標")]
     public GameObject pistolTarget;
 
@@ -64,6 +68,12 @@ public class Player : MonoBehaviour
     {
         PlayerMove();
         SwitchingHand();
+
+        if(GameManager.擁有手槍)
+        {
+            Flashlight();
+            SwitchingHand();
+        }
     }
 
     private void FixedUpdate()
@@ -216,6 +226,28 @@ public class Player : MonoBehaviour
             pistolHand.SetActive(false);
             handF.SetActive(true);
             handB.SetActive(true);
+        }
+    }
+
+    //手持手電筒
+    void Flashlight()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            flashlightSwitch = !flashlightSwitch;
+        }
+
+        if (Input.GetMouseButtonDown(1) && !flashlightSwitch) //注意!!配合(隱形)感測的按鍵一起釋放光源 預設按鍵:F
+        {
+            flashlight.SetActive(true);//開關物件
+            flashlightMask.SetActive(true);
+            SoundManager.instance.FlashLightOnSource();
+        }
+        else if (Input.GetMouseButtonDown(1) && flashlightSwitch) //注意!!配合(隱形)感測的按鍵一起釋放光源 預設按鍵:F
+        {
+            flashlight.SetActive(false);//開關物件
+            flashlightMask.SetActive(false);
+            SoundManager.instance.FlashLightOffSource();
         }
     }
 
