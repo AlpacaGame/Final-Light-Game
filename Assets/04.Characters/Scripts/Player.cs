@@ -124,9 +124,20 @@ public class Player : MonoBehaviour
             {
                 Slide();
             }
-            else if (inputX != 0 && !sliding)
+            else if (inputX > 0 && !sliding)//¦V¥k
             {
-                if (Input.GetKey(KeyCode.LeftShift) && energy > runEnergyDecrease)
+                if (Input.GetKey(KeyCode.LeftShift) && energy > runEnergyDecrease && direction == 1)
+                {
+                    Run();
+                }
+                else
+                {
+                    Walk();
+                }
+            }
+            else if(inputX < 0 && !sliding)//¦V¥ª
+            {
+                if (Input.GetKey(KeyCode.LeftShift) && energy > runEnergyDecrease && direction == -1)
                 {
                     Run();
                 }
