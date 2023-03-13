@@ -164,6 +164,7 @@ public class Player : MonoBehaviour
         energy += idleEnergyIncrease;//能量增加
         anim.SetBool("isWalking", false);
         anim.SetBool("isRunning", false);
+        anim.SetBool("isWalkingBackward", false);
     }
 
     //走路
@@ -172,8 +173,17 @@ public class Player : MonoBehaviour
         rg.velocity = new Vector2(inputX * walkSpeed, rg.velocity.y);
         energy += walkEnergyIncrease;//能量增加
 
-        anim.SetBool("isWalking", true);
         anim.SetBool("isRunning", false);
+        anim.SetBool("isWalking", true);
+
+        if (inputX > 0 && direction == -1 || inputX < 0 && direction == 1)
+        {
+            anim.SetBool("isWalkingBackward", true);
+        }
+        else
+        {
+            anim.SetBool("isWalkingBackward", false);
+        }
     }
 
     //跑步
