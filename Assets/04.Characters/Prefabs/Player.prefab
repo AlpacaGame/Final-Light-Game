@@ -266,8 +266,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1025896137
+  m_SortingLayer: 5
   m_SortingOrder: 11
   m_Sprite: {fileID: -5719652832406504804, guid: 1966e04def77fb84ab3ed446abcb40da,
     type: 3}
@@ -299,8 +299,8 @@ MonoBehaviour:
   - {fileID: 2496800419515893415}
   - {fileID: 5107632420917799742}
   m_Bounds:
-    m_Center: {x: 0.0041003227, y: 0.000008583069, z: 0}
-    m_Extent: {x: 0.8956734, y: 4.6300054, z: 0}
+    m_Center: {x: 0.004111886, y: 0.000008106232, z: 0}
+    m_Extent: {x: 0.8956837, y: 4.6300044, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &2472132568911081088
@@ -481,7 +481,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 4.1608686, y: 0.00000045634806}
+  m_ConnectedAnchor: {x: 4.160868, y: 0.00000046566126}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1131,8 +1131,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1025896137
+  m_SortingLayer: 5
   m_SortingOrder: 17
   m_Sprite: {fileID: -1806141984305141198, guid: 1966e04def77fb84ab3ed446abcb40da,
     type: 3}
@@ -1251,8 +1251,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1025896137
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 5465758556545554534, guid: 1966e04def77fb84ab3ed446abcb40da,
     type: 3}
@@ -1467,8 +1467,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1025896137
+  m_SortingLayer: 5
   m_SortingOrder: 23
   m_Sprite: {fileID: 2022734032784717523, guid: 1966e04def77fb84ab3ed446abcb40da,
     type: 3}
@@ -1603,7 +1603,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 4.4857693, y: -0.00000027008363}
+  m_ConnectedAnchor: {x: 4.4857697, y: -0.00000018626457}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1712,8 +1712,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1025896137
+  m_SortingLayer: 5
   m_SortingOrder: 32
   m_Sprite: {fileID: 8428835987173899148, guid: 1966e04def77fb84ab3ed446abcb40da,
     type: 3}
@@ -1833,8 +1833,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1025896137
+  m_SortingLayer: 5
   m_SortingOrder: 22
   m_Sprite: {fileID: 4871661409212623827, guid: 1966e04def77fb84ab3ed446abcb40da,
     type: 3}
@@ -1866,8 +1866,8 @@ MonoBehaviour:
   - {fileID: 3118756778600099835}
   - {fileID: 5107632420917799742}
   m_Bounds:
-    m_Center: {x: 0.00997591, y: -0.000010967255, z: 0}
-    m_Extent: {x: 0.7599753, y: 3.060011, z: 0}
+    m_Center: {x: 0.009978175, y: -0.000009775162, z: 0}
+    m_Extent: {x: 0.7599776, y: 3.06001, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &8148158977676594872
@@ -1910,7 +1910,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5447643882317053207}
-  m_LocalRotation: {x: 0, y: 0, z: -0.99995977, w: 0.008968767}
+  m_LocalRotation: {x: 0, y: 0, z: -0.99995977, w: 0.008970024}
   m_LocalPosition: {x: -0.00000035340491, y: -0.498227, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2393,8 +2393,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1025896137
+  m_SortingLayer: 5
   m_SortingOrder: 27
   m_Sprite: {fileID: 7011817158064099235, guid: 1966e04def77fb84ab3ed446abcb40da,
     type: 3}
@@ -2426,8 +2426,8 @@ MonoBehaviour:
   - {fileID: 3118756778600099835}
   - {fileID: 6112361552545325860}
   m_Bounds:
-    m_Center: {x: 0.005231738, y: -0.0000052452087, z: 0}
-    m_Extent: {x: 1.2252483, y: 3.070006, z: 0}
+    m_Center: {x: 0.005231738, y: -0.0000047683716, z: 0}
+    m_Extent: {x: 1.2252483, y: 3.0700054, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &6049813231415917275
@@ -2514,8 +2514,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1025896137
+  m_SortingLayer: 5
   m_SortingOrder: 37
   m_Sprite: {fileID: -1786652722396309856, guid: 1966e04def77fb84ab3ed446abcb40da,
     type: 3}
@@ -3017,7 +3017,7 @@ GameObject:
   - component: {fileID: 3018812400527011109}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3077,10 +3077,11 @@ MonoBehaviour:
   slideEnergyDecrease: 50
   walkEnergyIncrease: 0
   idleEnergyIncrease: 0.1
+  energyUnlimited: 0
   inputX: 0
   walkSpeed: 1.5
   runSpeed: 5
-  slideSpeed: 15
+  slideSpeed: 10
   sliding: 0
   breath: 0
   playerSpeed: 0
@@ -3143,6 +3144,9 @@ MonoBehaviour:
   handF: {fileID: 4954790616656581174}
   handB: {fileID: 3648603288164203035}
   pistolHand: {fileID: 4689187698856731967}
+  flashlightSwitch: 1
+  flashlight: {fileID: 0}
+  flashlightMask: {fileID: 0}
   pistolTarget: {fileID: 0}
 --- !u!50 &2495346585770116533
 Rigidbody2D:

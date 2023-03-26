@@ -10,8 +10,14 @@ public class Enemy : MonoBehaviour
     public bool isFlipped = false;
 
     [Space(5)]
-    [Header("只要生命值模式")]
+    [Header("只要生命值模式")]//不包含布娃娃系統跟...給孢子怪用的
     public bool onlyHealth = false;
+
+    [Header("孢子怪模式")]
+    public bool sporeMode = false;//未編輯
+
+    [Header("錄影殭屍模式")]
+    public bool recordZombieMode = false;
 
     [Space(5)]
     [Header("攻擊")]

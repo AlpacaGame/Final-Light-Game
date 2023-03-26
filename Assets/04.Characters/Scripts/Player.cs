@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     public float walkEnergyIncrease = 0f;//走路體力增加
     public float idleEnergyIncrease = 1f;//待機體力增加
 
+    [Header("體力值無限模式")]
+    public bool energyUnlimited = false;
+
     [Header("玩家移動")]
     public float inputX = 0;//左右移動值
     public float walkSpeed = 1.4f;//走路速度
@@ -152,9 +155,19 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(energy >= 100)
+        if(energyUnlimited)//體力無限模式
         {
-            energy = 100;
+            if (energy <= 100)
+            {
+                energy = 100;
+            }
+        }
+        else//體力最大值限制
+        {
+            if (energy >= 100)
+            {
+                energy = 100;
+            }
         }
     }
 
