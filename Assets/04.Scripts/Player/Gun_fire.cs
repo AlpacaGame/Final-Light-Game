@@ -102,38 +102,78 @@ public class Gun_fire : MonoBehaviour
     public bool SuperDamageModel = false;
     public int SuperDamage = 200;
 
+    [Space(5)]
+    [Header("錄影模式")]
+    public bool recordModel = false;
+
     IEnumerator RayShoot()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
 
-        if(hitInfo)
+        if(recordModel)
         {
-            Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
-            if(enemy != null)
+            if (hitInfo)
             {
-                SoundManager.instance.BloodSource();
+                /*
+                Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    SoundManager.instance.BloodSource();
 
-                if(SuperDamageModel)
-                {
-                    enemy.TakeDamage(SuperDamage);
+                    if (SuperDamageModel)
+                    {
+                        enemy.TakeDamage(SuperDamage);
+                    }
+                    else
+                    {
+                        enemy.TakeDamage(damage);
+                    }
+
+                    Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
+                    hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
                 }
-                else
-                {
-                    enemy.TakeDamage(damage);
-                }
-                
+                */
+                lineRenderer.SetPosition(0, firePoint.position);
+                lineRenderer.SetPosition(1, hitInfo.point);
                 Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
-                hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
             }
-            lineRenderer.SetPosition(0, firePoint.position);
-            lineRenderer.SetPosition(1, hitInfo.point);
+            else
+            {
+                lineRenderer.SetPosition(0, firePoint.position);
+                lineRenderer.SetPosition(1, firePoint.position + firePoint.right * 100);
+            }
         }
         else
         {
-            lineRenderer.SetPosition(0, firePoint.position);
-            lineRenderer.SetPosition(1, firePoint.position + firePoint.right * 100);
-        }
+            if (hitInfo)
+            {
+                Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    SoundManager.instance.BloodSource();
 
+                    if (SuperDamageModel)
+                    {
+                        enemy.TakeDamage(SuperDamage);
+                    }
+                    else
+                    {
+                        enemy.TakeDamage(damage);
+                    }
+
+                    Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
+                    hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
+                }
+                lineRenderer.SetPosition(0, firePoint.position);
+                lineRenderer.SetPosition(1, hitInfo.point);
+            }
+            else
+            {
+                lineRenderer.SetPosition(0, firePoint.position);
+                lineRenderer.SetPosition(1, firePoint.position + firePoint.right * 100);
+            }
+        }
+        
         lineRenderer.enabled = true;
 
         yield return new WaitForSeconds(0.02f);
