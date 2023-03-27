@@ -13,6 +13,11 @@ public class Enemy_Move : StateMachineBehaviour
     //EnemyLookAtPlayer enemyLookAtPlayer;
     Enemy enemy;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+
+    [Space(5)]
+    [Header("使用新角色Y值定位點")]//怪物追新角色不需要Yoffset，不然會沉入地下
+    public bool NoOffsetY = false;
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -25,10 +30,19 @@ public class Enemy_Move : StateMachineBehaviour
     {
         enemy.LookAtPlayer();
 
-        Vector2 target = new Vector2(player.position.x, player.position.y + playerY_Offset);
-        Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
-        rb.MovePosition(newPos);
-
+        if(NoOffsetY)//給新角色用
+        {
+            Vector2 target = new Vector2(player.position.x, rb.position.y);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+            rb.MovePosition(newPos);
+        }
+        else
+        {
+            Vector2 target = new Vector2(player.position.x, player.position.y + playerY_Offset);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+            rb.MovePosition(newPos);
+        }
+        
         if(Vector2.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
