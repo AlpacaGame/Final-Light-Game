@@ -14871,6 +14871,7 @@ MonoBehaviour:
   bloodEffect: {fileID: 0}
   SuperDamageModel: 0
   SuperDamage: 200
+  recordModel: 0
 --- !u!1 &260867714
 GameObject:
   m_ObjectHideFlags: 0
@@ -48904,6 +48905,7 @@ MonoBehaviour:
   bloodEffect: {fileID: 0}
   SuperDamageModel: 0
   SuperDamage: 200
+  recordModel: 0
 --- !u!1 &1064549627
 GameObject:
   m_ObjectHideFlags: 0
@@ -54469,6 +54471,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2660106567840466458, guid: 1fea94b37995d6846aa17273d749b7c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2660106567840466459, guid: 1fea94b37995d6846aa17273d749b7c9,
         type: 3}
       propertyPath: m_RootOrder
@@ -55434,6 +55441,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPlayer: {fileID: 1637776677}
   Orthographic: {fileID: 45055967}
+  RecordMode: 0
+  rightFirePoint: {fileID: 0}
+  leftFirePoint: {fileID: 0}
 --- !u!1 &1236612901
 GameObject:
   m_ObjectHideFlags: 0
