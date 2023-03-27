@@ -81,11 +81,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public bool NoOffsetY = true;//不做Y值偏移
+
     //執行攻擊位移
     public void AttackMove()
     {
-        _target = new Vector2(player.position.x, player.position.y + PlayerY_Offset);
-        InvokeRepeating("JumpAttackToTarget", 0, 0.01f);
+        if (NoOffsetY)//不做Y值偏移
+        {
+            _target = new Vector2(player.position.x, rb.position.y);
+            InvokeRepeating("JumpAttackToTarget", 0, 0.01f);
+        }
+        else
+        {
+            _target = new Vector2(player.position.x, player.position.y + PlayerY_Offset);
+            InvokeRepeating("JumpAttackToTarget", 0, 0.01f);
+        }
     }
 
     //移動到攻擊目標點
