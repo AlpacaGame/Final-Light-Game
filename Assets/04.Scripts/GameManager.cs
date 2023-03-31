@@ -291,7 +291,11 @@ public class GameManager : MonoBehaviour
             case "標題畫面": //CLEAR
                 SoundManager.instance.Menu_Bgm_SourceMusic();
                 關閉主角 = true;
-                玩家控制.不可重複.標題消除玩家();
+
+                if(玩家控制.不可重複 != null)//增加一層判斷程式才不會出錯
+                {
+                    玩家控制.不可重複.標題消除玩家();
+                }
                 //玩家控制.不可重複.標題消除玩家();標題玩家消除
                 //關卡背景音樂 = "0";
                 break;
