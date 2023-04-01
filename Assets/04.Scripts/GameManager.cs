@@ -147,7 +147,12 @@ public class GameManager : MonoBehaviour
         {
             Gun_fire.彈匣數量++;
         }
-
+        /*
+        else if (Input.GetKey(KeyCode.I))
+        {
+            擁有手槍= true;
+        }
+        */
     }
     
     void 時間控制器()
