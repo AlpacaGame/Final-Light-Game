@@ -5,6 +5,9 @@ using UnityEngine.U2D.IK;
 
 public class Player : MonoBehaviour
 {
+    public static Player 不可重複;//這是我新增的 防銷毀
+    public static bool Story_notmove;//劇情不可亂動
+
     [Header("掛載元件")]
     private Rigidbody2D rg;
     private Animator anim;
@@ -65,24 +68,48 @@ public class Player : MonoBehaviour
 
         rg = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        if (不可重複 != null)//這是我新增的 防銷毀
+        {
+            Destroy(gameObject);
+            return;
+        }
+        不可重複 = this;
+        DontDestroyOnLoad(this);
     }
 
     void Update()
     {
-        PlayerMove();
-        SwitchingHand();
-
-        if(GameManager.擁有手槍)
+        if (GameManager.遊戲主控.關閉主角) //標題消除玩家
         {
-            Flashlight();
-            SwitchingHand();
+            標題消除玩家();
         }
+        if (!Story_notmove)
+        {
+            PlayerMove();
+            SwitchingHand();
+
+            if (GameManager.擁有手槍)
+            {
+                Flashlight();
+                SwitchingHand();
+            }
+        }
+    }
+
+    public void 標題消除玩家()
+    {
+        Destroy(gameObject);
     }
 
     private void FixedUpdate()
     {
         //GunHandFollowCursor();
-        PlayerDirection();
+        if(!Story_notmove)
+        {
+            PlayerDirection();
+        }
+        
     }
 
     //玩家面向 偵測鼠標調整角色左右面向
@@ -149,7 +176,7 @@ public class Player : MonoBehaviour
                     Walk();
                 }
             }
-            else
+            else if(!sliding)
             {
                 Idle();
             }

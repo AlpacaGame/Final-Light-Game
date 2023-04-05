@@ -7,6 +7,7 @@ using Fungus;
 
 public class GameManager : MonoBehaviour
 {
+    public static bool 故事模式 = false;//主角不能動作而已
 
     public static bool 角色死亡;
 
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,11 +91,27 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        執行故事模式();
         查詢BUG();
         重生();
         彈出選單();
         監測是否正在對話();
         時間控制器();
+    }
+
+    void 執行故事模式()
+    {
+        if (故事模式)
+        {
+            Player.Story_notmove = true;
+            Gun_fire.可開火開關 = false;
+        }
+
+        else if (!故事模式)
+        {
+            Player.Story_notmove = false;
+            Gun_fire.可開火開關 = true;
+        }
     }
 
     void 查詢BUG()
@@ -157,7 +175,7 @@ public class GameManager : MonoBehaviour
     
     void 時間控制器()
     {
-        if (!正在時停 && !開啟選單)
+        if (!正在時停 && !開啟選單 &&!故事模式)
         {
             if (慢動作)
             {
@@ -324,12 +342,12 @@ public class GameManager : MonoBehaviour
             開啟選單 = !開啟選單;
         }
 
-        if (開啟選單 && !正在對話)
+        if (開啟選單 && !正在對話 && !故事模式)
         {
             選單介面.SetActive(true);
             Time.timeScale = 0f;
         }
-        else if (!開啟選單 && !正在對話 && !慢動作)
+        else if (!開啟選單 && !正在對話 && !慢動作 && !故事模式)
         {
             選單介面.SetActive(false);
             Time.timeScale = 1f;
@@ -338,7 +356,7 @@ public class GameManager : MonoBehaviour
 
     public void 監測是否正在對話()
     {
-        if(!開啟選單 && !慢動作)
+        if(!開啟選單 && !慢動作 && !故事模式)
         {
             if (正在時停)
             {

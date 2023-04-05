@@ -37,6 +37,7 @@ public class ShowBoos : MonoBehaviour
         if (Boos.gameObject.tag == "Player")
         {
             anim.Play("Roar");
+            //GameManager.故事模式 = true;
         }
     }
 
