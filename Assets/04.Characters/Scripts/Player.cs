@@ -89,11 +89,18 @@ public class Player : MonoBehaviour
             PlayerMove();
             SwitchingHand();
 
-            if (GameManager.局Τも簀)
-            {
-                Flashlight();
-                SwitchingHand();
-            }
+            
+        }
+
+        if (GameManager.局Τも簀)
+        {
+            Flashlight();
+            SwitchingHand();
+        }
+        else if (!GameManager.局Τも簀)
+        {
+            switchingHand = false;
+            anim.SetBool("PickUpWeapon", false);
         }
     }
 
@@ -274,6 +281,7 @@ public class Player : MonoBehaviour
         if (GameManager.局Τも簀)
         {
             switchingHand = true;
+            anim.SetBool("PickUpWeapon", true);
         }
 
         if (switchingHand)

@@ -10036,6 +10036,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2660106567840466458, guid: 1fea94b37995d6846aa17273d749b7c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2660106567840466459, guid: 1fea94b37995d6846aa17273d749b7c9,
         type: 3}
       propertyPath: m_RootOrder
@@ -10654,7 +10659,7 @@ PrefabInstance:
     - target: {fileID: 2660106567840466458, guid: 1fea94b37995d6846aa17273d749b7c9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2660106567840466459, guid: 1fea94b37995d6846aa17273d749b7c9,
         type: 3}
@@ -10811,7 +10816,7 @@ PrefabInstance:
     - target: {fileID: 1224530542385247522, guid: c47581fa47a67d04ea6f01989e1653e9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1224530542385247526, guid: c47581fa47a67d04ea6f01989e1653e9,
         type: 3}

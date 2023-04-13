@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: "\u5C08\u984C\u95DC\u5361\u8A2D\u8A08"
+  productName: "\u6700\u7D42\u767D\u5149_\u57F7\u884C\u6A94"
   defaultCursor: {fileID: 2800000, guid: 7947b5f2aecb5b74592de38da3b2bad1, type: 3}
   cursorHotspot: {x: 30, y: 30}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -152,7 +152,8 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.DefaultCompany.
   buildNumber:
     Standalone: 0
     iPhone: 0
