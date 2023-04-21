@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CursorFollow : MonoBehaviour
 {
@@ -29,10 +30,18 @@ public class CursorFollow : MonoBehaviour
     public float MinimumValueX = -3.5f;
     public float MaxmumValueX = 3.5f;
 
+    [Space(5)]
+    [Header("場景左右邊界限制鼠標位置")]
+    public float[] SceneLeftValueX;
+    public float[] SceneRightValueX;
+
     void Start()
     {
         CursorManager = transform.parent.gameObject;//以父物件作為限制鼠標X值參考
         Player = CursorManager.transform.parent.gameObject;
+
+        SceneLeftValueX = new float[] { -30f, -9f, 1f, 0.5f, 7.5f, 36f, -19f, -1000f, -1000f, -1000f};//寫入場景的邊界
+        SceneRightValueX = new float[] { 30f, 19f, 30f, 14f, 35f, 113.5f, 113.5f, 1000f, 1000f, 1000f};
     }
 
     void Update()
@@ -48,7 +57,7 @@ public class CursorFollow : MonoBehaviour
 
         //限制鼠標位置
 
-        if(CursorAreaModel)
+        if (CursorAreaModel)
         {
             if (transform.position.y < MinimumValueY)
             {
@@ -69,6 +78,28 @@ public class CursorFollow : MonoBehaviour
             {
                 transform.position = new Vector2(MaxmumValueX + Player.transform.position.x, transform.position.y);
             }
+        }
+
+        //偵測當前場景
+        int index = SceneManager.GetActiveScene().buildIndex;
+
+        //限制鼠標不超過場景邊界
+        if (CursorAreaModel)
+        {
+            if (transform.position.x < SceneLeftValueX[index])
+            {
+                transform.position = new Vector2(SceneLeftValueX[index], transform.position.y);
+            }
+
+            if (transform.position.x > SceneRightValueX[index])
+            {
+                transform.position = new Vector2(SceneRightValueX[index], transform.position.y);
+            }
+        }
+
+        if(index > 6)
+        {
+            Debug.Log("鼠標場景邊界限制未指定");
         }
     }
 }
