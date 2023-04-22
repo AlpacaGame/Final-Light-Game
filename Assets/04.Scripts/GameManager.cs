@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public string 關卡背景音樂 = "";
     public bool 關閉主角 = false;
 
+    public static bool UI開關 = false;
+
     [Header("道具數量")]
     public bool 檢查道具擁有狀態 = true;
     public bool 清除所有道具狀態 = false;
@@ -165,6 +167,7 @@ public class GameManager : MonoBehaviour
         {
             Gun_fire.彈匣數量++;
         }
+
         /*
         else if (Input.GetKey(KeyCode.I))
         {
@@ -282,7 +285,7 @@ public class GameManager : MonoBehaviour
 
     public void 返回主選單()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         清除所有道具狀態 = true;
         按鈕點擊繼續選單();
     }
@@ -302,6 +305,7 @@ public class GameManager : MonoBehaviour
                 //objectToEnable.SetActive(false);
                 SoundManager.instance.Background_SourceMusic();
                 關閉主角 = false;
+                UI開關 = true;
                 //關卡背景音樂 = "0";
                 break;
 
@@ -314,8 +318,22 @@ public class GameManager : MonoBehaviour
             case "標題畫面": //CLEAR
                 SoundManager.instance.Menu_Bgm_SourceMusic();
                 關閉主角 = true;
+                UI開關 = false;
 
-                if(玩家控制.不可重複 != null)//增加一層判斷程式才不會出錯
+                if (玩家控制.不可重複 != null)//增加一層判斷程式才不會出錯
+                {
+                    玩家控制.不可重複.標題消除玩家();
+                }
+                //玩家控制.不可重複.標題消除玩家();標題玩家消除
+                //關卡背景音樂 = "0";
+                break;
+
+            case "Logo畫面": //CLEAR
+                SoundManager.instance.Menu_Bgm_SourceMusic();
+                關閉主角 = true;
+                UI開關 = false;
+
+                if (玩家控制.不可重複 != null)//增加一層判斷程式才不會出錯
                 {
                     玩家控制.不可重複.標題消除玩家();
                 }
