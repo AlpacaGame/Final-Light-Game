@@ -40,8 +40,8 @@ public class CursorFollow : MonoBehaviour
         CursorManager = transform.parent.gameObject;//以父物件作為限制鼠標X值參考
         Player = CursorManager.transform.parent.gameObject;
 
-        SceneLeftValueX = new float[] { -30f, -9f, 1f, 0.5f, 7.5f, 36f, -19f, -1000f, -1000f, -1000f};//寫入場景的邊界
-        SceneRightValueX = new float[] { 30f, 19f, 30f, 14f, 35f, 113.5f, 113.5f, 1000f, 1000f, 1000f};
+        SceneLeftValueX = new float[] { -30f, -30f, -9f, 1f, 0.5f, 7.5f, 36f, -19f, -1000f, -1000f, -1000f};//寫入場景的邊界
+        SceneRightValueX = new float[] { 30f, 30f, 19f, 30f, 14f, 35f, 113.5f, 113.5f, 1000f, 1000f, 1000f};
     }
 
     void Update()
