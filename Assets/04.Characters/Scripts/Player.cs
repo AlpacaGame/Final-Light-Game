@@ -39,6 +39,10 @@ public class Player : MonoBehaviour
     public float playerSpeed = 0;
     public float playerMaxSpeed = 5;
 
+    [Header("滑行關閉碰撞塊")]
+    public Collider2D collWalk;
+    public Collider2D collSlide;
+
     [Header("生命值")]
     public int health = 100;
 
@@ -265,6 +269,8 @@ public class Player : MonoBehaviour
         anim.SetBool("isSliding", true);
         energy -= slideEnergyDecrease;
         rg.velocity = new Vector2(direction * slideSpeed, rg.velocity.y);
+        collWalk.enabled = false;
+        collSlide.enabled = true;
     }
 
     //滑行結束
@@ -273,6 +279,8 @@ public class Player : MonoBehaviour
         sliding = false;
         anim.SetBool("isSliding", false);
         rg.velocity = new Vector2(0, rg.velocity.y);
+        collWalk.enabled = true;
+        collSlide.enabled = false;
     }
 
     //切換手臂

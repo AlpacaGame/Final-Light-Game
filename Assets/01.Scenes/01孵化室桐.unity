@@ -154757,7 +154757,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.8}
+  m_Offset: {x: 0.38865352, y: 3.0695899}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -154768,7 +154768,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 3.1}
+  m_Size: {x: 3.193222, y: 0.5608201}
   m_EdgeRadius: 0
 --- !u!70 &2135357560377502529
 CapsuleCollider2D:
@@ -155707,7 +155707,7 @@ MonoBehaviour:
   slideEnergyDecrease: 50
   walkEnergyIncrease: 0
   idleEnergyIncrease: 0.1
-  energyUnlimited: 0
+  energyUnlimited: 1
   inputX: 0
   walkSpeed: 1.5
   runSpeed: 5
@@ -155716,6 +155716,8 @@ MonoBehaviour:
   breath: 0
   playerSpeed: 0
   playerMaxSpeed: 0
+  collWalk: {fileID: 3018812400414358617}
+  collSlide: {fileID: 2112429362550342606}
   health: 100
   _anim: {fileID: 8509573794724872822}
   _colliders:
