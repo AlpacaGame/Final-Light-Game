@@ -132,7 +132,7 @@ public class Enemy : MonoBehaviour
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
-            colInfo.GetComponent<PlayerHealth1>().TakeDamage(attackDamage);
+            colInfo.GetComponent<Player>().TakeDamage(attackDamage);
         }
     }
 
@@ -201,10 +201,5 @@ public class Enemy : MonoBehaviour
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
-    }
-
-    void Update()
-    {
-        
     }
 }

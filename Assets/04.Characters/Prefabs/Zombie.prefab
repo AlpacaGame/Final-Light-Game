@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4662730377799794378}
   - component: {fileID: 1718632497741347651}
   - component: {fileID: 418744011547571766}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 1953650785991438753}
   - component: {fileID: 3037432978472842706}
   - component: {fileID: 868455713475191077}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 9206722345804946708}
   - component: {fileID: 4482105402738241097}
   - component: {fileID: 1510791761374826759}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 6280169598720418965}
   - component: {fileID: 3010463249206710823}
   - component: {fileID: 3522732666882856867}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: B Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,8 +388,8 @@ MonoBehaviour:
   - {fileID: 3462123572173176708}
   - {fileID: 6074354703598817821}
   m_Bounds:
-    m_Center: {x: 0.0041927695, y: 0.0000071525574, z: 0}
-    m_Extent: {x: 0.8956026, y: 4.6300044, z: 0}
+    m_Center: {x: 0.0041980743, y: 0.0000076293945, z: 0}
+    m_Extent: {x: 0.89560264, y: 4.630004, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &3522732666882856867
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 5155442390568740975}
   - component: {fileID: 8246583489637312236}
   - component: {fileID: 1522126338666125011}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: PlayerZombieMix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 9204703662131257410}
   - component: {fileID: 8355115165208079694}
   - component: {fileID: 1542830240168319479}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 996641913445275639}
   - component: {fileID: 4379350382758359249}
   - component: {fileID: 9180868643730817390}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 502364396308254529}
   - component: {fileID: 94054607042059814}
   - component: {fileID: 8167074484470564951}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: B Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,8 +782,8 @@ MonoBehaviour:
   - {fileID: 5977791988501333393}
   - {fileID: 6640522085761502616}
   m_Bounds:
-    m_Center: {x: -0.11008644, y: 0.009547323, z: 0}
-    m_Extent: {x: 2.6400886, y: 0.4202379, z: 0}
+    m_Center: {x: -0.11008978, y: 0.009547323, z: 0}
+    m_Extent: {x: 2.6400833, y: 0.4202379, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &8167074484470564951
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 7035233153057536913}
   - component: {fileID: 1085320954023641886}
   - component: {fileID: 975252508186831028}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +826,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2866794600878362019}
-  m_LocalRotation: {x: 0, y: 0, z: 0.00003539088, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.00003539082, w: 1}
   m_LocalPosition: {x: 2.316893, y: 0.000000071882006, z: 0}
   m_LocalScale: {x: 1.0000004, y: 1.0000004, z: 1}
   m_Children:
@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 7384943604285111464}
   - component: {fileID: 7698694585977290419}
   - component: {fileID: 8454144816515913760}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: F Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,8 +998,8 @@ MonoBehaviour:
   - {fileID: 669915319614347404}
   - {fileID: 5079776404784142855}
   m_Bounds:
-    m_Center: {x: -0.0016404986, y: 0.010004044, z: 0}
-    m_Extent: {x: 0.8483963, y: 4.9799957, z: 0}
+    m_Center: {x: -0.0016390681, y: 0.010004044, z: 0}
+    m_Extent: {x: 0.8483958, y: 4.9799957, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &8454144816515913760
@@ -1028,7 +1028,7 @@ GameObject:
   - component: {fileID: 2921260945091258248}
   - component: {fileID: 6311443182142670296}
   - component: {fileID: 2847948218606786620}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1122,7 @@ GameObject:
   - component: {fileID: 4128629991054909246}
   - component: {fileID: 3383010603875460938}
   - component: {fileID: 4886370297370062901}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1217,7 +1217,7 @@ GameObject:
   - component: {fileID: 5745469539007684643}
   - component: {fileID: 8338044880137365621}
   - component: {fileID: 6570165919592721506}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1337,7 +1337,7 @@ GameObject:
   - component: {fileID: 8124536992128436975}
   - component: {fileID: 293471216469281796}
   - component: {fileID: 1939233588744141859}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1431,7 +1431,7 @@ GameObject:
   - component: {fileID: 4036314396892129689}
   - component: {fileID: 6241835507331422097}
   - component: {fileID: 8372705826562938369}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,7 +1525,7 @@ GameObject:
   - component: {fileID: 2069602463043183277}
   - component: {fileID: 5735491601338777476}
   - component: {fileID: 7185940295097989019}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: B Clothes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1616,8 +1616,8 @@ MonoBehaviour:
   - {fileID: 4171891328938219224}
   - {fileID: 6074354703598817821}
   m_Bounds:
-    m_Center: {x: 0.00997746, y: 0.009992361, z: 0}
-    m_Extent: {x: 0.75997734, y: 3.0600102, z: 0}
+    m_Center: {x: 0.009981036, y: 0.009992361, z: 0}
+    m_Extent: {x: 0.7599809, y: 3.0600102, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &7185940295097989019
@@ -1646,7 +1646,7 @@ GameObject:
   - component: {fileID: 4928599862123067397}
   - component: {fileID: 4029579867701796033}
   - component: {fileID: 5816682209078871055}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: F Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1737,8 +1737,8 @@ MonoBehaviour:
   - {fileID: 5678781511936324417}
   - {fileID: 7719525658817047009}
   m_Bounds:
-    m_Center: {x: -0.007804632, y: 0.0014766455, z: 0}
-    m_Extent: {x: 2.4261994, y: 0.4046601, z: 0}
+    m_Center: {x: -0.0078098774, y: 0.0014766455, z: 0}
+    m_Extent: {x: 2.4262, y: 0.4046601, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &5816682209078871055
@@ -1767,7 +1767,7 @@ GameObject:
   - component: {fileID: 7101132631189533623}
   - component: {fileID: 5200659271207843584}
   - component: {fileID: 4921573885797076549}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1781,7 +1781,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6427884566509225012}
-  m_LocalRotation: {x: 0, y: 0, z: -0.99995977, w: 0.008970024}
+  m_LocalRotation: {x: 0, y: 0, z: -0.99995977, w: 0.00897008}
   m_LocalPosition: {x: -0.00000035340491, y: -0.498227, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1862,7 +1862,7 @@ GameObject:
   - component: {fileID: 4768930273326079208}
   - component: {fileID: 597902529692017336}
   - component: {fileID: 325703043542331485}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1956,7 +1956,7 @@ GameObject:
   - component: {fileID: 7201309152775517220}
   - component: {fileID: 6743655750040953280}
   - component: {fileID: 7818428792067331787}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2047,7 +2047,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223915935660851423}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Hand-F-IK_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2078,7 +2078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7223915935843390824}
   - component: {fileID: 7223915935843390827}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Leg-F-IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2140,7 +2140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223915936230247888}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: IK-Targets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2172,7 +2172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223915936471888399}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Hand-IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2205,7 +2205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7223915936493544678}
   - component: {fileID: 7223915936493544697}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Hand-B-IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2267,7 +2267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223915936703166428}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2306,7 +2306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7223915936731453683}
   - component: {fileID: 7223915936731453682}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Leg-B-IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2369,7 +2369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7223915936775229320}
   - component: {fileID: 7223915936775229323}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Hand-F-IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2436,7 +2436,7 @@ GameObject:
   - component: {fileID: 6170846840544057887}
   - component: {fileID: 4183405155242572161}
   - component: {fileID: 7773670628214966698}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2499,7 +2499,7 @@ MonoBehaviour:
   attackRange: 1
   attackMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   attackSpeed: 0.3
   PlayerY_Offset: -0.98
   health: 100
@@ -2561,6 +2561,7 @@ MonoBehaviour:
   - {fileID: 7223915935843390827}
   - {fileID: 7223915936731453682}
   _CCDsolvers: []
+  NoOffsetY: 1
 --- !u!50 &6170846840544057887
 Rigidbody2D:
   serializedVersion: 4
@@ -2633,7 +2634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223915937166234505}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Leg-F-IK_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2663,7 +2664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223915937206252448}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Bones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2696,7 +2697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223915937381770304}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Leg-B-IK_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2726,7 +2727,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223915937647262182}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Hand-B-IK_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2759,7 +2760,7 @@ GameObject:
   - component: {fileID: 3869893064349717392}
   - component: {fileID: 8895868170586333449}
   - component: {fileID: 5385219299631409331}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2853,7 +2854,7 @@ GameObject:
   - component: {fileID: 15733728230827074}
   - component: {fileID: 6484543912636492033}
   - component: {fileID: 3295388241472039443}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: bone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2926,7 +2927,7 @@ GameObject:
   - component: {fileID: 4792074730243720035}
   - component: {fileID: 7307819103237536847}
   - component: {fileID: 4708729876225000440}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: F Clothes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3017,8 +3018,8 @@ MonoBehaviour:
   - {fileID: 4171891328938219224}
   - {fileID: 5079776404784142855}
   m_Bounds:
-    m_Center: {x: 0.005234003, y: -0.00000333786, z: 0}
-    m_Extent: {x: 1.2252469, y: 3.0700045, z: 0}
+    m_Center: {x: 0.0052354336, y: -0.00000333786, z: 0}
+    m_Extent: {x: 1.2252483, y: 3.0700045, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &4708729876225000440
@@ -3047,7 +3048,7 @@ GameObject:
   - component: {fileID: 974133552247857751}
   - component: {fileID: 422303217958566322}
   - component: {fileID: 1566563835806771943}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3136,7 +3137,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 6833118522105493182}
   m_Bounds:
-    m_Center: {x: 0.009998918, y: 0.009029746, z: 0}
+    m_Center: {x: 0.010003686, y: 0.009029746, z: 0}
     m_Extent: {x: 1.3799996, y: 1.4631696, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
