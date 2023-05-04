@@ -9403,6 +9403,11 @@ PrefabInstance:
       propertyPath: black
       value: 
       objectReference: {fileID: 1348411489}
+    - target: {fileID: 7717966176754270397, guid: bd96f55ca9718e04f9dcfb6f8e063042,
+        type: 3}
+      propertyPath: index
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9017004053115559064, guid: bd96f55ca9718e04f9dcfb6f8e063042,
         type: 3}
       propertyPath: talkFlowchart
@@ -19100,6 +19105,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5977791988501333393, guid: df0906a410e6ca549928d5818513d684,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00003539088
+      objectReference: {fileID: 0}
     - target: {fileID: 6074354703598817821, guid: df0906a410e6ca549928d5818513d684,
         type: 3}
       propertyPath: m_LocalRotation.w
