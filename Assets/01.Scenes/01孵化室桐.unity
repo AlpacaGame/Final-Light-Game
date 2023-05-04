@@ -155440,7 +155440,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8569510674817552323}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -155716,7 +155716,7 @@ MonoBehaviour:
   breath: 0
   playerSpeed: 0
   playerMaxSpeed: 0
-  collWalk: {fileID: 3018812400414358617}
+  collWalk: {fileID: 8569510674817552324}
   collSlide: {fileID: 2112429362550342606}
   health: 100
   _anim: {fileID: 8509573794724872822}
@@ -158656,6 +158656,7 @@ GameObject:
   - component: {fileID: 2495346585941497033}
   - component: {fileID: 2112429362550342606}
   - component: {fileID: 3018812400414358617}
+  - component: {fileID: 8569510674817552324}
   m_Layer: 6
   m_Name: Player (v1)
   m_TagString: Player
@@ -158663,6 +158664,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!70 &8569510674817552324
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569510674817552323}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.25}
+  m_Size: {x: 0.5, y: 2.5}
+  m_Direction: 0
 --- !u!4 &8569510674916028588
 Transform:
   m_ObjectHideFlags: 0
