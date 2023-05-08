@@ -44,6 +44,7 @@ public class Gun_fire : MonoBehaviour
         {
             子彈 = 彈匣;
             彈匣數量 -= 1;
+            SoundManager.instance.ReloadSource();
         }
 
         if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == -1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
