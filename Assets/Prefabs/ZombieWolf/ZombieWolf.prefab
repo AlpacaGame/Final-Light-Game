@@ -1712,6 +1712,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   isFlipped: 0
+  onlyHealth: 0
+  sporeMode: 0
+  recordZombieMode: 0
   attackDamage: 20
   attackOffset: {x: 1.2, y: 1, z: 0}
   attackRange: 1
@@ -1720,10 +1723,12 @@ MonoBehaviour:
     m_Bits: 256
   attackSpeed: 0.1
   PlayerY_Offset: -0.98
-  health: 30
+  health: 150
   disappearTime: 1
   deathEffect: {fileID: 5407103900422474035, guid: fdc75e01eaafaf04bba4db7f95363a6a,
     type: 3}
+  BossHealthModel: 0
+  Boss: {fileID: 0}
   _anim: {fileID: 5280636533163385703}
   _colliders:
   - {fileID: 2903800141754989649}
@@ -1791,6 +1796,7 @@ MonoBehaviour:
   - {fileID: 3276333187586907270}
   _CCDsolvers:
   - {fileID: 3276333187291742724}
+  NoOffsetY: 1
 --- !u!50 &873937945784318176
 Rigidbody2D:
   serializedVersion: 4
