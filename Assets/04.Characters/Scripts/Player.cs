@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     public bool breath = false;
     public float playerSpeed = 0;
     public float playerMaxSpeed = 5;
+    public bool CanSlideAgain = true;//滑行間隔使用
+    public float SlideAgainTime = 3;//滑行間隔時間
 
     [Header("滑行關閉碰撞塊")]
     public Collider2D collWalk;
@@ -161,7 +163,7 @@ public class Player : MonoBehaviour
 
         if(health > 0)
         {
-            if(Input.GetKeyDown(KeyCode.C) && energy > slideEnergyDecrease && !sliding)
+            if(Input.GetKeyDown(KeyCode.C) && energy > slideEnergyDecrease && !sliding && CanSlideAgain)
             {
                 Slide();
             }
@@ -265,6 +267,7 @@ public class Player : MonoBehaviour
     //滑行
     public void Slide()
     {
+        CanSlideAgain = false;
         sliding = true;
         anim.SetBool("isSliding", true);
         energy -= slideEnergyDecrease;
@@ -276,11 +279,17 @@ public class Player : MonoBehaviour
     //滑行結束
     public void SlideOver()
     {
+        Invoke("YouCanSlideAgain", SlideAgainTime);
         sliding = false;
         anim.SetBool("isSliding", false);
         rg.velocity = new Vector2(0, rg.velocity.y);
         collWalk.enabled = true;
         collSlide.enabled = false;
+    }
+
+    public void YouCanSlideAgain()
+    {
+        CanSlideAgain = true;
     }
 
     //切換手臂
