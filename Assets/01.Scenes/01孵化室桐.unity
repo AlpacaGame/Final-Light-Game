@@ -105427,6 +105427,36 @@ Transform:
   m_Father: {fileID: 2118305714}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1473644405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1473644406}
+  m_Layer: 6
+  m_Name: "\u73A9\u5BB6\u5075\u6E2C\u9EDE"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1473644406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473644405}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8569510674817552320}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473881609
 GameObject:
   m_ObjectHideFlags: 0
@@ -155700,6 +155730,8 @@ MonoBehaviour:
   breath: 0
   playerSpeed: 0
   playerMaxSpeed: 0
+  CanSlideAgain: 1
+  SlideAgainTime: 3
   collWalk: {fileID: 8569510674817552324}
   collSlide: {fileID: 2112429362550342606}
   health: 100
@@ -158623,6 +158655,7 @@ Transform:
   - {fileID: 2442740689817822255}
   - {fileID: 9160039785338163076}
   - {fileID: 1143037579}
+  - {fileID: 1473644406}
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
