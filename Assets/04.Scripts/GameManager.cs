@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        執行故事模式();
+        //執行故事模式();
         查詢BUG();
         重生();
         彈出選單();
@@ -163,6 +163,10 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(6);
         }
+        else if (Input.GetKey(KeyCode.Alpha6))
+        {
+            SceneManager.LoadScene(7);
+        }
         else if (Input.GetKey(KeyCode.Z))
         {
             Gun_fire.彈匣數量++;
@@ -178,7 +182,7 @@ public class GameManager : MonoBehaviour
     
     void 時間控制器()
     {
-        if (!正在時停 && !開啟選單 &&!故事模式)
+        if (!正在時停 && !開啟選單)
         {
             if (慢動作)
             {
@@ -360,29 +364,33 @@ public class GameManager : MonoBehaviour
             開啟選單 = !開啟選單;
         }
 
-        if (開啟選單 && !正在對話 && !故事模式)
+        if (開啟選單 && !正在對話 )
         {
             選單介面.SetActive(true);
             Time.timeScale = 0f;
+            Gun_fire.可開火開關 = false;
         }
-        else if (!開啟選單 && !正在對話 && !慢動作 && !故事模式)
+        else if (!開啟選單 && !正在對話)
         {
             選單介面.SetActive(false);
             Time.timeScale = 1f;
+            Gun_fire.可開火開關 = true;
         }
     }
 
     public void 監測是否正在對話()
     {
-        if(!開啟選單 && !慢動作 && !故事模式)
+        if(!開啟選單)
         {
             if (正在時停)
             {
                 Time.timeScale = 0f;
+                Gun_fire.可開火開關 = false;
             }
             else if (!正在時停)
             {
                 Time.timeScale = 1f;
+                Gun_fire.可開火開關 = true;
             }
         }
         
