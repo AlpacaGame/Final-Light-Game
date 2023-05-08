@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rg;
     private Animator anim;
 
+
     [Header("玩家面向")]
     public Camera Orthographic;//平行攝影機
     public static int direction = 1;//左右面向(向右=1，向左=-1)
@@ -41,12 +42,14 @@ public class Player : MonoBehaviour
     public bool CanSlideAgain = true;//滑行間隔使用
     public float SlideAgainTime = 3;//滑行間隔時間
 
+
     [Header("滑行關閉碰撞塊")]
     public Collider2D collWalk;
     public Collider2D collSlide;
 
     [Header("生命值")]
     public int health = 100;
+
 
     [Space(5)]
     [Header("Ragdoll切換需要的物件")]
@@ -94,8 +97,6 @@ public class Player : MonoBehaviour
         {
             PlayerMove();
             SwitchingHand();
-
-            
         }
 
         if (GameManager.擁有手槍)
@@ -118,7 +119,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         //GunHandFollowCursor();
-        if(!Story_notmove)
+        if (!Story_notmove)
         {
             PlayerDirection();
         }
@@ -163,9 +164,10 @@ public class Player : MonoBehaviour
 
         if(health > 0)
         {
-            if(Input.GetKeyDown(KeyCode.C) && energy > slideEnergyDecrease && !sliding && CanSlideAgain)
+            if(Input.GetKeyDown(KeyCode.C) && !sliding && CanSlideAgain)
             {
                 Slide();
+                PlayerHealth.玩家體力 -= 3;
             }
             else if (inputX > 0 && !sliding)//向右
             {
@@ -244,7 +246,7 @@ public class Player : MonoBehaviour
     {
         rg.velocity = new Vector2(inputX * runSpeed, rg.velocity.y);
         //anim.Play("Run");
-        energy -= runEnergyDecrease;//能量消耗
+        //energy -= runEnergyDecrease;//能量消耗
 
         anim.SetBool("isWalking", false);
         anim.SetBool("isRunning", true);
@@ -285,6 +287,7 @@ public class Player : MonoBehaviour
         rg.velocity = new Vector2(0, rg.velocity.y);
         collWalk.enabled = true;
         collSlide.enabled = false;
+        PlayerHealth.回復體力=true;
     }
 
     public void YouCanSlideAgain()

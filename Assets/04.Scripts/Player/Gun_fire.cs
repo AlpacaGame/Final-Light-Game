@@ -40,7 +40,7 @@ public class Gun_fire : MonoBehaviour
     void Update()
     {
         觀看子彈數量 = 子彈;
-        if (彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R))
+        if (彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R) && 可開火開關)
         {
             子彈 = 彈匣;
             彈匣數量 -= 1;

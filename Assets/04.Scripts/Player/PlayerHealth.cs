@@ -9,14 +9,15 @@ public class PlayerHealth : MonoBehaviour
     public static bool 回復體力;
     public bool 回復體力觀看;
 
-    public float 回復體力速度 = 0.0005f;
+    public float 回復體力速度 = 1;
 
     public int 玩家生命最大值 = 100;
     public static int 玩家生命 = 0;
     public int 觀看生命 = 0;
 
-    public int 玩家體力最大值 = 100;
+    public int 玩家體力最大值 = 3;
     public static float 玩家體力 = 0;
+    public float 觀看體力 = 0;
 
     public int 玩家子彈最大值 = 8;
     public static int 玩家子彈 = 0;
@@ -44,6 +45,26 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (血量量度計 == null)
+        {
+            血量量度計 = GameObject.Find("血量條(我設一條命)(底下的東西我隱藏了)").GetComponent<LifeBar>();
+        }
+        if (體力量度計 == null)
+        {
+            體力量度計 = GameObject.Find("體力條(底下的東西我隱藏了)").GetComponent<StrengthBar>();
+        }
+        if (子彈量度計 == null)
+        {
+            子彈量度計 = GameObject.Find("子彈條").GetComponent<子彈UI>();
+        }
+
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            玩家生命 -= 20;
+            耗力(3);
+            
+        }
+
         損血機制();
         耗力機制();
         //滑鏟消耗();
@@ -52,10 +73,10 @@ public class PlayerHealth : MonoBehaviour
 
     void 損血機制()
     {
-        //血量量度計.血量剩餘(玩家生命);
+        血量量度計.血量剩餘(玩家生命);
         觀看生命 = 玩家生命;
-        if (血量量度計 == null)
-            血量量度計 = GameObject.Find("血量條(我設一條命)(底下的東西我隱藏了)").GetComponent<LifeBar>();
+        
+
         if (玩家生命 <= 0)
         {
             GameManager.角色死亡 = true;
@@ -75,10 +96,10 @@ public class PlayerHealth : MonoBehaviour
 
     void 耗力機制()
     {
-        if (體力量度計 == null)
-            體力量度計 = GameObject.Find("體力條(底下的東西我隱藏了)").GetComponent<StrengthBar>();
-
         體力量度計.體力剩餘(玩家體力);
+        觀看體力 = 玩家體力;
+        
+            
 
         if (回復體力)
         {
@@ -89,10 +110,13 @@ public class PlayerHealth : MonoBehaviour
         if (玩家體力 <= 0)
         {
             玩家體力 = 0;
+            回復體力 = true;
         }
-        else if (玩家體力 >= 100)
+        else if (玩家體力 >= 玩家體力最大值)
         {
-            玩家體力 = 100;
+            玩家體力 = 玩家體力最大值;
+            回復體力 = false;
+            回復體力觀看 = false;
         }
     }
     /*
@@ -106,10 +130,7 @@ public class PlayerHealth : MonoBehaviour
     */
     void 子彈消耗機制()
     {
-        if (子彈量度計 == null)
-        {
-            子彈量度計 = GameObject.Find("子彈條").GetComponent<子彈UI>();
-        }
+        
             
         預計消耗子彈量 = Gun_fire.子彈;
 
@@ -136,7 +157,7 @@ public class PlayerHealth : MonoBehaviour
     public void 耗力(float 傷害值)
     {
 
-        if (玩家體力 > 0 && 玩家體力 <= 100)
+        if (玩家體力 <= 0 && 玩家體力 >= 3)
         {
             玩家體力 -= 傷害值;
             體力量度計.體力剩餘(玩家體力);
@@ -145,9 +166,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void 回力(float 修復值)
     {
-        if (玩家體力 > -999 && 玩家體力 <= 100)
+        if (玩家體力 > -999 && 玩家體力 < 3)
         {
-            玩家體力 += 修復值;
+            玩家體力 += 修復值 * Time.fixedDeltaTime;
             體力量度計.體力剩餘(玩家體力);
         }
     }
