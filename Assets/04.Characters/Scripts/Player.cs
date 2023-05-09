@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     public Collider2D collSlide;
 
     [Header("生命值")]
-    public int health = 100;
+    public static int health = 100;
 
 
     [Space(5)]
@@ -135,17 +135,22 @@ public class Player : MonoBehaviour
 
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
-        if (rotationZ < -90 || rotationZ > 90)
-        {
-            direction = -1;
-            transform.localScale = new Vector3(direction, 1, 1);
-        }
 
-        else if (rotationZ > -90 || rotationZ < 90)
+        if(health > 0)
         {
-            direction = 1;
-            transform.localScale = new Vector3(direction, 1, 1);
+            if (rotationZ < -90 || rotationZ > 90)
+            {
+                direction = -1;
+                transform.localScale = new Vector3(direction, 1, 1);
+            }
+
+            else if (rotationZ > -90 || rotationZ < 90)
+            {
+                direction = 1;
+                transform.localScale = new Vector3(direction, 1, 1);
+            }
         }
+        
     }
 
     /*
@@ -304,13 +309,13 @@ public class Player : MonoBehaviour
             anim.SetBool("PickUpWeapon", true);
         }
 
-        if (switchingHand)
+        if (switchingHand && health > 0)
         {
             pistolHand.SetActive(true);
             handF.SetActive(false);
             handB.SetActive(false);
         }
-        else if (!switchingHand)
+        else if (!switchingHand && health > 0)
         {
             pistolHand.SetActive(false);
             handF.SetActive(true);
@@ -370,6 +375,8 @@ public class Player : MonoBehaviour
         {
             solver.weight = ragdollOn ? 0 : 1;
         }
+
+        
     }
 
     //接收傷害
@@ -379,6 +386,7 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
+            pistolHand.SetActive(false);
             Die();
         }
     }

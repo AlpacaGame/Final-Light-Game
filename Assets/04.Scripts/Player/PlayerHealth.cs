@@ -58,13 +58,16 @@ public class PlayerHealth : MonoBehaviour
             子彈量度計 = GameObject.Find("子彈條").GetComponent<子彈UI>();
         }
 
+        /*
         if(Input.GetKeyDown(KeyCode.N))
         {
             玩家生命 -= 20;
             耗力(3);
             
         }
+        */
 
+        玩家生命 = Player.health;
         損血機制();
         耗力機制();
         //滑鏟消耗();
@@ -80,7 +83,7 @@ public class PlayerHealth : MonoBehaviour
         if (玩家生命 <= 0)
         {
             GameManager.角色死亡 = true;
-            Destroy(gameObject);
+            //Destroy(gameObject);
             //GameManager.死亡重生 = true;
         }
 

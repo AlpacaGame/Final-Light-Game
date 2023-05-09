@@ -134,6 +134,9 @@ public class GameManager : MonoBehaviour
             擁有門禁卡 = false;
             擁有密碼鎖密碼 = false;
             擁有手槍 = false;
+            Player.health = 100;
+            Gun_fire.子彈 = 8;
+
             清除所有道具狀態 = false;
         }
 
@@ -235,6 +238,7 @@ public class GameManager : MonoBehaviour
             PlayerHealth.玩家生命 -= 1;
         }
 
+        /*
         if(角色死亡)
         {
             //Destroy(玩家, 0.5f);
@@ -242,7 +246,7 @@ public class GameManager : MonoBehaviour
             Enemy_Zombie.看玩家死了沒 = true;
             Invoke("延遲重生", 0f);
         }
-
+        */
         
     }
 

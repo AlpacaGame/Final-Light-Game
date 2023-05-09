@@ -72482,7 +72482,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -157.72726
     y: 74
-    width: 92
+    width: 93.2
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -154597,6 +154597,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player (v1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443294011538376898, guid: 3551acb5fc242ec4983e6b493249b0bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6116507440531474430, guid: 3551acb5fc242ec4983e6b493249b0bd,
+        type: 3}
+      propertyPath: SlideAgainTime
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3551acb5fc242ec4983e6b493249b0bd, type: 3}
