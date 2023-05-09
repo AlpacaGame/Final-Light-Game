@@ -10,6 +10,7 @@ public class TalkFlowchart : MonoBehaviour
     public bool 撿道具觸發;
     public bool 直接觸發;
     public bool 觸發消失;
+    public bool 防Bug重複對話;
 
     public bool 打不開的門;
 
@@ -52,6 +53,11 @@ public class TalkFlowchart : MonoBehaviour
         if(GameManager.擁有門禁卡)
         {
             打不開的門 = false;
+        }
+
+        if(GameManager.擁有門禁卡 && GameManager.擁有密碼鎖密碼 && 防Bug重複對話)
+        {
+            Destroy(gameObject);
         }
     }
 

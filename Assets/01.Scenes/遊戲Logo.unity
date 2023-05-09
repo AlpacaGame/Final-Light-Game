@@ -870,7 +870,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462959622}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: a3153002d4f360943929b3208144dab1, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 387b48fafb7577e47a9f469d91257c88, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -957,7 +957,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462959622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0306, y: -0.0891, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 17.037245, y: 9.463689, z: 9.7333}
   m_Children: []
   m_Father: {fileID: 0}
@@ -975,6 +975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7942f825290b941ac0c26ea1e174f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "\u6309\u4E0B\u4EFB\u610F\u9375\u8DF3\u904E": 0
+  "\u6A19\u984C": 0
+  "\u9810\u544A\u7247": 0
+  Logo: 1
   "\u66F4\u6539\u95DC\u5361\u540D\u7A31": "\u9078\u55AE\u4ECB\u9762"
   "\u6642\u9593\u7D50\u675F": 7
 --- !u!1 &587884469
@@ -16018,6 +16022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932aa20e4e605cb47bdea67b9c33c45c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "\u6E2C\u8A66\u6A19\u984C\u97F3\u6A02": 0
   "\u6A19\u984C\u80CC\u666F\u97F3\u6A02": "Logo\u756B\u9762"
 --- !u!4 &1185581480
 Transform:

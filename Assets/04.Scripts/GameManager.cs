@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //執行故事模式();
+        執行故事模式();
         查詢BUG();
         重生();
         彈出選單();
@@ -327,6 +327,7 @@ public class GameManager : MonoBehaviour
                 SoundManager.instance.Menu_Bgm_SourceMusic();
                 關閉主角 = true;
                 UI開關 = false;
+                SoundManager.MuteMusic = false;
 
                 if (玩家控制.不可重複 != null)//增加一層判斷程式才不會出錯
                 {
@@ -337,7 +338,8 @@ public class GameManager : MonoBehaviour
                 break;
 
             case "Logo畫面": //CLEAR
-                SoundManager.instance.Menu_Bgm_SourceMusic();
+                //SoundManager.instance.Menu_Bgm_SourceMusic();
+                SoundManager.MuteMusic = true;
                 關閉主角 = true;
                 UI開關 = false;
 
@@ -374,7 +376,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
             Gun_fire.可開火開關 = false;
         }
-        else if (!開啟選單 && !正在對話)
+        else if (!開啟選單 && !正在對話 && !keypad.keypadScreen)
         {
             選單介面.SetActive(false);
             Time.timeScale = 1f;

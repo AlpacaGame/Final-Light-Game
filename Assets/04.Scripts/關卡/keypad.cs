@@ -21,7 +21,7 @@ public class keypad : MonoBehaviour
     //public AudioSource audioData;
 
     //Local private variables
-    private bool keypadScreen;
+    public static bool keypadScreen;
     private float btnClicked = 0;
     private float numOfGuesses;
 

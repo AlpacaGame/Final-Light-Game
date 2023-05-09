@@ -93,11 +93,16 @@ public class Player : MonoBehaviour
         {
             標題消除玩家();
         }
+        if (Story_notmove)
+        {
+            Idle();
+        }
         if (!Story_notmove)
         {
             PlayerMove();
             SwitchingHand();
         }
+        
 
         if (GameManager.擁有手槍)
         {

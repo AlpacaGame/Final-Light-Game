@@ -7,6 +7,9 @@ public class ShowBoos : MonoBehaviour
     public GameObject MainCam;
     private Animator anim;
 
+    public static bool 動畫開關;
+    public GameObject 爆炸;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -21,25 +24,24 @@ public class ShowBoos : MonoBehaviour
             RippleEffect.PlayRippleEffect(3, 0.6f, 0.6f);
         }
         */
+        執行動畫();
     }
 
     void 執行動畫()
     {
-
+        if(動畫開關)
+        {
+            anim.Play("Roar");
+            GameManager.故事模式 = true;
+            動畫開關 = false;
+        }
     }
     void 結束掉頭()
     {
 
     }
 
-    void OnTriggerEnter2D(Collider2D Boos)
-    {
-        if (Boos.gameObject.tag == "Player")
-        {
-            anim.Play("Roar");
-            //GameManager.故事模式 = true;
-        }
-    }
+
 
     public void 怒吼()
     {
@@ -53,5 +55,12 @@ public class ShowBoos : MonoBehaviour
     public void 移動()
     {
         SoundManager.instance.EnemyBoos_MoveSource();
+    }
+
+    public void 衝撞聲()
+    {
+        GameManager.故事模式 = false;
+        SoundManager.instance.EnemyBoss_ExplosionSource();
+        爆炸.SetActive(true);
     }
 }
