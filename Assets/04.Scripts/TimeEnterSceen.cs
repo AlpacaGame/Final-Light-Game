@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class TimeEnterSceen : MonoBehaviour
 {
+
+    public bool 按下任意鍵跳過;
+    public bool 標題,預告片,Logo;
     public string 更改關卡名稱;
     public float 時間結束;
 
@@ -19,10 +22,22 @@ public class TimeEnterSceen : MonoBehaviour
     void Update()
     {
         時間結束 -= Time.deltaTime;
-        if (時間結束 <= 0)
+
+        if(Logo)
         {
-            結束播放回標題();
+            if (時間結束 <= 0 || (Input.anyKey))
+            {
+                結束播放回標題();
+            }
         }
+        if (標題)
+        {
+            if (時間結束 <= 0)
+            {
+                結束播放回標題();
+            }
+        }
+
     }
 
     public void 結束播放回標題()
