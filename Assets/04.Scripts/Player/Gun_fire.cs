@@ -30,127 +30,6 @@ public class Gun_fire : MonoBehaviour
 
     public static bool 連射開關;
 
-    void Start()
-    {
-        if(InfiniteAmmoModel)
-        {
-            彈匣數量 += 10000;
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        觀看子彈數量 = 子彈;
-        if (彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R) && 可開火開關)
-        {
-            子彈 = 彈匣;
-            彈匣數量 -= 1;
-            SoundManager.instance.ReloadSource();
-        }
-
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            連射開關 = !連射開關;
-        }
-
-        if(連射開關)
-        {
-            if (子彈 >= 1 && Input.GetMouseButton(0) && 新Pivot.玩家面相 == -1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
-            {
-                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
-                Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
-                //Instantiate(子彈預設物, 槍口pos, 左槍口.transform.rotation);
-                StartCoroutine(RayShoot());
-                //Instantiate(彈殼動畫, 槍口pos, 左槍口.transform.rotation);
-                //Instantiate(槍口亮光, 槍口pos, 左槍口.transform.rotation);
-                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
-                Instantiate(槍口亮光, 槍口pos, transform.rotation);
-                子彈 -= 1;
-                SoundManager.instance.FireSource();
-
-
-            }
-
-            else if (子彈 >= 1 && Input.GetMouseButton(0) && 新Pivot.玩家面相 == 1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
-            {
-                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
-                Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
-                //Instantiate(子彈預設物, 槍口pos, 右槍口.transform.rotation);
-                StartCoroutine(RayShoot());
-                //Instantiate(彈殼動畫, 槍口pos, 右槍口.transform.rotation);
-                //Instantiate(槍口亮光, 槍口pos, 右槍口.transform.rotation);
-                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
-                Instantiate(槍口亮光, 槍口pos, transform.rotation);
-                子彈 -= 1;
-                SoundManager.instance.FireSource();
-
-            }
-            else if (子彈 == 0 && Input.GetMouseButton(0))
-            {
-                SoundManager.instance.No_BulletsSource();
-
-                子彈 = 彈匣;
-                彈匣數量 -= 1;
-                SoundManager.instance.ReloadSource();
-            }
-        }
-        else if (!連射開關)
-        {
-            if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == -1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
-            {
-                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
-                Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
-                //Instantiate(子彈預設物, 槍口pos, 左槍口.transform.rotation);
-                StartCoroutine(RayShoot());
-                //Instantiate(彈殼動畫, 槍口pos, 左槍口.transform.rotation);
-                //Instantiate(槍口亮光, 槍口pos, 左槍口.transform.rotation);
-                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
-                Instantiate(槍口亮光, 槍口pos, transform.rotation);
-                子彈 -= 1;
-                SoundManager.instance.FireSource();
-
-
-            }
-
-            else if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == 1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
-            {
-                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
-                Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
-                //Instantiate(子彈預設物, 槍口pos, 右槍口.transform.rotation);
-                StartCoroutine(RayShoot());
-                //Instantiate(彈殼動畫, 槍口pos, 右槍口.transform.rotation);
-                //Instantiate(槍口亮光, 槍口pos, 右槍口.transform.rotation);
-                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
-                Instantiate(槍口亮光, 槍口pos, transform.rotation);
-                子彈 -= 1;
-                SoundManager.instance.FireSource();
-
-            }
-            else if (子彈 == 0 && Input.GetMouseButtonDown(0))
-            {
-                //SoundManager.instance.No_BulletsSource();
-
-                子彈 = 彈匣;
-                彈匣數量 -= 1;
-                SoundManager.instance.ReloadSource();
-            }
-        }
-        
-
-        if (新Pivot.玩家面相 == 1)
-        {
-            //右槍口.SetActive(true);
-            //左槍口.SetActive(false);
-        }
-
-        else if (新Pivot.玩家面相 == -1)
-        {
-            //左槍口.SetActive(true);
-            //右槍口.SetActive(false);
-        }
-    }
-
     [Header("Raycast物件")]
     public Transform firePoint;
     public int damage = 20;
@@ -167,6 +46,148 @@ public class Gun_fire : MonoBehaviour
     [Header("錄影模式")]
     public bool recordModel = false;
 
+    [Space(5)]
+    [Header("步槍")]
+    public bool rifleMode;//可切換步槍時開啟
+    public int weaponNum = 0;//目前切換到的武器編號
+
+    void Start()
+    {
+        rifleMode = true;
+
+        if (InfiniteAmmoModel)
+        {
+            彈匣數量 += 10000;
+        }
+    }
+
+    void Update()
+    {
+        觀看子彈數量 = 子彈;
+
+        //按下R鍵，裝子彈
+        if (彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R) && 可開火開關)
+        {
+            子彈 = 彈匣;
+            彈匣數量 -= 1;
+            SoundManager.instance.ReloadSource();
+        }
+
+        //按下O鍵，開啟連射模式
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            連射開關 = !連射開關;
+        }
+
+        //按下Q鍵，切換武器(步槍&手槍)
+        if(rifleMode && Input.GetKeyDown(KeyCode.Q))
+        {
+            if(weaponNum == 0)
+            {
+                weaponNum = 1;
+            }
+            else if (weaponNum == 1)
+            {
+                weaponNum = 0;
+            }
+            else
+            {
+                Debug.Log("未知的武器編號");
+            }
+        }
+
+        //按下滑鼠左鍵射擊
+        //手槍
+        if (weaponNum == 0)
+        {
+            //開火左
+            if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == -1 && 可開火開關)
+            {
+                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
+                Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
+                StartCoroutine(RayShoot());
+                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
+                Instantiate(槍口亮光, 槍口pos, transform.rotation);
+                子彈 -= 1;
+                SoundManager.instance.FireSource();
+            }
+            //開火右
+            else if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == 1 && 可開火開關)
+            {
+                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
+                Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
+                StartCoroutine(RayShoot());
+                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
+                Instantiate(槍口亮光, 槍口pos, transform.rotation);
+                子彈 -= 1;
+                SoundManager.instance.FireSource();
+            }
+            //沒子彈跳槍機
+            else if (子彈 == 0 && Input.GetMouseButtonDown(0))
+            {
+                子彈 -= 1;
+                SoundManager.instance.No_BulletsSource();
+            }
+            //按左鍵裝子彈
+            else if (子彈 <= -1 && Input.GetMouseButtonDown(0))
+            {
+                子彈 = 彈匣;
+                彈匣數量 -= 1;
+                SoundManager.instance.ReloadSource();
+            }
+        }
+        //步槍
+        else if (weaponNum == 1)
+        {
+            //開火左
+            if (子彈 >= 1 && Input.GetMouseButton(0) && 新Pivot.玩家面相 == -1 && 可開火開關)
+            {
+                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
+                Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
+                StartCoroutine(RayShoot());
+                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
+                Instantiate(槍口亮光, 槍口pos, transform.rotation);
+                子彈 -= 1;
+                SoundManager.instance.FireSource();
+            }
+            //開火右
+            else if (子彈 >= 1 && Input.GetMouseButton(0) && 新Pivot.玩家面相 == 1 && 可開火開關)
+            {
+                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
+                Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
+                StartCoroutine(RayShoot());
+                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
+                Instantiate(槍口亮光, 槍口pos, transform.rotation);
+                子彈 -= 1;
+                SoundManager.instance.FireSource();
+            }
+            //沒子彈跳槍機
+            else if (子彈 == 0 && Input.GetMouseButtonDown(0))
+            {
+                子彈 -= 1;
+                SoundManager.instance.No_BulletsSource();
+            }
+            //按左鍵裝子彈
+            else if (子彈 <= -1 && Input.GetMouseButtonDown(0))
+            {
+                子彈 = 彈匣;
+                彈匣數量 -= 1;
+                SoundManager.instance.ReloadSource();
+            }
+        }
+        else
+        {
+            Debug.Log("未知的武器編號");
+        }
+    }
+
+    IEnumerator RifleShoot()
+    {
+        StartCoroutine(RayShoot());
+
+        yield return new WaitForSeconds(0.04f);
+    }
+
     IEnumerator RayShoot()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
@@ -175,25 +196,6 @@ public class Gun_fire : MonoBehaviour
         {
             if (hitInfo)
             {
-                /*
-                Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
-                if (enemy != null)
-                {
-                    SoundManager.instance.BloodSource();
-
-                    if (SuperDamageModel)
-                    {
-                        enemy.TakeDamage(SuperDamage);
-                    }
-                    else
-                    {
-                        enemy.TakeDamage(damage);
-                    }
-
-                    Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
-                    hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
-                }
-                */
                 lineRenderer.SetPosition(0, firePoint.position);
                 lineRenderer.SetPosition(1, hitInfo.point);
                 Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
