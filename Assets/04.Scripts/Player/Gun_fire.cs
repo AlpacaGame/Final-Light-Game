@@ -28,6 +28,8 @@ public class Gun_fire : MonoBehaviour
 
     public bool InfiniteAmmoModel = false;
 
+    public bool 連射開關;
+
     void Start()
     {
         if(InfiniteAmmoModel)
@@ -47,40 +49,86 @@ public class Gun_fire : MonoBehaviour
             SoundManager.instance.ReloadSource();
         }
 
-        if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == -1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
+        if(Input.GetKeyDown(KeyCode.O))
         {
-            Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
-            Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
-            //Instantiate(子彈預設物, 槍口pos, 左槍口.transform.rotation);
-            StartCoroutine(RayShoot());
-            //Instantiate(彈殼動畫, 槍口pos, 左槍口.transform.rotation);
-            //Instantiate(槍口亮光, 槍口pos, 左槍口.transform.rotation);
-            Instantiate(彈殼動畫, 槍口pos, transform.rotation);
-            Instantiate(槍口亮光, 槍口pos, transform.rotation);
-            子彈 -= 1;
-            SoundManager.instance.FireSource();
-            
-
+            連射開關 = !連射開關;
         }
 
-        else if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == 1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
+        if(連射開關)
         {
-            Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
-            Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
-            //Instantiate(子彈預設物, 槍口pos, 右槍口.transform.rotation);
-            StartCoroutine(RayShoot());
-            //Instantiate(彈殼動畫, 槍口pos, 右槍口.transform.rotation);
-            //Instantiate(槍口亮光, 槍口pos, 右槍口.transform.rotation);
-            Instantiate(彈殼動畫, 槍口pos, transform.rotation);
-            Instantiate(槍口亮光, 槍口pos, transform.rotation);
-            子彈 -= 1;
-            SoundManager.instance.FireSource();
+            if (子彈 >= 1 && Input.GetMouseButton(0) && 新Pivot.玩家面相 == -1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
+            {
+                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
+                Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
+                //Instantiate(子彈預設物, 槍口pos, 左槍口.transform.rotation);
+                StartCoroutine(RayShoot());
+                //Instantiate(彈殼動畫, 槍口pos, 左槍口.transform.rotation);
+                //Instantiate(槍口亮光, 槍口pos, 左槍口.transform.rotation);
+                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
+                Instantiate(槍口亮光, 槍口pos, transform.rotation);
+                子彈 -= 1;
+                SoundManager.instance.FireSource();
 
+
+            }
+
+            else if (子彈 >= 1 && Input.GetMouseButton(0) && 新Pivot.玩家面相 == 1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
+            {
+                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
+                Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
+                //Instantiate(子彈預設物, 槍口pos, 右槍口.transform.rotation);
+                StartCoroutine(RayShoot());
+                //Instantiate(彈殼動畫, 槍口pos, 右槍口.transform.rotation);
+                //Instantiate(槍口亮光, 槍口pos, 右槍口.transform.rotation);
+                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
+                Instantiate(槍口亮光, 槍口pos, transform.rotation);
+                子彈 -= 1;
+                SoundManager.instance.FireSource();
+
+            }
+            else if (子彈 == 0 && Input.GetMouseButton(0))
+            {
+                SoundManager.instance.No_BulletsSource();
+            }
         }
-        else if (子彈 == 0 && Input.GetMouseButtonDown(0))
+        else if (!連射開關)
         {
-            SoundManager.instance.No_BulletsSource();
+            if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == -1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
+            {
+                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
+                Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
+                //Instantiate(子彈預設物, 槍口pos, 左槍口.transform.rotation);
+                StartCoroutine(RayShoot());
+                //Instantiate(彈殼動畫, 槍口pos, 左槍口.transform.rotation);
+                //Instantiate(槍口亮光, 槍口pos, 左槍口.transform.rotation);
+                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
+                Instantiate(槍口亮光, 槍口pos, transform.rotation);
+                子彈 -= 1;
+                SoundManager.instance.FireSource();
+
+
+            }
+
+            else if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == 1 && 可開火開關)//&& !PlayerSlide.滑鏟中 我刪除了這個 因為聽你說要滑鏟邊射擊
+            {
+                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
+                Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
+                //Instantiate(子彈預設物, 槍口pos, 右槍口.transform.rotation);
+                StartCoroutine(RayShoot());
+                //Instantiate(彈殼動畫, 槍口pos, 右槍口.transform.rotation);
+                //Instantiate(槍口亮光, 槍口pos, 右槍口.transform.rotation);
+                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
+                Instantiate(槍口亮光, 槍口pos, transform.rotation);
+                子彈 -= 1;
+                SoundManager.instance.FireSource();
+
+            }
+            else if (子彈 == 0 && Input.GetMouseButtonDown(0))
+            {
+                SoundManager.instance.No_BulletsSource();
+            }
         }
+        
 
         if (新Pivot.玩家面相 == 1)
         {

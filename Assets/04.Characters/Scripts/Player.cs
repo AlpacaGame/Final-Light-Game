@@ -114,6 +114,15 @@ public class Player : MonoBehaviour
             switchingHand = false;
             anim.SetBool("PickUpWeapon", false);
         }
+
+        if(Input.GetKey(KeyCode.I))
+        {
+            health += 100;
+        }
+        if(health >=100)
+        {
+            health = 100;   
+        }
     }
 
     public void 標題消除玩家()
@@ -174,7 +183,7 @@ public class Player : MonoBehaviour
 
         if(health > 0)
         {
-            if(Input.GetKeyDown(KeyCode.C) && !sliding && CanSlideAgain)
+            if(Input.GetKeyDown(KeyCode.LeftControl) && !sliding && CanSlideAgain)
             {
                 Slide();
                 PlayerHealth.玩家體力 -= 3;

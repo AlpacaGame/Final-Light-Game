@@ -9207,6 +9207,7 @@ MonoBehaviour:
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 6357610210855324365, guid: 2b219ece3514e514387cc2ab62a9bab8,
     type: 3}
   InfiniteAmmoModel: 1
+  "\u9023\u5C04\u958B\u95DC": 0
   firePoint: {fileID: 129205650}
   damage: 20
   lineRenderer: {fileID: 923082397}
@@ -50484,6 +50485,7 @@ MonoBehaviour:
     type: 3}
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 0}
   InfiniteAmmoModel: 0
+  "\u9023\u5C04\u958B\u95DC": 0
   firePoint: {fileID: 0}
   damage: 20
   lineRenderer: {fileID: 0}
@@ -53463,6 +53465,7 @@ MonoBehaviour:
   "\u64BF\u9053\u5177\u89F8\u767C": 0
   "\u76F4\u63A5\u89F8\u767C": 0
   "\u89F8\u767C\u6D88\u5931": 1
+  "\u9632Bug\u91CD\u8907\u5C0D\u8A71": 0
   "\u6253\u4E0D\u958B\u7684\u9580": 0
   talkFlowchart: {fileID: 1028649227}
   onTriggerEnter2D: "\u9047\u898B\u6BAD\u5C4D\u72FC"
@@ -69761,6 +69764,7 @@ MonoBehaviour:
   "\u64BF\u9053\u5177\u89F8\u767C": 0
   "\u76F4\u63A5\u89F8\u767C": 0
   "\u89F8\u767C\u6D88\u5931": 1
+  "\u9632Bug\u91CD\u8907\u5C0D\u8A71": 0
   "\u6253\u4E0D\u958B\u7684\u9580": 0
   talkFlowchart: {fileID: 1028649227}
   onTriggerEnter2D: "\u9047\u898B\u6BAD\u5C4D\u72FC\u8DD1"
@@ -73074,7 +73078,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -28.727264
     y: 75
-    width: 74
+    width: 74.61539
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -73107,7 +73111,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -59.004356
     y: 228.65901
-    width: 110
+    width: 111.53846
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -73145,7 +73149,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -157.72726
     y: 74
-    width: 93.2
+    width: 93.07692
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -73169,11 +73173,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 229.72726, y: 204.5}
+  scrollPos: {x: 25.67229, y: 232.1263}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 461
-  zoom: 1
+  blockViewHeight: 400
+  zoom: 0.9100001
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -73181,8 +73185,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1028649235}
-  selectedCommands: []
+  - {fileID: 1028649247}
+  selectedCommands:
+  - {fileID: 1028649246}
   variables: []
   description: 
   stepPause: 0
@@ -73296,7 +73301,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 81.22727
     y: 74.13636
-    width: 98
+    width: 99.23077
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -73373,7 +73378,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -44.090893
     y: 163
-    width: 98
+    width: 99.23077
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -73610,7 +73615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 19
   indentLevel: 0
-  storyText: "(\u7CFB\u7D71\u63D0\u793A:\u7528c\u9375\u6ED1\u884C\u9583\u904E\u6BAD\u5C4D\uFF0C\u5FEB\u901F\u901A\u904E\u53BB\u6700\u53F3\u908A\u7684\u9580\u3002)"
+  storyText: "(\u7CFB\u7D71\u63D0\u793A:\u7528\u5DE6Ctrl\u9375\u6ED1\u884C\u9583\u904E\u6BAD\u5C4D\uFF0C\u5FEB\u901F\u901A\u904E\u53BB\u6700\u53F3\u908A\u7684\u9580\u3002)"
   description: 
   character: {fileID: 1343754521}
   portrait: {fileID: 0}
@@ -73637,7 +73642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 22
   indentLevel: 0
-  storyText: "(\u6309\u4E0BA D\u63A7\u5236\u8173\u8272\u79FB\u52D5\uFF0Cshift\u5954\u8DD1\uFF0C\u7528c\u9375\u6ED1\u884C\uFF0CEsc
+  storyText: "(\u6309\u4E0BA D\u63A7\u5236\u8173\u8272\u79FB\u52D5\uFF0Cshift\u5954\u8DD1\uFF0C\u7528\u5DE6Ctrl\u9375\u6ED1\u884C\uFF0CEsc
     \u547C\u53EB\u9078\u55AE\u3002)"
   description: 
   character: {fileID: 1343754521}
@@ -73667,7 +73672,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 220.83652
     y: 74.2273
-    width: 98
+    width: 99.23077
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -73742,7 +73747,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 92.427475
     y: 167.40898
-    width: 110
+    width: 111.53846
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -82986,6 +82991,7 @@ MonoBehaviour:
     type: 3}
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 0}
   InfiniteAmmoModel: 0
+  "\u9023\u5C04\u958B\u95DC": 0
   firePoint: {fileID: 0}
   damage: 20
   lineRenderer: {fileID: 0}
@@ -92783,6 +92789,7 @@ MonoBehaviour:
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 6357610210855324365, guid: 2b219ece3514e514387cc2ab62a9bab8,
     type: 3}
   InfiniteAmmoModel: 1
+  "\u9023\u5C04\u958B\u95DC": 0
   firePoint: {fileID: 1269594077}
   damage: 20
   lineRenderer: {fileID: 923082397}
@@ -133955,6 +133962,7 @@ MonoBehaviour:
   "\u64BF\u9053\u5177\u89F8\u767C": 0
   "\u76F4\u63A5\u89F8\u767C": 0
   "\u89F8\u767C\u6D88\u5931": 1
+  "\u9632Bug\u91CD\u8907\u5C0D\u8A71": 0
   "\u6253\u4E0D\u958B\u7684\u9580": 0
   talkFlowchart: {fileID: 1028649227}
   onTriggerEnter2D: "1-1\u9ED1\u5F71"
