@@ -28,7 +28,7 @@ public class Gun_fire : MonoBehaviour
 
     public bool InfiniteAmmoModel = false;
 
-    public bool 連射開關;
+    public static bool 連射開關;
 
     void Start()
     {
@@ -89,6 +89,10 @@ public class Gun_fire : MonoBehaviour
             else if (子彈 == 0 && Input.GetMouseButton(0))
             {
                 SoundManager.instance.No_BulletsSource();
+
+                子彈 = 彈匣;
+                彈匣數量 -= 1;
+                SoundManager.instance.ReloadSource();
             }
         }
         else if (!連射開關)
@@ -125,7 +129,11 @@ public class Gun_fire : MonoBehaviour
             }
             else if (子彈 == 0 && Input.GetMouseButtonDown(0))
             {
-                SoundManager.instance.No_BulletsSource();
+                //SoundManager.instance.No_BulletsSource();
+
+                子彈 = 彈匣;
+                彈匣數量 -= 1;
+                SoundManager.instance.ReloadSource();
             }
         }
         
