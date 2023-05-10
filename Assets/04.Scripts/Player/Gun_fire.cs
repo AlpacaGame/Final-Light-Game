@@ -50,10 +50,16 @@ public class Gun_fire : MonoBehaviour
     [Header("步槍")]
     public bool rifleMode;//可切換步槍時開啟
     public int weaponNum = 0;//目前切換到的武器編號
+    public float rifleFireRate = 0.1f;
+    private float rifleNextFire = 0.0f;
+    public int rifleAmmo;
+    public int rifleAmmoNum = 20;
 
     void Start()
     {
         rifleMode = true;
+        rifleFireRate = 0.1f;
+        rifleAmmo = rifleAmmoNum;
 
         if (InfiniteAmmoModel)
         {
@@ -95,7 +101,7 @@ public class Gun_fire : MonoBehaviour
                 Debug.Log("未知的武器編號");
             }
         }
-
+ 
         //按下滑鼠左鍵射擊
         //手槍
         if (weaponNum == 0)
@@ -139,53 +145,37 @@ public class Gun_fire : MonoBehaviour
         //步槍
         else if (weaponNum == 1)
         {
-            //開火左
-            if (子彈 >= 1 && Input.GetMouseButton(0) && 新Pivot.玩家面相 == -1 && 可開火開關)
+            //開火
+            if (rifleAmmo >= 1 && Input.GetMouseButton(0) && 可開火開關 && Time.time > rifleNextFire)
             {
+                rifleNextFire = Time.time + rifleFireRate;
                 Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
-                Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
+                if(新Pivot.玩家面相 == -1)
+                {
+                    Vector3 槍口後pos = this.transform.position + new Vector3(0.5f, 0, 0);
+                }
+                else if(新Pivot.玩家面相 == 1)
+                {
+                    Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
+                }
                 StartCoroutine(RayShoot());
                 Instantiate(彈殼動畫, 槍口pos, transform.rotation);
                 Instantiate(槍口亮光, 槍口pos, transform.rotation);
-                子彈 -= 1;
+                rifleAmmo -= 1;
                 SoundManager.instance.FireSource();
-            }
-            //開火右
-            else if (子彈 >= 1 && Input.GetMouseButton(0) && 新Pivot.玩家面相 == 1 && 可開火開關)
-            {
-                Vector3 槍口pos = this.transform.position + new Vector3(0, 0, 0);
-                Vector3 槍口後pos = this.transform.position + new Vector3(-0.5f, 0, 0);
-                StartCoroutine(RayShoot());
-                Instantiate(彈殼動畫, 槍口pos, transform.rotation);
-                Instantiate(槍口亮光, 槍口pos, transform.rotation);
-                子彈 -= 1;
-                SoundManager.instance.FireSource();
-            }
-            //沒子彈跳槍機
-            else if (子彈 == 0 && Input.GetMouseButtonDown(0))
-            {
-                子彈 -= 1;
-                SoundManager.instance.No_BulletsSource();
             }
             //按左鍵裝子彈
-            else if (子彈 <= -1 && Input.GetMouseButtonDown(0))
+            else if (rifleAmmo <= 0 && Input.GetMouseButtonDown(0))
             {
-                子彈 = 彈匣;
-                彈匣數量 -= 1;
                 SoundManager.instance.ReloadSource();
+                rifleAmmo = rifleAmmoNum;
+                //彈匣數量 -= 1;
             }
         }
         else
         {
             Debug.Log("未知的武器編號");
         }
-    }
-
-    IEnumerator RifleShoot()
-    {
-        StartCoroutine(RayShoot());
-
-        yield return new WaitForSeconds(0.04f);
     }
 
     IEnumerator RayShoot()
