@@ -28,8 +28,6 @@ public class Gun_fire : MonoBehaviour
 
     public bool InfiniteAmmoModel = false;
 
-    public static bool 連射開關;
-
     [Header("Raycast物件")]
     public Transform firePoint;
     public int damage = 20;
@@ -49,12 +47,12 @@ public class Gun_fire : MonoBehaviour
     [Space(5)]
     [Header("步槍")]
     public bool rifleMode;//可切換步槍時開啟
-    public int weaponNum = 0;//目前切換到的武器編號
+    public int currentWeapon = 0;//目前切換到的武器編號
     public float rifleFireRate = 0.1f;
     private float rifleNextFire = 0.0f;
     public int rifleAmmo;
     public int rifleAmmoNum = 20;
-
+    
     void Start()
     {
         rifleMode = true;
@@ -79,32 +77,23 @@ public class Gun_fire : MonoBehaviour
             SoundManager.instance.ReloadSource();
         }
 
-        //按下O鍵，開啟連射模式
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            連射開關 = !連射開關;
-        }
-
         //按下Q鍵，切換武器(步槍&手槍)
         if(rifleMode && Input.GetKeyDown(KeyCode.Q))
         {
-            if(weaponNum == 0)
+            SoundManager.instance.PickUpSource();
+            if (currentWeapon == 0)
             {
-                weaponNum = 1;
+                currentWeapon = 1;
             }
-            else if (weaponNum == 1)
+            else if (currentWeapon == 1)
             {
-                weaponNum = 0;
-            }
-            else
-            {
-                Debug.Log("未知的武器編號");
+                currentWeapon = 0;
             }
         }
  
         //按下滑鼠左鍵射擊
         //手槍
-        if (weaponNum == 0)
+        if (currentWeapon == 0)
         {
             //開火左
             if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == -1 && 可開火開關)
@@ -143,7 +132,7 @@ public class Gun_fire : MonoBehaviour
             }
         }
         //步槍
-        else if (weaponNum == 1)
+        else if (currentWeapon == 1)
         {
             //開火
             if (rifleAmmo >= 1 && Input.GetMouseButton(0) && 可開火開關 && Time.time > rifleNextFire)
@@ -171,10 +160,6 @@ public class Gun_fire : MonoBehaviour
                 rifleAmmo = rifleAmmoNum;
                 //彈匣數量 -= 1;
             }
-        }
-        else
-        {
-            Debug.Log("未知的武器編號");
         }
     }
 
