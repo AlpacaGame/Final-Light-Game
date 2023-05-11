@@ -72,9 +72,19 @@ public class Gun_fire : MonoBehaviour
         //按下R鍵，裝子彈
         if (彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R) && 可開火開關)
         {
-            子彈 = 彈匣;
-            彈匣數量 -= 1;
+            
             SoundManager.instance.ReloadSource();
+
+            if(currentWeapon == 0)
+            {
+                子彈 = 彈匣;
+                彈匣數量 -= 1;
+            }
+            else if(currentWeapon == 1)
+            {
+                rifleAmmo = rifleAmmoNum;
+            }
+            
         }
 
         //按下Q鍵，切換武器(步槍&手槍)
@@ -153,12 +163,16 @@ public class Gun_fire : MonoBehaviour
                 rifleAmmo -= 1;
                 SoundManager.instance.FireSource();
             }
-            //按左鍵裝子彈
-            else if (rifleAmmo <= 0 && Input.GetMouseButtonDown(0))
+            //裝子彈聲音
+            else if (rifleAmmo == 0 && Input.GetMouseButtonDown(0))
             {
+                rifleAmmo -= 1;
                 SoundManager.instance.ReloadSource();
+            }
+            //裝子彈
+            else if (rifleAmmo <= -1 && Input.GetMouseButtonDown(0))
+            {
                 rifleAmmo = rifleAmmoNum;
-                //彈匣數量 -= 1;
             }
         }
     }
