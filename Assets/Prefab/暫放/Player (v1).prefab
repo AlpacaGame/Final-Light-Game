@@ -1225,7 +1225,6 @@ MonoBehaviour:
   SlideAgainTime: 3
   collWalk: {fileID: 1591460777977131845}
   collSlide: {fileID: 9055576646883163983}
-  health: 100
   _anim: {fileID: 1649181596654026487}
   _colliders:
   - {fileID: 6912201092167139021}
@@ -3793,6 +3792,11 @@ MonoBehaviour:
   SuperDamageModel: 0
   SuperDamage: 200
   recordModel: 0
+  rifleMode: 0
+  currentWeapon: 0
+  rifleFireRate: 0.1
+  rifleAmmo: 0
+  rifleAmmoNum: 20
 --- !u!1 &6988185479766172171
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,7 +3807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6988185479766172170}
   - component: {fileID: 6988185479766172173}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3986,6 +3990,11 @@ MonoBehaviour:
   SuperDamageModel: 0
   SuperDamage: 200
   recordModel: 0
+  rifleMode: 0
+  currentWeapon: 0
+  rifleFireRate: 0.1
+  rifleAmmo: 0
+  rifleAmmoNum: 20
 --- !u!1 &7129496229803192992
 GameObject:
   m_ObjectHideFlags: 0
