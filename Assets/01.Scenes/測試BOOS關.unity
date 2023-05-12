@@ -9648,6 +9648,7 @@ MonoBehaviour:
   "\u64BF\u9053\u5177\u89F8\u767C": 0
   "\u76F4\u63A5\u89F8\u767C": 0
   "\u89F8\u767C\u6D88\u5931": 1
+  "\u9632Bug\u91CD\u8907\u5C0D\u8A71": 0
   "\u6253\u4E0D\u958B\u7684\u9580": 0
   talkFlowchart: {fileID: 1061291756}
   onTriggerEnter2D: "1-1\u9ED1\u5F71"
@@ -11402,6 +11403,7 @@ MonoBehaviour:
   "\u64BF\u9053\u5177\u89F8\u767C": 0
   "\u76F4\u63A5\u89F8\u767C": 0
   "\u89F8\u767C\u6D88\u5931": 1
+  "\u9632Bug\u91CD\u8907\u5C0D\u8A71": 0
   "\u6253\u4E0D\u958B\u7684\u9580": 0
   talkFlowchart: {fileID: 1061291756}
   onTriggerEnter2D: "\u9047\u898B\u6BAD\u5C4D"
@@ -21468,6 +21470,7 @@ MonoBehaviour:
   "\u64BF\u9053\u5177\u89F8\u767C": 0
   "\u76F4\u63A5\u89F8\u767C": 1
   "\u89F8\u767C\u6D88\u5931": 0
+  "\u9632Bug\u91CD\u8907\u5C0D\u8A71": 0
   "\u6253\u4E0D\u958B\u7684\u9580": 0
   talkFlowchart: {fileID: 0}
   onTriggerEnter2D: "\u4E92\u52D5\u5C0D\u8A71\u6846"
@@ -34756,6 +34759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerRecord
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746492183016580044, guid: 8c8b0a48a10aac44283055369f9d5108,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6746492183016580047, guid: 8c8b0a48a10aac44283055369f9d5108,
         type: 3}
@@ -50220,6 +50228,11 @@ MonoBehaviour:
   SuperDamageModel: 0
   SuperDamage: 200
   recordModel: 0
+  rifleMode: 0
+  currentWeapon: 0
+  rifleFireRate: 0.1
+  rifleAmmo: 0
+  rifleAmmoNum: 20
 --- !u!212 &1984054748
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -64950,6 +64963,7 @@ MonoBehaviour:
   "\u64BF\u9053\u5177\u89F8\u767C": 0
   "\u76F4\u63A5\u89F8\u767C": 1
   "\u89F8\u767C\u6D88\u5931": 0
+  "\u9632Bug\u91CD\u8907\u5C0D\u8A71": 0
   "\u6253\u4E0D\u958B\u7684\u9580": 0
   talkFlowchart: {fileID: 0}
   onTriggerEnter2D: "\u4E92\u52D5\u5C0D\u8A71\u6846"

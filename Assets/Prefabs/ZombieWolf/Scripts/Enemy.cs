@@ -51,11 +51,23 @@ public class Enemy : MonoBehaviour
     [SerializeField] private List<LimbSolver2D> _solvers;
     [SerializeField] private List<CCDSolver2D> _CCDsolvers;
 
+    [Space(5)]
+    [Header("開始直接Ragdoll")]
+    public bool startRagdoll = false;
+
     void Start()
     {
+        if(startRagdoll)
+        {
+            Invoke("Die", 0.01f);
+        }
+
         if(!onlyHealth)
         {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
+            if(!startRagdoll)
+            {
+                player = GameObject.FindGameObjectWithTag("Player").transform;
+            }
             rb = gameObject.GetComponent<Rigidbody2D>();
             ToggleRagdoll(false);//開始時關閉布娃娃系統
         }
