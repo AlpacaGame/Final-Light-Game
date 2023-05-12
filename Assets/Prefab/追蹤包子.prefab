@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 6428828109378879467}
   - component: {fileID: 2821398844275981891}
   - component: {fileID: 5431290256437649419}
+  - component: {fileID: 2392135974928952523}
   m_Layer: 3
   m_Name: "\u8FFD\u8E64\u5305\u5B50"
   m_TagString: Untagged
@@ -637,6 +638,8 @@ MonoBehaviour:
   player: {fileID: 0}
   isFlipped: 0
   onlyHealth: 1
+  sporeMode: 0
+  recordZombieMode: 0
   attackDamage: 20
   attackOffset: {x: 0, y: 0, z: 0}
   attackRange: 1
@@ -649,12 +652,33 @@ MonoBehaviour:
   disappearTime: 0.01
   deathEffect: {fileID: 5407103900422474035, guid: fdc75e01eaafaf04bba4db7f95363a6a,
     type: 3}
+  BossHealthModel: 0
+  Boss: {fileID: 0}
   _anim: {fileID: 0}
   _colliders: []
   _joints: []
   _rbs: []
   _solvers: []
   _CCDsolvers: []
+  NoOffsetY: 1
+--- !u!114 &2392135974928952523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355403372426128026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1757e3434f6034383a6830e2a6b328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  disappearTime: 5
+  deathEffect: {fileID: 5407103900422474035, guid: fdc75e01eaafaf04bba4db7f95363a6a,
+    type: 3}
+  "\u81EA\u7206": 1
+  "\u89F8\u78B0": 0
 --- !u!1 &9197304866526784956
 GameObject:
   m_ObjectHideFlags: 0

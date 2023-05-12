@@ -9207,7 +9207,6 @@ MonoBehaviour:
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 6357610210855324365, guid: 2b219ece3514e514387cc2ab62a9bab8,
     type: 3}
   InfiniteAmmoModel: 1
-  "\u9023\u5C04\u958B\u95DC": 0
   firePoint: {fileID: 129205650}
   damage: 20
   lineRenderer: {fileID: 923082397}
@@ -9217,6 +9216,11 @@ MonoBehaviour:
   SuperDamageModel: 0
   SuperDamage: 200
   recordModel: 0
+  rifleMode: 0
+  currentWeapon: 0
+  rifleFireRate: 0.1
+  rifleAmmo: 0
+  rifleAmmoNum: 20
 --- !u!1 &130345409
 GameObject:
   m_ObjectHideFlags: 0
@@ -50485,7 +50489,6 @@ MonoBehaviour:
     type: 3}
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 0}
   InfiniteAmmoModel: 0
-  "\u9023\u5C04\u958B\u95DC": 0
   firePoint: {fileID: 0}
   damage: 20
   lineRenderer: {fileID: 0}
@@ -50494,6 +50497,11 @@ MonoBehaviour:
   SuperDamageModel: 0
   SuperDamage: 200
   recordModel: 0
+  rifleMode: 0
+  currentWeapon: 0
+  rifleFireRate: 0.1
+  rifleAmmo: 0
+  rifleAmmoNum: 20
 --- !u!82 &696452681
 AudioSource:
   m_ObjectHideFlags: 0
@@ -82991,7 +82999,6 @@ MonoBehaviour:
     type: 3}
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 0}
   InfiniteAmmoModel: 0
-  "\u9023\u5C04\u958B\u95DC": 0
   firePoint: {fileID: 0}
   damage: 20
   lineRenderer: {fileID: 0}
@@ -83000,6 +83007,11 @@ MonoBehaviour:
   SuperDamageModel: 0
   SuperDamage: 200
   recordModel: 0
+  rifleMode: 0
+  currentWeapon: 0
+  rifleFireRate: 0.1
+  rifleAmmo: 0
+  rifleAmmoNum: 20
 --- !u!82 &1160012632
 AudioSource:
   m_ObjectHideFlags: 0
@@ -92789,7 +92801,6 @@ MonoBehaviour:
   "\u69CD\u53E3\u4EAE\u5149": {fileID: 6357610210855324365, guid: 2b219ece3514e514387cc2ab62a9bab8,
     type: 3}
   InfiniteAmmoModel: 1
-  "\u9023\u5C04\u958B\u95DC": 0
   firePoint: {fileID: 1269594077}
   damage: 20
   lineRenderer: {fileID: 923082397}
@@ -92799,6 +92810,11 @@ MonoBehaviour:
   SuperDamageModel: 0
   SuperDamage: 200
   recordModel: 0
+  rifleMode: 0
+  currentWeapon: 0
+  rifleFireRate: 0.1
+  rifleAmmo: 0
+  rifleAmmoNum: 20
 --- !u!1 &1274539728
 GameObject:
   m_ObjectHideFlags: 0
@@ -155821,6 +155837,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SlideAgainTime
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9055576646883163983, guid: 3551acb5fc242ec4983e6b493249b0bd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3551acb5fc242ec4983e6b493249b0bd, type: 3}

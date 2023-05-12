@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         ToggleRagdoll(false);//開始時關閉布娃娃系統
+        collSlide.enabled = false;
 
         rg = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
