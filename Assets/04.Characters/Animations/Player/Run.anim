@@ -131,6 +131,15 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
+        time: 0.5
+        value: {x: 0, y: 0, z: 65.031}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
         time: 1
         value: {x: 0, y: 0, z: 72.668}
         inSlope: {x: 0, y: 0, z: 0}
@@ -358,14 +367,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.6666667
         value: {x: -3.28, y: 6.76, z: 0}
-        inSlope: {x: 19.263159, y: -7.5789466, z: 0}
-        outSlope: {x: 19.263159, y: -7.5789466, z: 0}
+        inSlope: {x: 18.300003, y: -7.2, z: 0}
+        outSlope: {x: 18.300003, y: -7.2, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.81666666
+        time: 0.8333333
         value: {x: 0.84, y: 1.74, z: 0}
         inSlope: {x: 16.320004, y: -8.982338, z: 0}
         outSlope: {x: 16.320004, y: -8.982338, z: 0}
@@ -1373,14 +1382,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.6666667
         value: -3.28
-        inSlope: 19.263159
-        outSlope: 19.263159
+        inSlope: 18.300003
+        outSlope: 18.300003
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.81666666
+        time: 0.8333333
         value: 0.84
         inSlope: 16.320004
         outSlope: 16.320004
@@ -1437,14 +1446,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.6666667
         value: 6.76
-        inSlope: -7.5789466
-        outSlope: -7.5789466
+        inSlope: -7.2
+        outSlope: -7.2
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.81666666
+        time: 0.8333333
         value: 1.74
         inSlope: -8.982338
         outSlope: -8.982338
@@ -1508,7 +1517,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.81666666
+        time: 0.8333333
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1737,6 +1746,15 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 0.5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
         value: 0
         inSlope: 0
@@ -1757,6 +1775,15 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1786,6 +1813,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 72.668
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: 65.031
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1930,7 +1966,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: PlayerZombieMix/Bones/bone_1
+    path: PlayerZombieMix/Bones/bone_1/bone_4/bone_5/bone_6
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1940,7 +1976,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: PlayerZombieMix/Bones/bone_1
+    path: PlayerZombieMix/Bones/bone_1/bone_4/bone_5/bone_6
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1950,7 +1986,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: PlayerZombieMix/Bones/bone_1
+    path: PlayerZombieMix/Bones/bone_1/bone_4/bone_5/bone_6
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1990,7 +2026,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: PlayerZombieMix/Bones/bone_1/bone_4/bone_5/bone_6
+    path: PlayerZombieMix/Bones/bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2000,7 +2036,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: PlayerZombieMix/Bones/bone_1/bone_4/bone_5/bone_6
+    path: PlayerZombieMix/Bones/bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2010,7 +2046,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: PlayerZombieMix/Bones/bone_1/bone_4/bone_5/bone_6
+    path: PlayerZombieMix/Bones/bone_1
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

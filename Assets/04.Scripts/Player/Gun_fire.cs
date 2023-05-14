@@ -50,7 +50,7 @@ public class Gun_fire : MonoBehaviour
     public int currentWeapon = 0;//目前切換到的武器編號
     public float rifleFireRate = 0.1f;
     private float rifleNextFire = 0.0f;
-    public int rifleAmmo;
+    public static int rifleAmmo;
     public int rifleAmmoNum = 20;
     
     void Start()

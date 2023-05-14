@@ -6,6 +6,8 @@ public class UISetActive : MonoBehaviour
 {
     public GameObject 打開UI;
 
+    public bool 無條件, 撿拾槍枝, 補血;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,13 +17,40 @@ public class UISetActive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.UI開關)
+        if(無條件)
         {
-            打開UI.SetActive(true);
+            if (GameManager.UI開關)
+            {
+                打開UI.SetActive(true);
+            }
+            else if (!GameManager.UI開關)
+            {
+                打開UI.SetActive(false);
+            }
+        }    
+        
+        else if (撿拾槍枝 && GameManager.擁有手槍)
+        {
+            if (GameManager.UI開關)
+            {
+                打開UI.SetActive(true);
+            }
+            else if (!GameManager.UI開關)
+            {
+                打開UI.SetActive(false);
+            }
         }
-        else if(!GameManager.UI開關)
+
+        else if (補血 && GameManager.擁有補血)
         {
-            打開UI.SetActive(false);
+            if (GameManager.UI開關)
+            {
+                打開UI.SetActive(true);
+            }
+            else if (!GameManager.UI開關)
+            {
+                打開UI.SetActive(false);
+            }
         }
 
     }

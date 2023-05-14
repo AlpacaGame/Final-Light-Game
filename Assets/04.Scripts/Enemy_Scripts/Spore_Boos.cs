@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Spore_Boos : MonoBehaviour
 {
-    public int Hp = 100;
-    public static int on_hp = 100;
+    public float Hp = 100;
+    public static float on_hp = 100;
+    public static float 回血數字 = 5; //先以最高20
+
+    public static bool 回血;
 
     void Start()
     {
@@ -26,6 +29,16 @@ public class Spore_Boos : MonoBehaviour
             //SceneManager.LoadScene(1);
         }
 
+        if (Hp >= 1800)
+        {
+            Hp = 1800.0f;
+            //SceneManager.LoadScene(1);
+        }
+
+        if (回血)
+        {
+            Hp += 回血數字 * Time.fixedDeltaTime;
+        }
     }
 
         /*

@@ -6,6 +6,7 @@ public class Spore_Boos_random : MonoBehaviour
 {
     public float 飛行速度 = 5.0f;
     public bool 執行一次 = true;
+    public bool 一次回滿 = true;
     public int 子彈消失時間 = 1;
 
     public int counter;
@@ -13,7 +14,7 @@ public class Spore_Boos_random : MonoBehaviour
     public GameObject Shot2;
 
     public bool 可開炮 = false;
-    public bool State1, State2, State3, State4, State5 = false;
+    public bool State1, State2, State3, State4, State5, State6 = false;
 
     public GameObject deathEffect;
 
@@ -21,23 +22,53 @@ public class Spore_Boos_random : MonoBehaviour
     [Header("切換模式生命值參數")]
     public int State1Health = 900;
     public int State2Health = 600;
-    public int State3Health = 300;
+    public int State3Health = 400;
+    public int State4Health = 200;
 
     [Space(5)]
     [Header("吼叫")]
     public bool Roar = true;
     public int roarCount = 1;
 
+    public int randomInt;
+
     // Start is called before the first frame update
     void Start()
     {
         State1 = true;
         可開炮 = true;
+        Spore_Boos.回血 = true;
+    }
+
+    void 一次回滿MAX()
+    {
+        一次回滿 = false;
     }
 
     void FixedUpdate()
     {
-        if(DoorLock.StartBossFight)
+        if (State2 && 一次回滿)
+        {
+            Spore_Boos.回血數字 = 5;
+        }
+
+        if (State4 && 一次回滿)
+        {
+            Spore_Boos.回血數字 = 20;
+        }
+
+        if (State5 && 一次回滿)
+        {
+            Spore_Boos.回血數字 = 10000;
+            Invoke("一次回滿MAX", 5f);
+        }
+
+        if (!一次回滿)
+        {
+            Spore_Boos.回血數字 = 0;
+        }
+
+        if (DoorLock.StartBossFight)
         {
             counter++;
 
@@ -46,27 +77,42 @@ public class Spore_Boos_random : MonoBehaviour
             //血條對應狀態
             if (Spore_Boos.on_hp >= State1Health)
             {
-                State1 = true;
-                State2 = false;
+                State1 = false;
+                State2 = true;
                 State3 = false;
                 State4 = false;
                 State5 = false;
+                State6 = false;
             }
 
             else if (Spore_Boos.on_hp <= State2Health && Spore_Boos.on_hp >= State3Health)
             {
                 State1 = false;
-                State2 = true;
-                State3 = false;
-                State4 = false;
-            }
-
-            else if (Spore_Boos.on_hp <= State3Health & Spore_Boos.on_hp >= 1)
-            {
-                State1 = false;
                 State2 = false;
                 State3 = true;
                 State4 = false;
+                State5 = false;
+                State6 = false;
+            }
+
+            else if (Spore_Boos.on_hp <= State3Health && Spore_Boos.on_hp >= State4Health)
+            {
+                State1 = false;
+                State2 = false;
+                State3 = false;
+                State4 = true;
+                State5 = false;
+                State6 = false;
+            }
+
+            else if (Spore_Boos.on_hp <= State4Health && Spore_Boos.on_hp >= 1)
+            {
+                State1 = false;
+                State2 = false;
+                State3 = false;
+                State4 = false;
+                State5 = true;
+                State6 = false;
             }
 
             else if (Spore_Boos.on_hp <= 0)
@@ -74,7 +120,9 @@ public class Spore_Boos_random : MonoBehaviour
                 State1 = false;
                 State2 = false;
                 State3 = false;
-                State4 = true;
+                State4 = false;
+                State5 = false;
+                State6 = true;
             }
 
             //每24禎跑這一串
@@ -103,7 +151,15 @@ public class Spore_Boos_random : MonoBehaviour
                 Invoke("關閉", 5);
             }
 
-            else if (State4)
+            else if (counter % 12 == 0 && 可開炮 && State4)
+            {
+                GameObject ShotObj1 = Instantiate(Shot, transform.position, new Quaternion(0, 0, 0, 0));
+                ShotObj1.GetComponent<Spore_shot1>().InitAngle = Quaternion.Euler(ShotAngle);
+
+                Invoke("關閉", 7);
+            }
+
+            else if (State6)
             {
                 print("死了");
                 Die();
@@ -111,7 +167,8 @@ public class Spore_Boos_random : MonoBehaviour
                 State2 = false;
                 State3 = false;
                 State4 = false;
-                State5 = true;
+                State5 = false;
+                State6 = false;
             }
 
             //孢子子彈2
@@ -129,6 +186,12 @@ public class Spore_Boos_random : MonoBehaviour
             {
                 GameObject ShotObj2 = Instantiate(Shot2, transform.position, new Quaternion(0, 0, 0, 0));
             }
+            /*
+            if (counter % 8 == 0 && 可開炮 && State4)
+            {
+                GameObject ShotObj2 = Instantiate(Shot2, transform.position, new Quaternion(0, 0, 0, 0));
+            }
+            */
             //transform.localPosition = new Vector3(1f, 1, 1);
             //Destroy(gameObject, 子彈消失時間);
         }
@@ -159,6 +222,7 @@ public class Spore_Boos_random : MonoBehaviour
         GameObject.Find("MainCamera").GetComponent<ScreenShake>().StartShake(6f, 0.25f);//螢幕震動
         Instantiate(deathEffect, transform.position, Quaternion.identity);//特效
         Invoke("Disappear", 5);
+        //Spore_Boos.回血 = false;
     }
 
     public void Disappear()

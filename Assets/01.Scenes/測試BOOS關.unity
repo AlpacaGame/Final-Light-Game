@@ -30519,6 +30519,7 @@ MonoBehaviour:
   _rbs: []
   _solvers: []
   _CCDsolvers: []
+  startRagdoll: 0
   NoOffsetY: 1
 --- !u!114 &1255064237
 MonoBehaviour:
@@ -37766,11 +37767,18 @@ MonoBehaviour:
   "\u89C0\u770B\u4E00\u6B21\u9580\u7981\u5361": 0
   "\u89C0\u770B\u4E00\u6B21\u5BC6\u78BC\u9396\u5BC6\u78BC": 0
   "\u89C0\u770B\u4E00\u6B21\u624B\u69CD": 0
+  "\u89C0\u770B\u958B\u706B\u958B\u95DC": 0
+  "\u89C0\u770B\u88DC\u8840": 0
   "\u9580\u7981\u5361": {fileID: 0}
   "\u5BC6\u78BC\u9396\u5BC6\u78BC": {fileID: 0}
   "\u624B\u69CD": {fileID: 0}
   "\u89C0\u770B\u6642\u9593": 0
   "\u9EDE\u64CA\u6B21\u6578": 0
+  "\u88DC\u5305\u6578\u91CF": 0
+  "\u4EBA\u7269\u9396\u8840": 0
+  "\u7121\u9650\u5B50\u5F48": 0
+  "\u88DC\u5305999": 0
+  "\u4E00\u9375\u9053\u5177": 0
 --- !u!4 &1502959906
 Transform:
   m_ObjectHideFlags: 0
@@ -50231,7 +50239,6 @@ MonoBehaviour:
   rifleMode: 0
   currentWeapon: 0
   rifleFireRate: 0.1
-  rifleAmmo: 0
   rifleAmmoNum: 20
 --- !u!212 &1984054748
 SpriteRenderer:
@@ -59590,6 +59597,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SpawnTime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008211745998513597, guid: 19e5243279777c84894a237142338118,
+        type: 3}
+      propertyPath: State4Health
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 1177930156089214588, guid: 19e5243279777c84894a237142338118,
         type: 3}

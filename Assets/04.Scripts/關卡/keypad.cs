@@ -139,19 +139,23 @@ public class keypad : MonoBehaviour
         
         // Disable sections when keypadScreen is set to true
         
-        if (keypadScreen && !GameManager.正在時停 && !GameManager.開啟選單)
+        if(!Item_on_off.門禁卡 && !GameManager.正在時停 && !GameManager.開啟選單 && !GameManager.慢動作)
         {
-            objectToEnable.SetActive(true);
-            Time.timeScale = 0f;
-            Gun_fire.可開火開關 = false;
-        }
+            if (keypadScreen)
+            {
+                objectToEnable.SetActive(true);
+                Time.timeScale = 0f;
+                Gun_fire.可開火開關 = false;
+            }
 
-        else if(!keypadScreen && !Item_on_off.門禁卡 && !GameManager.正在時停 && !GameManager.開啟選單 && !GameManager.慢動作)
-        {
-            objectToEnable.SetActive(false);
-            Time.timeScale = 1f;
-            Gun_fire.可開火開關 = true;
+            else if (!keypadScreen)
+            {
+                objectToEnable.SetActive(false);
+                Time.timeScale = 1f;
+                Gun_fire.可開火開關 = true;
+            }
         }
+        
         
     }
 

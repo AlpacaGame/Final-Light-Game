@@ -116,13 +116,9 @@ public class Player : MonoBehaviour
             anim.SetBool("PickUpWeapon", false);
         }
 
-        if(Input.GetKey(KeyCode.I))
+        if (health >= 100)
         {
-            health += 100;
-        }
-        if(health >=100)
-        {
-            health = 100;   
+            health = 100;
         }
     }
 

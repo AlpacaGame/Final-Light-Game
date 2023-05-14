@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
     public bool 檢查道具擁有狀態 = true;
     public bool 清除所有道具狀態 = false;
     public bool 觀看門禁卡, 觀看密碼鎖密碼, 觀看手槍 = false;
-    public static bool 擁有門禁卡, 擁有密碼鎖密碼, 擁有手槍;
-    public bool 觀看一次門禁卡, 觀看一次密碼鎖密碼, 觀看一次手槍;
+    public static bool 擁有門禁卡, 擁有密碼鎖密碼, 擁有手槍 ,擁有補血;
+    public bool 觀看一次門禁卡, 觀看一次密碼鎖密碼, 觀看一次手槍,觀看開火開關, 觀看補血;
     public GameObject 門禁卡, 密碼鎖密碼, 手槍;
     public float 觀看時間 = 0f;
 
@@ -48,6 +48,11 @@ public class GameManager : MonoBehaviour
     public static Flowchart flowchartManager;
 
     private float fixedDeltaTime; //時間變量
+
+    public int 補包數量 = 0;
+
+    [Header("作弊")]
+    public bool 人物鎖血,無限子彈,補包999,一鍵道具;
     
     void Awake()
     {
@@ -99,6 +104,12 @@ public class GameManager : MonoBehaviour
         彈出選單();
         監測是否正在對話();
         時間控制器();
+        作弊模式開啟();
+
+        if(Player.health <= 0)
+        {
+            彈出選單();
+        }
     }
 
     void 執行故事模式()
@@ -106,39 +117,35 @@ public class GameManager : MonoBehaviour
         if (故事模式)
         {
             Player.Story_notmove = true;
-            Gun_fire.可開火開關 = false;
+            //Gun_fire.可開火開關 = false;
         }
 
         else if (!故事模式)
         {
             Player.Story_notmove = false;
-            Gun_fire.可開火開關 = true;
+            //Gun_fire.可開火開關 = true;
         }
     }
 
-    void 查詢BUG()
+    void 作弊模式開啟()
     {
-        flowchartManager = GameObject.Find("對話管理器").GetComponent<Flowchart>();
-
-        目前擁有彈匣數量 = Gun_fire.彈匣數量;
-
-        if (檢查道具擁有狀態)
+        //人物補血
+        if (Input.GetKeyDown(KeyCode.I) && Player.health > 0)
         {
-            觀看門禁卡 = 擁有門禁卡;
-            觀看密碼鎖密碼 = 擁有密碼鎖密碼;
-            觀看手槍 = 擁有手槍;
+            人物鎖血 = !人物鎖血;
+            無限子彈 = !無限子彈;
+            補包999 = !補包999;
         }
-
-        if (清除所有道具狀態)
+        if(人物鎖血 && 無限子彈 && 補包999)
         {
-            擁有門禁卡 = false;
-            擁有密碼鎖密碼 = false;
-            擁有手槍 = false;
             Player.health = 100;
+            Gun_fire.rifleAmmo = 20;
             Gun_fire.子彈 = 8;
-
-            清除所有道具狀態 = false;
+            補包數量 = 999;
         }
+        
+
+        //關卡跳關
 
         if (Input.GetKey(KeyCode.Alpha0))
         {
@@ -174,6 +181,35 @@ public class GameManager : MonoBehaviour
         {
             Gun_fire.彈匣數量++;
         }
+    }
+
+    void 查詢BUG()
+    {
+        flowchartManager = GameObject.Find("對話管理器").GetComponent<Flowchart>();
+
+        目前擁有彈匣數量 = Gun_fire.彈匣數量;
+
+        if (檢查道具擁有狀態)
+        {
+            觀看門禁卡 = 擁有門禁卡;
+            觀看密碼鎖密碼 = 擁有密碼鎖密碼;
+            觀看手槍 = 擁有手槍;
+            觀看開火開關 = Gun_fire.可開火開關;
+            觀看補血 = 擁有補血;
+        }
+
+        if (清除所有道具狀態)
+        {
+            擁有門禁卡 = false;
+            擁有密碼鎖密碼 = false;
+            擁有手槍 = false;
+            Player.health = 100;
+            Gun_fire.子彈 = 8;
+            補包數量 = 0;
+
+            清除所有道具狀態 = false;
+        }
+
 
         /*
         else if (Input.GetKey(KeyCode.I))
@@ -232,12 +268,6 @@ public class GameManager : MonoBehaviour
         {
             重生點 = GameObject.Find("玩家重生點");
         }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            PlayerHealth.玩家生命 -= 1;
-        }
-
         /*
         if(角色死亡)
         {
@@ -370,13 +400,13 @@ public class GameManager : MonoBehaviour
             開啟選單 = !開啟選單;
         }
 
-        if (開啟選單 && !正在對話 )
+        if (開啟選單 && !keypad.keypadScreen)
         {
             選單介面.SetActive(true);
             Time.timeScale = 0f;
             Gun_fire.可開火開關 = false;
         }
-        else if (!開啟選單 && !正在對話 && !keypad.keypadScreen)
+        else if (!開啟選單 && !keypad.keypadScreen)
         {
             選單介面.SetActive(false);
             Time.timeScale = 1f;
@@ -386,7 +416,7 @@ public class GameManager : MonoBehaviour
 
     public void 監測是否正在對話()
     {
-        if(!開啟選單)
+        if(!開啟選單 && !keypad.keypadScreen)
         {
             if (正在時停)
             {
@@ -418,8 +448,10 @@ public class GameManager : MonoBehaviour
         擁有密碼鎖密碼 = true;
         擁有手槍 = true;
     }
+    /*
     public void 無限子彈()
     {
         Gun_fire.彈匣數量 += 100000;
     }
+    */
 }
