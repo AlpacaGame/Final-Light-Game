@@ -285,6 +285,7 @@ public class Player : MonoBehaviour
     //滑行
     public void Slide()
     {
+        pistolHand.SetActive(false);
         CanSlideAgain = false;
         sliding = true;
         anim.SetBool("isSliding", true);
@@ -304,6 +305,10 @@ public class Player : MonoBehaviour
         collWalk.enabled = true;
         collSlide.enabled = false;
         PlayerHealth.回復體力=true;
+        if(GameManager.擁有手槍 || GameManager.擁有步槍)
+        {
+            pistolHand.SetActive(true);
+        }
     }
 
     public void YouCanSlideAgain()
@@ -320,13 +325,13 @@ public class Player : MonoBehaviour
             anim.SetBool("PickUpWeapon", true);
         }
 
-        if (switchingHand && health > 0)
+        if (switchingHand && health > 0 && !sliding)
         {
             pistolHand.SetActive(true);
             handF.SetActive(false);
             handB.SetActive(false);
         }
-        else if (!switchingHand && health > 0)
+        else if (!switchingHand && health > 0 && !sliding)
         {
             pistolHand.SetActive(false);
             handF.SetActive(true);

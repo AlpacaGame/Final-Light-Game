@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
 {
     public bool 撿拾道具 = false;
 
-    public bool 門禁卡, 密碼鎖密碼, 手槍 =false;
+    public bool 門禁卡, 密碼鎖密碼, 手槍,步槍,補血劑 =false;
 
 
     //public static bool 鑰匙拾取過 = false;
@@ -50,11 +50,6 @@ public class Item : MonoBehaviour
             Destroy(gameObject);
             GameManager.擁有門禁卡 = true;
             SoundManager.instance.PickUpSource();
-
-            /*
-            Block targetBlock = talkFlowchart.FindBlock(onTriggerEnter2D);
-            talkFlowchart.ExecuteBlock(targetBlock);
-        */
         }
 
         else if (Input.GetKey(KeyCode.E) && 撿拾道具 && 密碼鎖密碼)
@@ -68,8 +63,16 @@ public class Item : MonoBehaviour
         {
             Destroy(gameObject);
             GameManager.擁有手槍 = true;
-            Enemy_Zombie.新手教學用 = true;
             SoundManager.instance.PickUpSource();
+            Gun_fire.手槍彈匣數量 += 100;//當下撿到手槍拿到的彈匣
+        }
+
+        else if (Input.GetKey(KeyCode.E) && 撿拾道具 && 步槍)
+        {
+            Destroy(gameObject);
+            GameManager.擁有步槍 = true;
+            SoundManager.instance.PickUpSource();
+            Gun_fire.步槍彈匣數量 += 100;//當下撿到手槍拿到的彈匣
         }
     }
     void 撿過就刪除()
@@ -88,7 +91,13 @@ public class Item : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
+
+        else if (步槍 && GameManager.擁有步槍)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D Key)

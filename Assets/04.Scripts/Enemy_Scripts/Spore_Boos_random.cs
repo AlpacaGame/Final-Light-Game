@@ -47,12 +47,12 @@ public class Spore_Boos_random : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (State2 && 一次回滿)
+        if (State1 || State2 && 一次回滿)
         {
             Spore_Boos.回血數字 = 5;
         }
 
-        if (State4 && 一次回滿)
+        if (State3 || State4 && 一次回滿)
         {
             Spore_Boos.回血數字 = 20;
         }

@@ -10,6 +10,8 @@ public class ScreenShake : MonoBehaviour
 
     public float rotationMultiplier = 7.5f;
 
+    public float 震動時長, 震動力量;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,7 @@ public class ScreenShake : MonoBehaviour
         /*
         if(Input.GetKeyDown(KeyCode.K))
         {
-            StartShake(.5f, 1f); //測試震動相機
+            StartShake(震動時長, 震動力量); //測試震動相機
         }
         */
     }

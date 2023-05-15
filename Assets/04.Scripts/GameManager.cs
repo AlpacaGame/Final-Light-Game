@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     public static bool 死亡重生 = false;
 
-    public int 目前擁有彈匣數量;
+    public int 目前擁有手槍彈匣數量, 目前擁有步槍彈匣數量;
 
     //public bool 普通背景音樂, Boos背景音樂 = false;
 
@@ -37,9 +37,9 @@ public class GameManager : MonoBehaviour
     [Header("道具數量")]
     public bool 檢查道具擁有狀態 = true;
     public bool 清除所有道具狀態 = false;
-    public bool 觀看門禁卡, 觀看密碼鎖密碼, 觀看手槍 = false;
-    public static bool 擁有門禁卡, 擁有密碼鎖密碼, 擁有手槍 ,擁有補血;
-    public bool 觀看一次門禁卡, 觀看一次密碼鎖密碼, 觀看一次手槍,觀看開火開關, 觀看補血;
+    public bool 觀看門禁卡, 觀看密碼鎖密碼, 觀看手槍, 觀看步槍, 觀看開火開關, 觀看補血 = false;
+    public static bool 擁有門禁卡, 擁有密碼鎖密碼, 擁有手槍, 擁有步槍, 擁有補血;
+    //public bool 觀看一次門禁卡, 觀看一次密碼鎖密碼, 觀看一次手槍, 觀看一次步槍;
     public GameObject 門禁卡, 密碼鎖密碼, 手槍;
     public float 觀看時間 = 0f;
 
@@ -52,8 +52,14 @@ public class GameManager : MonoBehaviour
     public int 補包數量 = 0;
 
     [Header("作弊")]
-    public bool 人物鎖血,無限子彈,補包999,一鍵道具;
-    
+    public bool 人物鎖血;
+    public bool 無限子彈;
+    public bool 補包999;
+    public bool 一鍵道具;
+
+    public bool 強制重來;
+
+
     void Awake()
     {
         this.fixedDeltaTime = Time.fixedDeltaTime;
@@ -82,9 +88,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         觀看一次門禁卡 = true;
         觀看一次密碼鎖密碼 = true;
         觀看一次手槍 = true;
+        觀看一次步槍 = true;
+        */
         if (遊戲主控 != null)
         {
             Destroy(gameObject);
@@ -106,10 +115,17 @@ public class GameManager : MonoBehaviour
         時間控制器();
         作弊模式開啟();
 
-        if(Player.health <= 0)
+        if(Player.health <= 0 && !強制重來)
         {
-            彈出選單();
+            強制重來 = true;
+            死掉強迫重開();
         }
+    }
+
+    void 死掉強迫重開()
+    {
+        開啟選單 = true;
+        強制重來 = false;
     }
 
     void 執行故事模式()
@@ -179,7 +195,8 @@ public class GameManager : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.Z))
         {
-            Gun_fire.彈匣數量++;
+            Gun_fire.手槍彈匣數量++;
+            Gun_fire.步槍彈匣數量++;
         }
     }
 
@@ -187,13 +204,15 @@ public class GameManager : MonoBehaviour
     {
         flowchartManager = GameObject.Find("對話管理器").GetComponent<Flowchart>();
 
-        目前擁有彈匣數量 = Gun_fire.彈匣數量;
+        目前擁有手槍彈匣數量 = Gun_fire.手槍彈匣數量;
+        目前擁有步槍彈匣數量 = Gun_fire.步槍彈匣數量;
 
         if (檢查道具擁有狀態)
         {
             觀看門禁卡 = 擁有門禁卡;
             觀看密碼鎖密碼 = 擁有密碼鎖密碼;
             觀看手槍 = 擁有手槍;
+            觀看步槍 = 擁有步槍 ;
             觀看開火開關 = Gun_fire.可開火開關;
             觀看補血 = 擁有補血;
         }
@@ -205,7 +224,10 @@ public class GameManager : MonoBehaviour
             擁有手槍 = false;
             Player.health = 100;
             Gun_fire.子彈 = 8;
+            Gun_fire.rifleAmmo = 20;
             補包數量 = 0;
+            Gun_fire.手槍彈匣數量 = 0;
+            Gun_fire.步槍彈匣數量 = 0;
 
             清除所有道具狀態 = false;
         }
@@ -358,6 +380,7 @@ public class GameManager : MonoBehaviour
                 關閉主角 = true;
                 UI開關 = false;
                 SoundManager.MuteMusic = false;
+                清除所有道具狀態 = true;
 
                 if (玩家控制.不可重複 != null)//增加一層判斷程式才不會出錯
                 {
@@ -405,12 +428,16 @@ public class GameManager : MonoBehaviour
             選單介面.SetActive(true);
             Time.timeScale = 0f;
             Gun_fire.可開火開關 = false;
+            SoundManager.musicToggle = true;
+            Spore_Boos.回血 = false;
         }
         else if (!開啟選單 && !keypad.keypadScreen)
         {
             選單介面.SetActive(false);
             Time.timeScale = 1f;
             Gun_fire.可開火開關 = true;
+            SoundManager.musicToggle = false;
+            Spore_Boos.回血 = true;
         }
     }
 
@@ -447,6 +474,7 @@ public class GameManager : MonoBehaviour
         擁有門禁卡 = true;
         擁有密碼鎖密碼 = true;
         擁有手槍 = true;
+        擁有步槍 = true;
     }
     /*
     public void 無限子彈()

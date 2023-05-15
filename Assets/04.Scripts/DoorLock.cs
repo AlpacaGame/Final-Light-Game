@@ -36,6 +36,8 @@ public class DoorLock : MonoBehaviour
             GameObject.Find("MainCamera").GetComponent<ScreenShake>().StartShake(1.5f, 0.18f);//螢幕震動4 .5
             SoundManager.instance.EnemyBoos_AttackSource2();//怒吼音效
             SoundManager.instance.Boosfight_SourceMusic(); // 切換魔王背景音樂
+
+            Invoke("後來關掉", 1f);
         }
     }
 
@@ -43,5 +45,10 @@ public class DoorLock : MonoBehaviour
     {
         Camera.main.fieldOfView = Mathf.Lerp(90, FieldOfViewMax, t);
         t += 0.01f;
+    }
+
+    void 後來關掉()
+    {
+        Destroy(gameObject);
     }
 }

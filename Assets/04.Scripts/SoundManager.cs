@@ -29,6 +29,7 @@ public class SoundManager : MonoBehaviour
     public static float Music = 0f;
 
     public static bool MuteSound, MuteMusic = false;
+    public static bool musicToggle;
 
     // Start is called before the first frame update
 
@@ -77,6 +78,7 @@ public class SoundManager : MonoBehaviour
         操控音樂();
         靜音音效();
         靜音音樂();
+        暫停音樂音效();
     }
 
     void 操控音效()
@@ -139,6 +141,23 @@ public class SoundManager : MonoBehaviour
         else
         {
             Background_audioSource.volume = Music;
+        }
+    }
+
+    public void 暫停音樂音效()
+    {
+         
+        if (!musicToggle)
+        {
+            // 如果音樂已經暫停，則繼續播放
+            Background_audioSource.UnPause();
+
+        }
+        else
+        {
+            // 如果音樂正在播放，則暫停
+            Background_audioSource.Pause();
+
         }
     }
 

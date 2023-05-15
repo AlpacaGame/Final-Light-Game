@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth instance;
@@ -25,7 +26,8 @@ public class PlayerHealth : MonoBehaviour
 
     public LifeBar 血量量度計;
     public StrengthBar 體力量度計;
-    public 子彈UI 子彈量度計;
+    //public 子彈UI 子彈量度計;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +39,8 @@ public class PlayerHealth : MonoBehaviour
 
         玩家體力 = 玩家體力最大值;
         體力量度計.體力極限(玩家體力最大值);
-
-        玩家子彈 = 玩家子彈最大值;
-        子彈量度計.子彈極限(玩家子彈最大值);
+        
+        //子彈量度計.子彈極限(玩家子彈最大值);
     }
 
     // Update is called once per frame
@@ -53,10 +54,12 @@ public class PlayerHealth : MonoBehaviour
         {
             體力量度計 = GameObject.Find("體力條(底下的東西我隱藏了)").GetComponent<StrengthBar>();
         }
+        /*
         if (子彈量度計 == null)
         {
             子彈量度計 = GameObject.Find("子彈條").GetComponent<子彈UI>();
         }
+        */
 
         /*
         if(Input.GetKeyDown(KeyCode.N))
@@ -133,11 +136,8 @@ public class PlayerHealth : MonoBehaviour
     */
     void 子彈消耗機制()
     {
-        
-            
         預計消耗子彈量 = Gun_fire.子彈;
-
-        子彈量度計.子彈剩餘(預計消耗子彈量);
+        //子彈量度計.子彈剩餘(預計消耗子彈量);
     }
 
     public void 耗血(int 傷害值)

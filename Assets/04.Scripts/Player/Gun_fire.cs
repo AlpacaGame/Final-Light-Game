@@ -7,7 +7,7 @@ public class Gun_fire : MonoBehaviour
     public int 彈匣 = 8;
     public static int 子彈 = 8;
     public int 觀看子彈數量;
-    public static int 彈匣數量 = 2;
+    public static int 手槍彈匣數量, 步槍彈匣數量 = 2;
     public bool 填充子彈 = false;
 
     public float 開火時間 = 1.5f;
@@ -22,6 +22,8 @@ public class Gun_fire : MonoBehaviour
     public GameObject 槍口亮光;
 
     public static bool 可開火開關 = true;
+
+    public  bool 跳板機 = false;
 
     [Space(5)]
     [Header("無限子彈模式")]
@@ -47,48 +49,37 @@ public class Gun_fire : MonoBehaviour
     [Space(5)]
     [Header("步槍")]
     public bool rifleMode;//可切換步槍時開啟
-    public int currentWeapon = 0;//目前切換到的武器編號
+    public static int currentWeapon = 0;//目前切換到的武器編號
     public float rifleFireRate = 0.1f;
     private float rifleNextFire = 0.0f;
     public static int rifleAmmo;
     public int rifleAmmoNum = 20;
+
+    public static int 切換武器編號;
     
     void Start()
     {
         rifleMode = true;
         rifleFireRate = 0.1f;
         rifleAmmo = rifleAmmoNum;
-
+        /*
         if (InfiniteAmmoModel)
         {
             彈匣數量 += 10000;
         }
+        */
     }
 
     void Update()
     {
         觀看子彈數量 = 子彈;
+        切換武器編號 = currentWeapon; //currentWeapon = 0手槍, = 1步槍, =2精神(未實裝)
 
-        //按下R鍵，裝子彈
-        if (彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R) && 可開火開關)
-        {
-            
-            SoundManager.instance.ReloadSource();
+        
 
-            if(currentWeapon == 0)
-            {
-                子彈 = 彈匣;
-                彈匣數量 -= 1;
-            }
-            else if(currentWeapon == 1)
-            {
-                rifleAmmo = rifleAmmoNum;
-            }
-            
-        }
 
         //按下Q鍵，切換武器(步槍&手槍)
-        if(rifleMode && Input.GetKeyDown(KeyCode.Q))
+        if (rifleMode && Input.GetKeyDown(KeyCode.Q) && GameManager.擁有手槍 && GameManager.擁有步槍)
         {
             SoundManager.instance.PickUpSource();
             if (currentWeapon == 0)
@@ -105,6 +96,15 @@ public class Gun_fire : MonoBehaviour
         //手槍
         if (currentWeapon == 0)
         {
+            //按下R鍵，裝子彈
+            if (手槍彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R) && 可開火開關)
+            {
+                跳板機 = false;
+                SoundManager.instance.ReloadSource();
+                子彈 = 彈匣;
+                手槍彈匣數量 -= 1;
+            }
+
             //開火左
             if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == -1 && 可開火開關)
             {
@@ -115,6 +115,7 @@ public class Gun_fire : MonoBehaviour
                 Instantiate(槍口亮光, 槍口pos, transform.rotation);
                 子彈 -= 1;
                 SoundManager.instance.FireSource();
+                ScreenShake.instance.StartShake(.5f , .05f);
             }
             //開火右
             else if (子彈 >= 1 && Input.GetMouseButtonDown(0) && 新Pivot.玩家面相 == 1 && 可開火開關)
@@ -126,24 +127,37 @@ public class Gun_fire : MonoBehaviour
                 Instantiate(槍口亮光, 槍口pos, transform.rotation);
                 子彈 -= 1;
                 SoundManager.instance.FireSource();
+                ScreenShake.instance.StartShake(.5f, .05f);
             }
             //沒子彈跳槍機
             else if (子彈 == 0 && Input.GetMouseButtonDown(0))
             {
-                子彈 -= 1;
+                //子彈 -= 1;
+                跳板機 = true;
                 SoundManager.instance.No_BulletsSource();
             }
             //按左鍵裝子彈
-            else if (子彈 <= -1 && Input.GetMouseButtonDown(0))
+            if (子彈 == 0 && Input.GetMouseButtonDown(0) && 跳板機 && 手槍彈匣數量 >= 1)
             {
+                跳板機 = false;
                 子彈 = 彈匣;
-                彈匣數量 -= 1;
+                手槍彈匣數量 -= 1;
                 SoundManager.instance.ReloadSource();
             }
         }
         //步槍
         else if (currentWeapon == 1)
         {
+            //按下R鍵，裝子彈
+            if (步槍彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R) && 可開火開關)
+            {
+                跳板機 = false;
+                SoundManager.instance.ReloadSource();
+                rifleAmmo = rifleAmmoNum;
+                步槍彈匣數量 -= 1;
+
+            }
+
             //開火
             if (rifleAmmo >= 1 && Input.GetMouseButton(0) && 可開火開關 && Time.time > rifleNextFire)
             {
@@ -162,17 +176,22 @@ public class Gun_fire : MonoBehaviour
                 Instantiate(槍口亮光, 槍口pos, transform.rotation);
                 rifleAmmo -= 1;
                 SoundManager.instance.FireSource();
+                ScreenShake.instance.StartShake(.5f, .2f);
             }
             //裝子彈聲音
-            else if (rifleAmmo == 0 && Input.GetMouseButtonDown(0))
+            else if (rifleAmmo == 0 && Input.GetMouseButtonDown(0) && Time.time > rifleNextFire)
             {
-                rifleAmmo -= 1;
-                SoundManager.instance.ReloadSource();
+                跳板機 = true;
+                //rifleAmmo -= 1;
+                SoundManager.instance.No_BulletsSource();
             }
             //裝子彈
-            else if (rifleAmmo <= -1 && Input.GetMouseButtonDown(0))
+            if (rifleAmmo == 0 && Input.GetMouseButtonDown(0) && 跳板機 && 步槍彈匣數量 >= 1)
             {
+                跳板機 = false;
+                SoundManager.instance.ReloadSource();
                 rifleAmmo = rifleAmmoNum;
+                步槍彈匣數量 -= 1;
             }
         }
     }

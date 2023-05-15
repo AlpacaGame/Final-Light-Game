@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pick_Ammo : MonoBehaviour
 {
-
+    public bool 手槍彈匣, 步槍彈匣;
 
 
     // Start is called before the first frame update
@@ -23,8 +23,17 @@ public class Pick_Ammo : MonoBehaviour
     {
         if (Pick.CompareTag("Player"))
         {
-            Gun_fire.彈匣數量+=1;
-            Destroy(gameObject);
+            if(手槍彈匣)
+            {
+                Gun_fire.手槍彈匣數量 += 1;
+                Destroy(gameObject);
+            }
+
+            if (步槍彈匣)
+            {
+                Gun_fire.步槍彈匣數量 += 1;
+                Destroy(gameObject);
+            }
         }
     }
 }

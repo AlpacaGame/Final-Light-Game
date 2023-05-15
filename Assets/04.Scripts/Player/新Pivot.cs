@@ -18,6 +18,9 @@ public class 新Pivot : MonoBehaviour
     public GameObject rightFirePoint;
     public GameObject leftFirePoint;
 
+    public GameObject rifle_rightFirePoint;
+    public GameObject rifle_leftFirePoint;
+
     private void FixedUpdate()
     {
         if(RecordMode)
@@ -32,9 +35,23 @@ public class 新Pivot : MonoBehaviour
             {
                 transform.localRotation = Quaternion.Euler(180, 180, -rotationZ);//180, 180, -rotationZ
                 玩家面相 = -1;
+                if(Gun_fire.切換武器編號 == 0)
+                {
+                    rightFirePoint.SetActive(false);//錄影用左右槍口開關
+                    leftFirePoint.SetActive(true);
 
-                rightFirePoint.SetActive(false);//錄影用左右槍口開關
-                leftFirePoint.SetActive(true);
+                    rifle_rightFirePoint.SetActive(false);
+                    rifle_leftFirePoint.SetActive(false);
+                }
+
+                if (Gun_fire.切換武器編號 == 1)
+                {
+                    rifle_rightFirePoint.SetActive(false);
+                    rifle_leftFirePoint.SetActive(true);
+
+                    rightFirePoint.SetActive(false);//關閉
+                    leftFirePoint.SetActive(false);
+                }
             }
 
             else if (rotationZ > -90 || rotationZ < 90)
@@ -42,8 +59,23 @@ public class 新Pivot : MonoBehaviour
                 transform.localRotation = Quaternion.Euler(0, 0, rotationZ);//0, 0, rotationZ
                 玩家面相 = 1;
 
-                leftFirePoint.SetActive(false);//錄影用左右槍口開關
-                rightFirePoint.SetActive(true);
+                if (Gun_fire.切換武器編號 == 0)
+                {
+                    leftFirePoint.SetActive(false);//錄影用左右槍口開關
+                    rightFirePoint.SetActive(true);
+
+                    rifle_rightFirePoint.SetActive(false);
+                    rifle_leftFirePoint.SetActive(false);
+                }
+
+                if (Gun_fire.切換武器編號 == 1)
+                {
+                    rifle_leftFirePoint.SetActive(false);
+                    rifle_rightFirePoint.SetActive(true);
+
+                    rightFirePoint.SetActive(false);//關閉
+                    leftFirePoint.SetActive(false);
+                }
             }
         }
         else
