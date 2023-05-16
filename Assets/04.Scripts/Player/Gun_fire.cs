@@ -195,7 +195,7 @@ public class Gun_fire : MonoBehaviour
 
     IEnumerator RayShoot()
     {
-        layerMask = (1 << LayerMask.NameToLayer("Enemy"))|(1 << LayerMask.NameToLayer("floor"));//指定可射擊圖層
+        layerMask = (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("EnemyDead")) | (1 << LayerMask.NameToLayer("floor"));//指定可射擊圖層
         RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right, 1000, layerMask);
 
         if (hitInfo)
@@ -217,8 +217,7 @@ public class Gun_fire : MonoBehaviour
                 Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
                 hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
             }
-            //只要是Enemy圖層就會觸發
-            else if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            else if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("EnemyDead"))
             {
                 SoundManager.instance.BloodSource();
                 Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
