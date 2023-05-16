@@ -10,6 +10,7 @@ public class ShowBoos : MonoBehaviour
     public static bool 動畫開關;
     public GameObject 爆炸;
     public GameObject ventLaunch;
+    public GameObject enemySpawner;
 
     void Start()
     {
@@ -49,7 +50,6 @@ public class ShowBoos : MonoBehaviour
         SoundManager.instance.EnemyBoos_AttackSource();//怒吼音效
         SoundManager.instance.Boosfight_SourceMusic(); // 切換魔王背景音樂
         RippleEffect.PlayRippleEffect(3, 0.7f, 0.7f);
-        EnemySpawner.StartEnemySpawn = true; //生小怪
         GameObject.Find("MainCamera").GetComponent<ScreenShake>().StartShake(1.5f, 0.18f);//螢幕震動
     }
 
@@ -64,5 +64,8 @@ public class ShowBoos : MonoBehaviour
         SoundManager.instance.EnemyBoss_ExplosionSource();
         爆炸.SetActive(true);
         ventLaunch.GetComponent<ObjectLaunch>().Launch();
+        enemySpawner.GetComponent<EnemySpawner>().InvokeEnemySpawn(1f);
+        enemySpawner.GetComponent<EnemySpawner>().InvokeEnemySpawn(5f);
+        enemySpawner.GetComponent<EnemySpawner>().InvokeEnemySpawn(10f);
     }
 }
