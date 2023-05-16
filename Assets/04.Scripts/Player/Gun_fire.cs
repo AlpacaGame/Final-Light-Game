@@ -36,15 +36,12 @@ public class Gun_fire : MonoBehaviour
     public LineRenderer lineRenderer;
     public float impactForce = 20f;
     public GameObject bloodEffect;
+    public int layerMask;//射線圖層遮罩
 
     [Space(5)]
     [Header("超高攻擊模式")]
     public bool SuperDamageModel = false;
     public int SuperDamage = 200;
-
-    [Space(5)]
-    [Header("錄影模式")]
-    public bool recordModel = false;
 
     [Space(5)]
     [Header("步槍")]
@@ -198,53 +195,37 @@ public class Gun_fire : MonoBehaviour
 
     IEnumerator RayShoot()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
+        layerMask = (1 << LayerMask.NameToLayer("Enemy"))|(1 << LayerMask.NameToLayer("floor"));//指定可射擊圖層
+        RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right, 1000, layerMask);
 
-        if(recordModel)
+        if (hitInfo)
         {
-            if (hitInfo)
+            Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
+            if (enemy != null)
             {
-                lineRenderer.SetPosition(0, firePoint.position);
-                lineRenderer.SetPosition(1, hitInfo.point);
+                SoundManager.instance.BloodSource();
+
+                if (SuperDamageModel)
+                {
+                    enemy.TakeDamage(SuperDamage);
+                }
+                else
+                {
+                    enemy.TakeDamage(damage);
+                }
+
                 Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
+                hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
             }
-            else
-            {
-                lineRenderer.SetPosition(0, firePoint.position);
-                lineRenderer.SetPosition(1, firePoint.position + firePoint.right * 100);
-            }
+            lineRenderer.SetPosition(0, firePoint.position);
+            lineRenderer.SetPosition(1, hitInfo.point);
         }
         else
         {
-            if (hitInfo)
-            {
-                Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
-                if (enemy != null)
-                {
-                    SoundManager.instance.BloodSource();
-
-                    if (SuperDamageModel)
-                    {
-                        enemy.TakeDamage(SuperDamage);
-                    }
-                    else
-                    {
-                        enemy.TakeDamage(damage);
-                    }
-
-                    Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
-                    hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
-                }
-                lineRenderer.SetPosition(0, firePoint.position);
-                lineRenderer.SetPosition(1, hitInfo.point);
-            }
-            else
-            {
-                lineRenderer.SetPosition(0, firePoint.position);
-                lineRenderer.SetPosition(1, firePoint.position + firePoint.right * 100);
-            }
+            lineRenderer.SetPosition(0, firePoint.position);
+            lineRenderer.SetPosition(1, firePoint.position + firePoint.right * 100);
         }
-        
+
         lineRenderer.enabled = true;
 
         yield return new WaitForSeconds(0.02f);
