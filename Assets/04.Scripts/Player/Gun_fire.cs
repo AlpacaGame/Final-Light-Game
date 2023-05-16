@@ -217,6 +217,13 @@ public class Gun_fire : MonoBehaviour
                 Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
                 hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
             }
+            //只要是Enemy圖層就會觸發
+            else if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
+                SoundManager.instance.BloodSource();
+                Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
+                hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
+            }
             lineRenderer.SetPosition(0, firePoint.position);
             lineRenderer.SetPosition(1, hitInfo.point);
         }

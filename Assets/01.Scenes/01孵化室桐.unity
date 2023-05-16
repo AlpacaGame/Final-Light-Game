@@ -34657,9 +34657,9 @@ MonoBehaviour:
   impactForce: 20
   bloodEffect: {fileID: 1301235632560057790, guid: 8cecdac409946114086e6880596b7f08,
     type: 3}
+  layerMask: 0
   SuperDamageModel: 0
   SuperDamage: 200
-  recordModel: 0
   rifleMode: 0
   rifleFireRate: 0.1
   rifleAmmoNum: 20
@@ -50366,9 +50366,9 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   impactForce: 20
   bloodEffect: {fileID: 0}
+  layerMask: 0
   SuperDamageModel: 0
   SuperDamage: 200
-  recordModel: 0
   rifleMode: 0
   rifleFireRate: 0.1
   rifleAmmoNum: 20
@@ -52561,12 +52561,12 @@ MonoBehaviour:
   firePoint: {fileID: 733056338}
   damage: 20
   lineRenderer: {fileID: 1143037580}
-  impactForce: 20
+  impactForce: 1000
   bloodEffect: {fileID: 1301235632560057790, guid: 8cecdac409946114086e6880596b7f08,
     type: 3}
+  layerMask: 0
   SuperDamageModel: 0
   SuperDamage: 200
-  recordModel: 0
   rifleMode: 0
   rifleFireRate: 0.1
   rifleAmmoNum: 20
@@ -83207,9 +83207,9 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   impactForce: 20
   bloodEffect: {fileID: 0}
+  layerMask: 0
   SuperDamageModel: 0
   SuperDamage: 200
-  recordModel: 0
   rifleMode: 0
   rifleFireRate: 0.1
   rifleAmmoNum: 20
@@ -91235,12 +91235,12 @@ MonoBehaviour:
   firePoint: {fileID: 1242790906}
   damage: 20
   lineRenderer: {fileID: 1143037580}
-  impactForce: 20
+  impactForce: 1000
   bloodEffect: {fileID: 1301235632560057790, guid: 8cecdac409946114086e6880596b7f08,
     type: 3}
+  layerMask: 0
   SuperDamageModel: 0
   SuperDamage: 200
-  recordModel: 0
   rifleMode: 0
   rifleFireRate: 0.1
   rifleAmmoNum: 20
@@ -126629,6 +126629,7 @@ MonoBehaviour:
   BossHealthModel: 0
   Boss: {fileID: 0}
   _anim: {fileID: 0}
+  _collider: {fileID: 0}
   _colliders: []
   _joints: []
   _rbs: []
@@ -137975,9 +137976,9 @@ MonoBehaviour:
   impactForce: 20
   bloodEffect: {fileID: 1301235632560057790, guid: 8cecdac409946114086e6880596b7f08,
     type: 3}
+  layerMask: 0
   SuperDamageModel: 0
   SuperDamage: 200
-  recordModel: 0
   rifleMode: 0
   rifleFireRate: 0.1
   rifleAmmoNum: 20

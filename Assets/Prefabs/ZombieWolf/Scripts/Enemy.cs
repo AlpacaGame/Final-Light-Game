@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
     [Space(5)]
     [Header("Ragdoll切換需要的物件")]
     [SerializeField] private Animator _anim;
+    [SerializeField] private Collider2D _collider;
     [SerializeField] private List<Collider2D> _colliders;
     [SerializeField] private List<HingeJoint2D> _joints;
     [SerializeField] private List<Rigidbody2D> _rbs;
@@ -152,6 +153,7 @@ public class Enemy : MonoBehaviour
     public void ToggleRagdoll(bool ragdollOn) 
     {
         _anim.enabled = !ragdollOn;
+        _collider.enabled = !ragdollOn;
 
         foreach (var col in _colliders)
         {
