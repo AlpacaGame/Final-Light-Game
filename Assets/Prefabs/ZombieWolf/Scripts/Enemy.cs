@@ -205,6 +205,7 @@ public class Enemy : MonoBehaviour
         if(!onlyHealth)
         {
             ToggleRagdoll(true);
+            EnemySpawner.EnemyLeft -= 1;
         }
         Invoke("Disappear", disappearTime);
     }
@@ -212,7 +213,6 @@ public class Enemy : MonoBehaviour
     //消失
     public void Disappear()
     {
-        EnemySpawner.EnemyLeft -= 1;
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
