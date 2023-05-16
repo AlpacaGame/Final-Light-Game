@@ -1730,6 +1730,7 @@ MonoBehaviour:
   BossHealthModel: 0
   Boss: {fileID: 0}
   _anim: {fileID: 5280636533163385703}
+  _collider: {fileID: 8306315065675812139}
   _colliders:
   - {fileID: 2903800141754989649}
   - {fileID: 7095926103355517666}
@@ -1796,6 +1797,7 @@ MonoBehaviour:
   - {fileID: 3276333187586907270}
   _CCDsolvers:
   - {fileID: 3276333187291742724}
+  startRagdoll: 0
   NoOffsetY: 1
 --- !u!50 &873937945784318176
 Rigidbody2D:
