@@ -21741,32 +21741,6 @@ Transform:
   m_Father: {fileID: 7223915935964520547}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &4183405154773380670
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7223915937366323235}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.2270094}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.9540188}
-  m_EdgeRadius: 0
 --- !u!70 &4379350382288250734
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -23270,8 +23244,6 @@ GameObject:
   - component: {fileID: 6690453547740314947}
   - component: {fileID: 8152736182169076625}
   - component: {fileID: 6170846841147690400}
-  - component: {fileID: 4183405154773380670}
-  - component: {fileID: 7773670627611729429}
   - component: {fileID: 6221233797551398470}
   m_Layer: 3
   m_Name: Zombie
@@ -23612,22 +23584,6 @@ Transform:
   m_Father: {fileID: 5678781512406689022}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -716.508}
---- !u!58 &7773670627611729429
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7223915937366323235}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
-  serializedVersion: 2
-  m_Radius: 0.25
 --- !u!4 &7799882801203311601
 Transform:
   m_ObjectHideFlags: 0
@@ -23737,6 +23693,7 @@ MonoBehaviour:
   BossHealthModel: 0
   Boss: {fileID: 0}
   _anim: {fileID: 6690453547740314947}
+  _collider: {fileID: 6221233797551398470}
   _colliders:
   - {fileID: 3295388241942543788}
   - {fileID: 8355115164739025649}
