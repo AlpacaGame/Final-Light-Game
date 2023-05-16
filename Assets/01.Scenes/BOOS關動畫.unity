@@ -8272,6 +8272,7 @@ MonoBehaviour:
   GlassDoor: {fileID: 673837951918750555}
   anim: {fileID: 0}
   FieldOfViewMax: 120
+  BossHealthBar: {fileID: 1582680197709976900}
 --- !u!1001 &362661783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37835,9 +37836,7 @@ MonoBehaviour:
   "\u89C0\u770B\u9580\u7981\u5361": 0
   "\u89C0\u770B\u5BC6\u78BC\u9396\u5BC6\u78BC": 0
   "\u89C0\u770B\u624B\u69CD": 0
-  "\u89C0\u770B\u4E00\u6B21\u9580\u7981\u5361": 0
-  "\u89C0\u770B\u4E00\u6B21\u5BC6\u78BC\u9396\u5BC6\u78BC": 0
-  "\u89C0\u770B\u4E00\u6B21\u624B\u69CD": 0
+  "\u89C0\u770B\u6B65\u69CD": 0
   "\u89C0\u770B\u958B\u706B\u958B\u95DC": 0
   "\u89C0\u770B\u88DC\u8840": 0
   "\u9580\u7981\u5361": {fileID: 0}
@@ -37850,6 +37849,7 @@ MonoBehaviour:
   "\u7121\u9650\u5B50\u5F48": 0
   "\u88DC\u5305999": 0
   "\u4E00\u9375\u9053\u5177": 0
+  "\u5F37\u5236\u91CD\u4F86": 0
 --- !u!4 &1502959906
 Transform:
   m_ObjectHideFlags: 0
@@ -37922,7 +37922,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1509200566
 Canvas:
   m_ObjectHideFlags: 0
@@ -50305,11 +50305,10 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   impactForce: 20
   bloodEffect: {fileID: 0}
+  layerMask: 0
   SuperDamageModel: 0
   SuperDamage: 200
-  recordModel: 0
   rifleMode: 0
-  currentWeapon: 0
   rifleFireRate: 0.1
   rifleAmmoNum: 20
 --- !u!212 &1984054748
@@ -60407,6 +60406,7 @@ GameObject:
   - component: {fileID: 1582680197709976903}
   - component: {fileID: 1582680197709976902}
   - component: {fileID: 1582680197709976901}
+  - component: {fileID: 1582680197709976905}
   m_Layer: 5
   m_Name: "CanvasBoss\u8840\u91CF"
   m_TagString: Untagged
@@ -60499,6 +60499,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &1582680197709976905
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582680197709976900}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96b2795899f9859448dfce26769e3d5b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1582680198354597803
 GameObject:
   m_ObjectHideFlags: 0
@@ -67051,6 +67070,8 @@ MonoBehaviour:
   RecordMode: 1
   rightFirePoint: {fileID: 8964132675272779658}
   leftFirePoint: {fileID: 8964132675272779660}
+  rifle_rightFirePoint: {fileID: 0}
+  rifle_leftFirePoint: {fileID: 0}
 --- !u!114 &8964132675272778821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67429,11 +67450,10 @@ MonoBehaviour:
   impactForce: 20
   bloodEffect: {fileID: 1301235632560057790, guid: 8cecdac409946114086e6880596b7f08,
     type: 3}
+  layerMask: 0
   SuperDamageModel: 0
   SuperDamage: 200
-  recordModel: 0
   rifleMode: 0
-  currentWeapon: 0
   rifleFireRate: 0.1
   rifleAmmoNum: 20
 --- !u!114 &8964132675272778841
@@ -67467,11 +67487,10 @@ MonoBehaviour:
   impactForce: 20
   bloodEffect: {fileID: 1301235632560057790, guid: 8cecdac409946114086e6880596b7f08,
     type: 3}
+  layerMask: 0
   SuperDamageModel: 0
   SuperDamage: 200
-  recordModel: 0
   rifleMode: 0
-  currentWeapon: 0
   rifleFireRate: 0.1
   rifleAmmoNum: 20
 --- !u!114 &8964132675272778842

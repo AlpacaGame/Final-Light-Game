@@ -8272,6 +8272,7 @@ MonoBehaviour:
   GlassDoor: {fileID: 673837951918750555}
   anim: {fileID: 0}
   FieldOfViewMax: 120
+  BossHealthBar: {fileID: 1582680197709976900}
 --- !u!1001 &362661783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13010,7 +13011,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -37803,6 +37804,7 @@ MonoBehaviour:
   "\u7121\u9650\u5B50\u5F48": 0
   "\u88DC\u5305999": 0
   "\u4E00\u9375\u9053\u5177": 0
+  "\u5F37\u5236\u91CD\u4F86": 0
 --- !u!4 &1502959906
 Transform:
   m_ObjectHideFlags: 0
@@ -37875,7 +37877,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1509200566
 Canvas:
   m_ObjectHideFlags: 0
@@ -50264,9 +50266,9 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   impactForce: 20
   bloodEffect: {fileID: 0}
+  layerMask: 0
   SuperDamageModel: 0
   SuperDamage: 200
-  recordModel: 0
   rifleMode: 0
   rifleFireRate: 0.1
   rifleAmmoNum: 20
@@ -59741,6 +59743,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 425a8b5a0765fc246a917c1ecb7c4f0f, type: 2}
     - target: {fileID: 5655657625373956000, guid: 19e5243279777c84894a237142338118,
         type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655657625373956000, guid: 19e5243279777c84894a237142338118,
+        type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -60421,13 +60428,14 @@ GameObject:
   - component: {fileID: 1582680197709976903}
   - component: {fileID: 1582680197709976902}
   - component: {fileID: 1582680197709976901}
+  - component: {fileID: 1582680197709976905}
   m_Layer: 5
   m_Name: "CanvasBoss\u8840\u91CF"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1582680197709976901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60513,6 +60521,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &1582680197709976905
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582680197709976900}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96b2795899f9859448dfce26769e3d5b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1582680198354597803
 GameObject:
   m_ObjectHideFlags: 0
