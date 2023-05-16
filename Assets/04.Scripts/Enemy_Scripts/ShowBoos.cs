@@ -9,6 +9,7 @@ public class ShowBoos : MonoBehaviour
 
     public static bool 動畫開關;
     public GameObject 爆炸;
+    public GameObject ventLaunch;
 
     void Start()
     {
@@ -62,5 +63,6 @@ public class ShowBoos : MonoBehaviour
         GameManager.故事模式 = false;
         SoundManager.instance.EnemyBoss_ExplosionSource();
         爆炸.SetActive(true);
+        ventLaunch.GetComponent<ObjectLaunch>().Launch();
     }
 }
