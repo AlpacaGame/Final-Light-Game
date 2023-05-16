@@ -34654,7 +34654,7 @@ MonoBehaviour:
   firePoint: {fileID: 486932582}
   damage: 20
   lineRenderer: {fileID: 1143037580}
-  impactForce: 20
+  impactForce: 1500
   bloodEffect: {fileID: 1301235632560057790, guid: 8cecdac409946114086e6880596b7f08,
     type: 3}
   layerMask: 0
@@ -52561,7 +52561,7 @@ MonoBehaviour:
   firePoint: {fileID: 733056338}
   damage: 20
   lineRenderer: {fileID: 1143037580}
-  impactForce: 1000
+  impactForce: 500
   bloodEffect: {fileID: 1301235632560057790, guid: 8cecdac409946114086e6880596b7f08,
     type: 3}
   layerMask: 0
@@ -85169,6 +85169,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.75385714
       objectReference: {fileID: 0}
+    - target: {fileID: 5079776404784142855, guid: df0906a410e6ca549928d5818513d684,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.008382634
+      objectReference: {fileID: 0}
     - target: {fileID: 5977791988501333393, guid: df0906a410e6ca549928d5818513d684,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -91235,7 +91240,7 @@ MonoBehaviour:
   firePoint: {fileID: 1242790906}
   damage: 20
   lineRenderer: {fileID: 1143037580}
-  impactForce: 1000
+  impactForce: 500
   bloodEffect: {fileID: 1301235632560057790, guid: 8cecdac409946114086e6880596b7f08,
     type: 3}
   layerMask: 0
@@ -137973,7 +137978,7 @@ MonoBehaviour:
   firePoint: {fileID: 1970654265}
   damage: 20
   lineRenderer: {fileID: 1143037580}
-  impactForce: 20
+  impactForce: 1500
   bloodEffect: {fileID: 1301235632560057790, guid: 8cecdac409946114086e6880596b7f08,
     type: 3}
   layerMask: 0
