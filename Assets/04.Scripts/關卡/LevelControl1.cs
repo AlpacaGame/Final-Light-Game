@@ -19,6 +19,7 @@ public class LevelControl1 : MonoBehaviour
     public GameObject 亮光;
 
     private Animator anim_Door;
+    public Animator anim互動;
 
     public static bool 間接開門;
 
@@ -28,6 +29,7 @@ public class LevelControl1 : MonoBehaviour
     void Start()
     {
         anim_Door = GetComponent<Animator>();
+        //anim互動 = GetComponent<Animator>();
         //門開關物件控制 = this;
     }
 
@@ -61,12 +63,14 @@ public class LevelControl1 : MonoBehaviour
         if(間接開門)
         {
             anim_Door.SetBool("門開", true);
+            anim互動.SetBool("門開", true);
             直接開門開關 = true;
             亮光.SetActive(true);
         }
         else if (!間接開門)
         {
             anim_Door.SetBool("門開", false);
+            anim互動.SetBool("門開", false);
             直接開門開關 = false;
             亮光.SetActive(false);
         }
@@ -77,6 +81,7 @@ public class LevelControl1 : MonoBehaviour
         if (Fade.CompareTag("Player"))
         {
             anim_Door.SetBool("門開", true);
+            anim互動.SetBool("門開", true);
             直接開門開關 = true;
             亮光.SetActive(true);
         }
@@ -88,6 +93,7 @@ public class LevelControl1 : MonoBehaviour
         if (Fade.CompareTag("Player"))
         {
             anim_Door.SetBool("門開", false);
+            anim互動.SetBool("門開", false);
             直接開門開關 = false;
             亮光.SetActive(false);
         }

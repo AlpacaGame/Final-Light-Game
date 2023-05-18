@@ -29,28 +29,45 @@ public class UISetActive : MonoBehaviour
             }
         }    
         
-        else if (具珺簀狵 && GameManager.局Τも簀)
+        if (具珺簀狵)
         {
-            if (GameManager.UI秨闽)
+            if (GameManager.局Τも簀)
             {
-                ゴ秨UI.SetActive(true);
+                if (GameManager.UI秨闽)
+                {
+                    ゴ秨UI.SetActive(true);
+                }
+                else if (!GameManager.UI秨闽)
+                {
+                    ゴ秨UI.SetActive(false);
+                }
             }
-            else if (!GameManager.UI秨闽)
+
+            if (!GameManager.局Τも簀)
             {
                 ゴ秨UI.SetActive(false);
             }
         }
 
-        else if (干﹀ && GameManager.局Τ干﹀)
+        if (干﹀)
         {
-            if (GameManager.UI秨闽)
+            if (GameManager.局Τ干﹀)
             {
-                ゴ秨UI.SetActive(true);
+                if (GameManager.UI秨闽)
+                {
+                    ゴ秨UI.SetActive(true);
+                }
+                else if (!GameManager.UI秨闽)
+                {
+                    ゴ秨UI.SetActive(false);
+                }
             }
-            else if (!GameManager.UI秨闽)
+
+            if (!GameManager.局Τ干﹀)
             {
                 ゴ秨UI.SetActive(false);
             }
+            
         }
 
     }

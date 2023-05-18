@@ -14,7 +14,7 @@ public class Item : MonoBehaviour
 
     // Start is called before the first frame update
 
-
+    public Animator anim互動;
 
     void Start()
     {
@@ -52,10 +52,12 @@ public class Item : MonoBehaviour
             SoundManager.instance.PickUpSource();
         }
 
-        else if (Input.GetKey(KeyCode.E) && 撿拾道具 && 密碼鎖密碼)
+        else if (Input.GetKey(KeyCode.E) && 撿拾道具 && 密碼鎖密碼 && 補血劑)
         {
             Destroy(gameObject);
             GameManager.擁有密碼鎖密碼 = true;
+            GameManager.擁有補血 = true;
+            GameManager.補包數量 = 10;
             SoundManager.instance.PickUpSource();
         }
 
@@ -74,6 +76,15 @@ public class Item : MonoBehaviour
             SoundManager.instance.PickUpSource();
             Gun_fire.步槍彈匣數量 += 100;//當下撿到手槍拿到的彈匣
         }
+        /*
+        if (Input.GetKey(KeyCode.E) && 撿拾道具 && 補血劑)
+        {
+            Destroy(gameObject);
+            GameManager.擁有補血 = true;
+            SoundManager.instance.PickUpSource();
+            Gun_fire.步槍彈匣數量 += 100;//當下撿到手槍拿到的彈匣
+        }
+        */
     }
     void 撿過就刪除()
     {
@@ -105,6 +116,7 @@ public class Item : MonoBehaviour
         if (Key.gameObject.tag == "Player")
         {
             撿拾道具 = true;
+            anim互動.SetBool("門開", true);
         }
     }
 
@@ -113,6 +125,7 @@ public class Item : MonoBehaviour
         if (Key.gameObject.tag == "Player")
         {
             撿拾道具 = false;
+            anim互動.SetBool("門開", false);
         }
     }
 }

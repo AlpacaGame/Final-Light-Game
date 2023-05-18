@@ -40,7 +40,7 @@ public class DoorLock : MonoBehaviour
 
             BossHealthBar.SetActive(true);
 
-            Invoke("後來關掉", 1f);
+            Invoke("後來關掉", 5f);
         }
     }
 

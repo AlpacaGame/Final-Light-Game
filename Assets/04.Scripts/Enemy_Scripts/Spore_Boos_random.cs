@@ -7,6 +7,8 @@ public class Spore_Boos_random : MonoBehaviour
     public float 飛行速度 = 5.0f;
     public bool 執行一次 = true;
     public bool 一次回滿 = true;
+    public bool 階段五不重複;
+    public static bool 無敵 = false;
     public int 子彈消失時間 = 1;
 
     public int counter;
@@ -31,6 +33,7 @@ public class Spore_Boos_random : MonoBehaviour
     public int roarCount = 1;
 
     public int randomInt;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +41,7 @@ public class Spore_Boos_random : MonoBehaviour
         State1 = true;
         可開炮 = true;
         Spore_Boos.回血 = true;
+        階段五不重複 = true;
     }
 
     void 一次回滿MAX()
@@ -47,26 +51,40 @@ public class Spore_Boos_random : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (State1 || State2 && 一次回滿)
-        {
-            Spore_Boos.回血數字 = 5;
-        }
-
-        if (State3 || State4 && 一次回滿)
-        {
-            Spore_Boos.回血數字 = 20;
-        }
-
-        if (State5 && 一次回滿)
-        {
-            Spore_Boos.回血數字 = 10000;
-            Invoke("一次回滿MAX", 5f);
-        }
-
         if (!一次回滿)
         {
-            Spore_Boos.回血數字 = 0;
+            Spore_Boos.回血 = false;
+            無敵 = false;
+
+            
         }
+        
+        if(一次回滿)
+        {
+            if(階段五不重複)
+            {
+                if (State1 || State2)
+                {
+                    Spore_Boos.回血數字 = 5;
+                }
+
+                if (State3 || State4)
+                {
+                    Spore_Boos.回血數字 = 20;
+                }
+
+            }
+
+            if (State5 && !階段五不重複)
+            {
+                Spore_Boos.回血數字 = 250;
+
+                無敵 = true;
+                Invoke("一次回滿MAX", 7.5f);
+            }
+        }
+
+        
 
         if (DoorLock.StartBossFight)
         {
@@ -113,6 +131,8 @@ public class Spore_Boos_random : MonoBehaviour
                 State4 = false;
                 State5 = true;
                 State6 = false;
+
+                階段五不重複 = false;
             }
 
             else if (Spore_Boos.on_hp <= 0)

@@ -186,7 +186,15 @@ public class Enemy : MonoBehaviour
     {
         if(BossHealthModel)
         {
-            Boss.Hp -= damage;
+            if (Spore_Boos_random.無敵)
+            {
+                Boss.Hp -= 0;
+            }
+            if (!Spore_Boos_random.無敵)
+            {
+                Boss.Hp -= damage;
+            }
+            
         }
         else
         {

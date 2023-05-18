@@ -8,6 +8,7 @@ public class Spore_Boos : MonoBehaviour
     public float Hp = 100;
     public static float on_hp = 100;
     public static float 回血數字 = 5; //先以最高20
+    public float 觀看王回血;
 
     public static bool 回血;
 
@@ -22,8 +23,9 @@ public class Spore_Boos : MonoBehaviour
     void Update()
     {
         on_hp = Hp;
+        觀看王回血 = 回血數字;
 
-        if(Hp <= 0)
+        if (Hp <= 0)
         {
             Hp = 0;
             //SceneManager.LoadScene(1);
@@ -35,9 +37,19 @@ public class Spore_Boos : MonoBehaviour
             //SceneManager.LoadScene(1);
         }
 
+        
+    }
+
+    void FixedUpdate()
+    {
         if (回血)
         {
             Hp += 回血數字 * Time.fixedDeltaTime;
+        }
+
+        else if(!回血)
+        {
+            Hp += 0;
         }
     }
 

@@ -49,7 +49,8 @@ public class GameManager : MonoBehaviour
 
     private float fixedDeltaTime; //時間變量
 
-    public int 補包數量 = 0;
+    public int 觀看補包數量;
+    public static int 補包數量 = 0;
 
     [Header("作弊")]
     public bool 人物鎖血;
@@ -158,6 +159,12 @@ public class GameManager : MonoBehaviour
             Gun_fire.rifleAmmo = 20;
             Gun_fire.子彈 = 8;
             補包數量 = 999;
+
+            擁有門禁卡 = true;
+            擁有密碼鎖密碼 = true;
+            擁有手槍 = true;
+            擁有步槍 = true;
+            擁有補血 = true;
         }
         
 
@@ -193,6 +200,10 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(7);
         }
+        else if (Input.GetKey(KeyCode.Alpha8))
+        {
+            SceneManager.LoadScene(8);
+        }
         else if (Input.GetKey(KeyCode.Z))
         {
             Gun_fire.手槍彈匣數量++;
@@ -215,6 +226,7 @@ public class GameManager : MonoBehaviour
             觀看步槍 = 擁有步槍 ;
             觀看開火開關 = Gun_fire.可開火開關;
             觀看補血 = 擁有補血;
+            觀看補包數量 = 補包數量;
         }
 
         if (清除所有道具狀態)
@@ -222,6 +234,8 @@ public class GameManager : MonoBehaviour
             擁有門禁卡 = false;
             擁有密碼鎖密碼 = false;
             擁有手槍 = false;
+            擁有步槍 = false;
+            擁有補血 = false;
             Player.health = 100;
             Gun_fire.子彈 = 8;
             Gun_fire.rifleAmmo = 20;
@@ -232,6 +246,17 @@ public class GameManager : MonoBehaviour
             清除所有道具狀態 = false;
         }
 
+        //防止沒血量還能使用
+        if(Player.health > 0)
+        {
+            //補血機制 && 補包 >= 1才可使用 (預設F鍵)
+            if (Input.GetKeyDown(KeyCode.F) && 補包數量 >= 1)
+            {
+                Player.health += 25;
+                補包數量 -= 1;
+            }
+        }
+        
 
         /*
         else if (Input.GetKey(KeyCode.I))

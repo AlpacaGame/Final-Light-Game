@@ -33,6 +33,7 @@ public class keypad : MonoBehaviour
 
     public GameObject 亮光;
     public GameObject 密碼提示;
+    public Animator anim互動;
 
     // Start is called before the first frame update
     void Start()
@@ -98,6 +99,7 @@ public class keypad : MonoBehaviour
         {
             開啟密碼鎖開關 = true;
             亮光.SetActive(true);
+            anim互動.SetBool("門開", true);
         }
 
     }
@@ -108,6 +110,7 @@ public class keypad : MonoBehaviour
         {
             開啟密碼鎖開關 = false;
             亮光.SetActive(false);
+            anim互動.SetBool("門開", false);
         }
     }
 
