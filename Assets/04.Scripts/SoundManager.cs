@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
     [Header("敵人音效")]
     public AudioSource Enemy_audioSource;
     //public AudioClip Enemy_Idle, Enemy_Attack, Enemy_Hurt, Enemy_Death;
-    public AudioClip Enemy_Attack, Blood;
+    public AudioClip Enemy_Attack, Blood , Drop;
     [Header("敵人Boos音效")]
     public AudioSource EnemyBoos_audioSource;
     //public AudioClip EnemyBoos_Idle, EnemyBoos_Attack, EnemyBoos_Attack2, EnemyBoos_Roar, EnemyBoos_Hurt, EnemyBoos_Death;
@@ -257,6 +257,15 @@ public class SoundManager : MonoBehaviour
     public void BloodSource()
     {
         Enemy_audioSource.clip = Blood;
+        Enemy_audioSource.Play();
+    }
+    
+    /// <summary>
+    /// 敵人被射音效
+    /// </summary>
+    public void DropdSource()
+    {
+        Enemy_audioSource.clip = Drop;
         Enemy_audioSource.Play();
     }
     /*

@@ -12,6 +12,11 @@ public class Spore_Boos : MonoBehaviour
 
     public static bool 回血;
 
+    public bool 動畫;
+
+
+
+
     void Start()
     {
 
@@ -25,10 +30,10 @@ public class Spore_Boos : MonoBehaviour
         on_hp = Hp;
         觀看王回血 = 回血數字;
 
-        if (Hp <= 0)
+        if (Hp <= 0 && !動畫)
         {
             Hp = 0;
-            //SceneManager.LoadScene(1);
+            StartCoroutine(LoadNextSceneCoroutine());
         }
 
         if (Hp >= 1800)
@@ -37,12 +42,21 @@ public class Spore_Boos : MonoBehaviour
             //SceneManager.LoadScene(1);
         }
 
-        
+
     }
 
-    void FixedUpdate()
+    
+    private IEnumerator LoadNextSceneCoroutine()
     {
-        if (回血)
+        yield return new WaitForSeconds(0.5f);//延遲7秒
+        print("進入第8關");
+        SceneManager.LoadScene(8);
+    }
+
+
+void FixedUpdate()
+    {
+        if (回血 && !動畫)
         {
             Hp += 回血數字 * Time.fixedDeltaTime;
         }

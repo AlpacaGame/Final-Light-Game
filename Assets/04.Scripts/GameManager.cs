@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     [Header("道具數量")]
     public bool 檢查道具擁有狀態 = true;
     public bool 清除所有道具狀態 = false;
-    public bool 觀看門禁卡, 觀看密碼鎖密碼, 觀看手槍, 觀看步槍, 觀看開火開關, 觀看補血 = false;
-    public static bool 擁有門禁卡, 擁有密碼鎖密碼, 擁有手槍, 擁有步槍, 擁有補血;
+    public bool 觀看門禁卡, 觀看密碼鎖密碼, 觀看手槍, 觀看步槍, 觀看開火開關, 觀看補血,觀看解藥 = false;
+    public static bool 擁有門禁卡, 擁有密碼鎖密碼, 擁有手槍, 擁有步槍, 擁有補血, 擁有解藥;
     //public bool 觀看一次門禁卡, 觀看一次密碼鎖密碼, 觀看一次手槍, 觀看一次步槍;
     public GameObject 門禁卡, 密碼鎖密碼, 手槍;
     public float 觀看時間 = 0f;
@@ -165,6 +165,7 @@ public class GameManager : MonoBehaviour
             擁有手槍 = true;
             擁有步槍 = true;
             擁有補血 = true;
+            擁有解藥 = true;
         }
         
 
@@ -196,11 +197,11 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(6);
         }
-        else if (Input.GetKey(KeyCode.Alpha6))
+        else if (Input.GetKey(KeyCode.Alpha6)) //Boss關
         {
             SceneManager.LoadScene(7);
         }
-        else if (Input.GetKey(KeyCode.Alpha8))
+        else if (Input.GetKey(KeyCode.Alpha7))
         {
             SceneManager.LoadScene(8);
         }
@@ -227,6 +228,7 @@ public class GameManager : MonoBehaviour
             觀看開火開關 = Gun_fire.可開火開關;
             觀看補血 = 擁有補血;
             觀看補包數量 = 補包數量;
+            觀看解藥 = 擁有解藥;
         }
 
         if (清除所有道具狀態)
@@ -236,6 +238,7 @@ public class GameManager : MonoBehaviour
             擁有手槍 = false;
             擁有步槍 = false;
             擁有補血 = false;
+            擁有解藥 = false;
             Player.health = 100;
             Gun_fire.子彈 = 8;
             Gun_fire.rifleAmmo = 20;
@@ -249,14 +252,19 @@ public class GameManager : MonoBehaviour
         //防止沒血量還能使用
         if(Player.health > 0)
         {
+            if(補包數量 >=999)
+            {
+                補包數量 = 999;
+            }
             //補血機制 && 補包 >= 1才可使用 (預設F鍵)
             if (Input.GetKeyDown(KeyCode.F) && 補包數量 >= 1)
             {
                 Player.health += 25;
                 補包數量 -= 1;
             }
+
         }
-        
+
 
         /*
         else if (Input.GetKey(KeyCode.I))
@@ -264,8 +272,16 @@ public class GameManager : MonoBehaviour
             擁有手槍= true;
         }
         */
+        /*
+        if(Spore_Boos.on_hp <= 0)
+        {
+            StartCoroutine(LoadNextSceneCoroutine());
+        }
+        */
     }
+
     
+
     void 時間控制器()
     {
         if (!正在時停 && !開啟選單)

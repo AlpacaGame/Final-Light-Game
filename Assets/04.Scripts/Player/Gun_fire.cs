@@ -93,6 +93,8 @@ public class Gun_fire : MonoBehaviour
         //手槍
         if (currentWeapon == 0)
         {
+            damage = 20; //子彈傷害
+
             //按下R鍵，裝子彈
             if (手槍彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R) && 可開火開關)
             {
@@ -145,6 +147,8 @@ public class Gun_fire : MonoBehaviour
         //步槍
         else if (currentWeapon == 1)
         {
+            damage = 200; //子彈傷害
+
             //按下R鍵，裝子彈
             if (步槍彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R) && 可開火開關)
             {

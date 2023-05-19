@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
 {
     public bool 撿拾道具 = false;
 
-    public bool 門禁卡, 密碼鎖密碼, 手槍,步槍,補血劑 =false;
+    public bool 門禁卡, 密碼鎖密碼, 手槍,步槍,補血劑,解藥 =false;
 
 
     //public static bool 鑰匙拾取過 = false;
@@ -76,6 +76,7 @@ public class Item : MonoBehaviour
             SoundManager.instance.PickUpSource();
             Gun_fire.步槍彈匣數量 += 100;//當下撿到手槍拿到的彈匣
         }
+
         /*
         if (Input.GetKey(KeyCode.E) && 撿拾道具 && 補血劑)
         {
@@ -85,6 +86,13 @@ public class Item : MonoBehaviour
             Gun_fire.步槍彈匣數量 += 100;//當下撿到手槍拿到的彈匣
         }
         */
+
+        else if (Input.GetKey(KeyCode.E) && 撿拾道具 && 解藥)
+        {
+            Destroy(gameObject);
+            GameManager.擁有解藥 = true;
+            SoundManager.instance.PickUpSource();
+        }
     }
     void 撿過就刪除()
     {
@@ -109,6 +117,10 @@ public class Item : MonoBehaviour
             Destroy(gameObject);
         }
 
+        else if (解藥 && GameManager.擁有解藥)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D Key)

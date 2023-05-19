@@ -80,7 +80,13 @@ public class Spore_Boos_random : MonoBehaviour
                 Spore_Boos.回血數字 = 250;
 
                 無敵 = true;
-                Invoke("一次回滿MAX", 7.5f);
+                
+                //Invoke("一次回滿MAX", 7.5f);
+            }
+
+            if (Spore_Boos.on_hp >= 1800 && !階段五不重複)
+            {
+                一次回滿 = false;
             }
         }
 
