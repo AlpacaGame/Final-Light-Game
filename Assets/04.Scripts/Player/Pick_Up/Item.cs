@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
 {
     public bool 撿拾道具 = false;
 
-    public bool 門禁卡, 密碼鎖密碼, 手槍,步槍,補血劑,解藥 =false;
+    public bool 門禁卡, 密碼鎖密碼, 手槍,步槍,補血劑,解藥,染血的ID卡 =false;
 
 
     //public static bool 鑰匙拾取過 = false;
@@ -93,6 +93,15 @@ public class Item : MonoBehaviour
             GameManager.擁有解藥 = true;
             SoundManager.instance.PickUpSource();
         }
+
+        
+        else if (Input.GetKey(KeyCode.E) && 撿拾道具 && 染血的ID卡)
+        {
+            Destroy(gameObject);
+            GameManager.擁有染血的ID卡 = true;
+            SoundManager.instance.PickUpSource();
+        }
+        
     }
     void 撿過就刪除()
     {
@@ -118,6 +127,11 @@ public class Item : MonoBehaviour
         }
 
         else if (解藥 && GameManager.擁有解藥)
+        {
+            Destroy(gameObject);
+        }
+
+        else if (解藥 && GameManager.擁有染血的ID卡)
         {
             Destroy(gameObject);
         }

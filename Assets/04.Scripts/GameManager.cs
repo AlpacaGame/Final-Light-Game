@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     [Header("道具數量")]
     public bool 檢查道具擁有狀態 = true;
     public bool 清除所有道具狀態 = false;
-    public bool 觀看門禁卡, 觀看密碼鎖密碼, 觀看手槍, 觀看步槍, 觀看開火開關, 觀看補血,觀看解藥 = false;
-    public static bool 擁有門禁卡, 擁有密碼鎖密碼, 擁有手槍, 擁有步槍, 擁有補血, 擁有解藥;
+    public bool 觀看門禁卡, 觀看密碼鎖密碼, 觀看手槍, 觀看步槍, 觀看開火開關, 觀看補血,觀看解藥, 觀看染血的ID卡 = false;
+    public static bool 擁有門禁卡, 擁有密碼鎖密碼, 擁有手槍, 擁有步槍, 擁有補血, 擁有解藥, 擁有染血的ID卡;
     //public bool 觀看一次門禁卡, 觀看一次密碼鎖密碼, 觀看一次手槍, 觀看一次步槍;
     public GameObject 門禁卡, 密碼鎖密碼, 手槍;
     public float 觀看時間 = 0f;
@@ -166,6 +166,7 @@ public class GameManager : MonoBehaviour
             擁有步槍 = true;
             擁有補血 = true;
             擁有解藥 = true;
+            擁有染血的ID卡 = true;
         }
         
 
@@ -229,6 +230,7 @@ public class GameManager : MonoBehaviour
             觀看補血 = 擁有補血;
             觀看補包數量 = 補包數量;
             觀看解藥 = 擁有解藥;
+            觀看染血的ID卡 = 擁有染血的ID卡;
         }
 
         if (清除所有道具狀態)
@@ -239,6 +241,7 @@ public class GameManager : MonoBehaviour
             擁有步槍 = false;
             擁有補血 = false;
             擁有解藥 = false;
+            擁有染血的ID卡 = false;
             Player.health = 100;
             Gun_fire.子彈 = 8;
             Gun_fire.rifleAmmo = 20;
