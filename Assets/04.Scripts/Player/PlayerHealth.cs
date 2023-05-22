@@ -75,6 +75,8 @@ public class PlayerHealth : MonoBehaviour
         耗力機制();
         //滑鏟消耗();
         子彈消耗機制();
+
+        
     }
 
     void 損血機制()
@@ -104,8 +106,12 @@ public class PlayerHealth : MonoBehaviour
     {
         體力量度計.體力剩餘(玩家體力);
         觀看體力 = 玩家體力;
-        
-            
+
+        if (玩家體力 >= 3)
+        {
+            Player.CanSlideAgain = true;
+        }
+
 
         if (回復體力)
         {

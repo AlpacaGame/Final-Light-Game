@@ -24,13 +24,13 @@ public class LevelControl1 : MonoBehaviour
     public static bool 間接開門;
 
     public bool 另一種感應物件;
+    public bool 擁有ID卡才能開,ID卡;
 
     // Start is called before the first frame update
     void Start()
     {
         anim_Door = GetComponent<Animator>();
-        //anim互動 = GetComponent<Animator>();
-        //門開關物件控制 = this;
+
     }
 
     // Update is called once per frame
@@ -38,16 +38,7 @@ public class LevelControl1 : MonoBehaviour
     {
         black = GameObject.Find("屏幕黑幕").GetComponent<Image>();
         anim = GameObject.Find("屏幕黑幕").GetComponent<Animator>();
-        /*
-        if (black == null)
-        {
-            
-        }
-        if (anim == null)
-        {
-            
-        }
-        */
+
         if (Input.GetKey(KeyCode.E) && 直接開門開關)
         {
             StartCoroutine(Fading());
@@ -56,6 +47,7 @@ public class LevelControl1 : MonoBehaviour
         {
             由其他物件來開門();
         }
+
     }
 
     void 由其他物件來開門()

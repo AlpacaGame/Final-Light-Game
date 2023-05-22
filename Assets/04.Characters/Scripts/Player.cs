@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     public bool breath = false;
     public float playerSpeed = 0;
     public float playerMaxSpeed = 5;
-    public bool CanSlideAgain = true;//滑行間隔使用
+    public static bool CanSlideAgain = true;//滑行間隔使用
     public float SlideAgainTime = 3;//滑行間隔時間
 
 
@@ -298,7 +298,7 @@ public class Player : MonoBehaviour
     //滑行結束
     public void SlideOver()
     {
-        Invoke("YouCanSlideAgain", SlideAgainTime);
+        //Invoke("YouCanSlideAgain", SlideAgainTime);
         sliding = false;
         anim.SetBool("isSliding", false);
         rg.velocity = new Vector2(0, rg.velocity.y);

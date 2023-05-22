@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     public bool 補包999;
     public bool 一鍵道具;
 
+
     public bool 強制重來;
 
 
@@ -149,9 +150,7 @@ public class GameManager : MonoBehaviour
         //人物補血
         if (Input.GetKeyDown(KeyCode.I) && Player.health > 0)
         {
-            人物鎖血 = !人物鎖血;
-            無限子彈 = !無限子彈;
-            補包999 = !補包999;
+            一鍵道具 = !一鍵道具;
         }
         if(人物鎖血 && 無限子彈 && 補包999)
         {
@@ -167,6 +166,13 @@ public class GameManager : MonoBehaviour
             擁有補血 = true;
             擁有解藥 = true;
             擁有染血的ID卡 = true;
+        }
+
+        if(一鍵道具)
+        {
+            人物鎖血 = !人物鎖血;
+            無限子彈 = !無限子彈;
+            補包999 = !補包999;
         }
         
 
@@ -205,6 +211,11 @@ public class GameManager : MonoBehaviour
         else if (Input.GetKey(KeyCode.Alpha7))
         {
             SceneManager.LoadScene(8);
+        }
+
+        else if (Input.GetKey(KeyCode.Alpha8))
+        {
+            SceneManager.LoadScene(10);
         }
         else if (Input.GetKey(KeyCode.Z))
         {
@@ -250,6 +261,7 @@ public class GameManager : MonoBehaviour
             Gun_fire.步槍彈匣數量 = 0;
 
             清除所有道具狀態 = false;
+            一鍵道具 = false;
         }
 
         //防止沒血量還能使用
