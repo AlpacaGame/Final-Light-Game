@@ -94,34 +94,32 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public bool NoOffsetY = true;//不做Y值偏移
-
     //執行攻擊位移
     public void AttackMove()
     {
-        if (NoOffsetY)//不做Y值偏移
-        {
-            _target = new Vector2(player.position.x, rb.position.y);
-            InvokeRepeating("JumpAttackToTarget", 0, 0.01f);
-        }
-        else
-        {
-            _target = new Vector2(player.position.x, player.position.y + PlayerY_Offset);
-            InvokeRepeating("JumpAttackToTarget", 0, 0.01f);
-        }
+        _target = new Vector2(player.position.x, rb.position.y);//找到玩家位置
+
+        attackMoveDistance = 0.02f;//初始每次位移距離
+
+        InvokeRepeating("JumpAttackToTarget", 0, 0.02f);//每0.01秒執行一次
     }
 
     //移動到攻擊目標點
     public void JumpAttackToTarget()
     {
-        attackMoveDistance = attackSpeed;
+        //更改成新的位置
         Vector2 newPos = Vector2.MoveTowards(rb.position, _target, attackMoveDistance);
         rb.MovePosition(newPos);
-        attackMoveDistance += attackSpeed;
-        if (attackMoveDistance >= 10)
+
+        attackMoveDistance += 0.005f;//每次逐漸增加移動距離
+
+        //每次最大移動距離限制
+        if (attackMoveDistance >= 0.3f)
         {
-            CancelInvoke("JumpAttackToTarget");
-            Debug.Log("cancelInvoke");
+            attackMoveDistance = 0.3f;
+            Debug.Log("距離限制");
+            //CancelInvoke("JumpAttackToTarget");
+            //Debug.Log("cancelInvoke");
         }
     }
 
