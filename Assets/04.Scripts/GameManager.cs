@@ -116,12 +116,13 @@ public class GameManager : MonoBehaviour
         監測是否正在對話();
         時間控制器();
         作弊模式開啟();
-
+        /*
         if(Player.health <= 0 && !強制重來)
         {
             強制重來 = true;
             死掉強迫重開();
         }
+        */
     }
 
     void 死掉強迫重開()
