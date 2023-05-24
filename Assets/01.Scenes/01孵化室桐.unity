@@ -37638,6 +37638,8 @@ MonoBehaviour:
   "\u4EAE\u5149": {fileID: 1839355281}
   "anim\u4E92\u52D5": {fileID: 0}
   "\u53E6\u4E00\u7A2E\u611F\u61C9\u7269\u4EF6": 0
+  "\u64C1\u6709ID\u5361\u624D\u80FD\u958B": 0
+  "ID\u5361": 0
 --- !u!1 &524987389
 GameObject:
   m_ObjectHideFlags: 0
@@ -85623,6 +85625,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 7223915936897296284, guid: df0906a410e6ca549928d5818513d684,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7223915936897296287, guid: df0906a410e6ca549928d5818513d684,
         type: 3}
       propertyPath: m_RootOrder
@@ -127181,7 +127188,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   attackSpeed: 0.3
-  PlayerY_Offset: -0.98
+  attackMove: 0
   health: 100
   disappearTime: 5
   deathEffect: {fileID: 0}
@@ -127195,7 +127202,6 @@ MonoBehaviour:
   _solvers: []
   _CCDsolvers: []
   startRagdoll: 0
-  NoOffsetY: 1
   "\u6575\u4EBA\u751F\u547D\u6700\u5927\u503C": 100
   "\u6575\u4EBA\u751F\u547D": 0
   "\u89C0\u770B\u6575\u4EBA\u751F\u547D": 0
