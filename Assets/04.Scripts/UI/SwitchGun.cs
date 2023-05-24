@@ -16,13 +16,13 @@ public class SwitchGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Gun_fire.切換武器編號 == 0 && GameManager.擁有手槍)
+        if(Gun_fire.切換武器編號 == 0)
         {
             手槍.SetActive(true);
             步槍.SetActive(false);
         }
 
-        if (Gun_fire.切換武器編號 == 1 && GameManager.擁有步槍)
+        if (Gun_fire.切換武器編號 == 1)
         {
             手槍.SetActive(false);
             步槍.SetActive(true);

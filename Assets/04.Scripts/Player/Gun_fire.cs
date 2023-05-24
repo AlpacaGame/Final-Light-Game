@@ -25,6 +25,8 @@ public class Gun_fire : MonoBehaviour
 
     public  bool 跳板機 = false;
 
+    public bool 偵測一開始拿的是哪一把 = true;
+
     [Space(5)]
     [Header("無限子彈模式")]
 
@@ -72,7 +74,16 @@ public class Gun_fire : MonoBehaviour
         觀看子彈數量 = 子彈;
         切換武器編號 = currentWeapon; //currentWeapon = 0手槍, = 1步槍, =2精神(未實裝)
 
-        
+        if (GameManager.擁有手槍 && 偵測一開始拿的是哪一把)
+        {
+            currentWeapon = 0;
+            偵測一開始拿的是哪一把 = false;
+        }
+        if (GameManager.擁有步槍 && 偵測一開始拿的是哪一把)
+        {
+            currentWeapon = 1;
+            偵測一開始拿的是哪一把 = false;
+        }
 
 
         //按下Q鍵，切換武器(步槍&手槍)
@@ -147,7 +158,7 @@ public class Gun_fire : MonoBehaviour
         //步槍
         else if (currentWeapon == 1)
         {
-            damage = 200; //子彈傷害
+            damage = 25; //子彈傷害
 
             //按下R鍵，裝子彈
             if (步槍彈匣數量 >= 1 && Input.GetKeyDown(KeyCode.R) && 可開火開關)

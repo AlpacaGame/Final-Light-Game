@@ -61,7 +61,7 @@ public class ShowBoos : MonoBehaviour
     public void 衝撞聲()
     {
         GameManager.故事模式 = false;
-        SoundManager.instance.EnemyBoss_ExplosionSource();
+        SoundManager.instance.B_ExplosionSource();
         爆炸.SetActive(true);
         ventLaunch.GetComponent<ObjectLaunch>().Launch();
     }

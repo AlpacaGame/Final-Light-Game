@@ -11,17 +11,25 @@ public class MoveObject : MonoBehaviour
     private bool movingRight = true;
     private bool detectPlayer = true;
 
+
     public MonsterRespawnPoint respawnPoint; // 引用 MonsterRespawnPoint 的實例
     public Animator animator; // 動畫控制器
 
     public Enemy 血量;
 
+
+    public Light targetLight;
+    public Color startColor;
+    public Color endColor;
+    public float colorChangeDuration = 1f;
+    public float colorChangeDelay = 0f;
+
+    private float currentLerpTime;
+    private bool isColorChanging = false;
+
     private void Start()
     {
         originalX = transform.position.x;
-
-        // 獲取 MonsterRespawnPoint 的實例
-        //respawnPoint = GetComponent<MonsterRespawnPoint>();
 
         // 獲取 Animator 的實例
         animator = GetComponent<Animator>();
@@ -47,45 +55,71 @@ public class MoveObject : MonoBehaviour
             }
         }
 
-        if(血量.health <= 0)
+        if (血量.health <= 0 && detectPlayer)
         {
             detectPlayer = false;
             animator.SetBool("IsOpen", true);
+            SoundManager.instance.S_ExplosionSource();
+            //ChangeLightColor();
         }
     }
 
-
-    // 偵測碰撞進入的方法
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && detectPlayer)
         {
-            // 玩家碰撞到物體，執行相應的操作
             Debug.Log("玩家碰撞到物體！");
-            // 在這裡執行額外的處理
-
-            // 觸發怪物生成
-            respawnPoint.StartSpawn();
-
-            // 停止移動
             detectPlayer = false;
-
-            // 切換動畫狀態為開啟
             animator.SetBool("IsOpen", true);
+            ChangeLightColor();
+            respawnPoint.StartSpawn();
+            SoundManager.instance.S_ExplosionSource();
+            SoundManager.instance.AlarmSource();
         }
     }
 
-    // 繪製移動範圍的可視化表示
+    private void ChangeLightColor()
+    {
+        StartCoroutine(StartColorChangeDelay());
+    }
+
+    private IEnumerator StartColorChangeDelay()
+    {
+        yield return new WaitForSeconds(colorChangeDelay);
+
+        // 開始顏色變換
+        isColorChanging = true;
+        currentLerpTime = 0f;
+
+        // 偵測玩家攻擊破壞物體
+        DestroyObject();
+    }
+
+    private void DestroyObject()
+    {
+        // 停止偵測玩家碰撞
+        detectPlayer = false;
+    }
+
+    private void LateUpdate()
+    {
+        // 檢查是否正在進行顏色變換
+        if (isColorChanging)
+        {
+            currentLerpTime += Time.deltaTime;
+            float t = currentLerpTime / colorChangeDuration;
+            targetLight.color = Color.Lerp(startColor, endColor, t);
+
+            if (t >= 1.0f)
+            {
+                isColorChanging = false;
+            }
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position, new Vector3(distance, transform.localScale.y, 0));
-    }
-
-    // 玩家攻擊破壞物體的方法
-    public void DestroyObject()
-    {
-        // 停止偵測玩家碰撞
-        detectPlayer = false;
     }
 }

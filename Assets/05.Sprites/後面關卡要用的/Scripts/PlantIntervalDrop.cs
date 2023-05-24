@@ -30,7 +30,7 @@ public class PlantIntervalDrop : MonoBehaviour
             animators[i].SetBool("IsOpen", true);
             yield return new WaitForSeconds(interval);
             ScreenShake.instance.StartShake(0.5f, 1f);
-            SoundManager.instance.DropdSource();
+            SoundManager.instance.DropSource();
         }
     }
 }

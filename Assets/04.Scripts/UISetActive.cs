@@ -31,7 +31,7 @@ public class UISetActive : MonoBehaviour
         
         if (具珺簀狵)
         {
-            if (GameManager.局Τも簀)
+            if (GameManager.局Τも簀 || GameManager.局Τ˙簀)
             {
                 if (GameManager.UI秨闽)
                 {
@@ -43,7 +43,7 @@ public class UISetActive : MonoBehaviour
                 }
             }
 
-            if (!GameManager.局Τも簀)
+            if (!GameManager.局Τも簀 && !GameManager.局Τ˙簀)
             {
                 ゴ秨UI.SetActive(false);
             }

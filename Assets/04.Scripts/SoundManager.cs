@@ -12,15 +12,15 @@ public class SoundManager : MonoBehaviour
     [Header("敵人音效")]
     public AudioSource Enemy_audioSource;
     //public AudioClip Enemy_Idle, Enemy_Attack, Enemy_Hurt, Enemy_Death;
-    public AudioClip Enemy_Attack, Blood , Drop;
+    public AudioClip Enemy_Attack, Blood ;
     [Header("敵人Boos音效")]
     public AudioSource EnemyBoos_audioSource;
     //public AudioClip EnemyBoos_Idle, EnemyBoos_Attack, EnemyBoos_Attack2, EnemyBoos_Roar, EnemyBoos_Hurt, EnemyBoos_Death;
-    public AudioClip EnemyBoos_Attack, EnemyBoos_Attack2, EnemyBoos_Move, EnemyBoss_Death, EnemyBoos_Explosion;
+    public AudioClip EnemyBoos_Attack, EnemyBoos_Attack2, EnemyBoos_Move, EnemyBoss_Death;
 
     [Header("系統音效")]
     public AudioSource System_audioSource;
-    public AudioClip ButtonClick, FalseAnswer, StartButton;
+    public AudioClip ButtonClick, FalseAnswer, StartButton, Drop, Alarm, S_Explosion, B_Explosion;
     [Header("背景音樂")]
     public AudioSource Background_audioSource;
     public AudioClip Menu_Bgm,Background_Source, Boosfight;
@@ -276,14 +276,7 @@ public class SoundManager : MonoBehaviour
         Enemy_audioSource.Play();
     }
     
-    /// <summary>
-    /// 敵人被射音效
-    /// </summary>
-    public void DropdSource()
-    {
-        Enemy_audioSource.clip = Drop;
-        Enemy_audioSource.Play();
-    }
+
     /*
     /// <summary>
     /// 敵人受傷音效
@@ -339,11 +332,18 @@ public class SoundManager : MonoBehaviour
         EnemyBoos_audioSource.clip = EnemyBoss_Death;
         EnemyBoos_audioSource.Play();
     }
-    public void EnemyBoss_ExplosionSource()
+
+    public void S_ExplosionSource()
     {
-        EnemyBoos_audioSource.clip = EnemyBoos_Explosion;
+        EnemyBoos_audioSource.clip = S_Explosion;
         EnemyBoos_audioSource.Play();
     }
+    public void B_ExplosionSource()
+    {
+        EnemyBoos_audioSource.clip = B_Explosion;
+        EnemyBoos_audioSource.Play();
+    }
+
     /*
     /// <summary>
     /// 敵人Boos攻擊2音效
@@ -402,6 +402,22 @@ public class SoundManager : MonoBehaviour
         System_audioSource.clip = StartButton;
         System_audioSource.Play();
     }
+
+    public void DropSource()
+    {
+        System_audioSource.clip = Drop;
+        System_audioSource.Play();
+    }
+
+    public void AlarmSource()
+    {
+        System_audioSource.clip = Alarm;
+        System_audioSource.Play();
+    }
+
+
+
+
     //遊戲背景音樂區域
     /// <summary>
     /// 恐怖音樂01
