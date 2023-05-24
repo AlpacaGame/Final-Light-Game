@@ -56,22 +56,27 @@ MonoBehaviour:
   FlashLightOff: {fileID: 8300000, guid: 6b8ca4045ea331c49a12ba02e925c8b2, type: 3}
   Pant: {fileID: 8300000, guid: 437ad53155fda4648baab8d6af118bff, type: 3}
   PickUp: {fileID: 8300000, guid: d2cb67889c7346443b6553a794fda130, type: 3}
-  Move: {fileID: 0}
+  Move: {fileID: 8300000, guid: 39791dccb6a4ce34e8b316ba2daa8c6c, type: 3}
+  Glass1: {fileID: 8300000, guid: 9ab5a4a9c3bd3fb48aee8990bfaef512, type: 3}
+  Glass2: {fileID: 8300000, guid: 9fbe4e10914db804ba34e9dfce29d50b, type: 3}
   Enemy_audioSource: {fileID: 8482033128074184917}
-  Enemy_Attack: {fileID: 0}
+  Enemy_Attack: {fileID: 8300000, guid: ad9daf5ca7491714c920bf60103e5c5b, type: 3}
   Blood: {fileID: 8300000, guid: 0ede5853fde40d549b2829c60cfd4e50, type: 3}
+  Drop: {fileID: 8300000, guid: 6b7b4220c9b41694daa859e8132447da, type: 3}
   EnemyBoos_audioSource: {fileID: 8482033128074184913}
-  EnemyBoos_Attack: {fileID: 0}
+  EnemyBoos_Attack: {fileID: 8300000, guid: 3b5e76b4617af944f8524c9c5581a0d5, type: 3}
   EnemyBoos_Attack2: {fileID: 8300000, guid: b80c80c2756f6424ba6689c393fd404d, type: 3}
-  EnemyBoos_Move: {fileID: 0}
+  EnemyBoos_Move: {fileID: 8300000, guid: 7e5c50423c61ce24aa3a2dcd9cb7dac9, type: 3}
+  EnemyBoss_Death: {fileID: 0}
+  EnemyBoos_Explosion: {fileID: 8300000, guid: d7d2323e96cea9840b1845ce85a3de27, type: 3}
   System_audioSource: {fileID: 8482033128074184914}
   ButtonClick: {fileID: 8300000, guid: 7f9c87925441e43bdbb6399f1c1793a6, type: 3}
   FalseAnswer: {fileID: 8300000, guid: 1e06dc7f83939b7488cf73dca5b47df6, type: 3}
-  StartButton: {fileID: 0}
+  StartButton: {fileID: 8300000, guid: c16735c96896569469dd62eb9a440889, type: 3}
   Background_audioSource: {fileID: 8482033128074184916}
-  Menu_Bgm: {fileID: 0}
+  Menu_Bgm: {fileID: 8300000, guid: a1b23879ae6583649b6e33804cf9e5f6, type: 3}
   Background_Source: {fileID: 8300000, guid: 3d593a251b9218048a14c6ff114b4d93, type: 3}
-  Boosfight: {fileID: 0}
+  Boosfight: {fileID: 8300000, guid: 358f46d442ce9cb4a9aadb618700bf1c, type: 3}
 --- !u!82 &8482033128074184918
 AudioSource:
   m_ObjectHideFlags: 0

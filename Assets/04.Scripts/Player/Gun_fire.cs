@@ -199,7 +199,7 @@ public class Gun_fire : MonoBehaviour
 
     IEnumerator RayShoot()
     {
-        layerMask = (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("EnemyDead")) | (1 << LayerMask.NameToLayer("floor"));//指定可射擊圖層
+        layerMask = (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("EnemyDead")) | (1 << LayerMask.NameToLayer("floor")) | (1 << LayerMask.NameToLayer("Shootable"));//指定可射擊圖層
         RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right, 1000, layerMask);
 
         if (hitInfo)
@@ -225,6 +225,24 @@ public class Gun_fire : MonoBehaviour
             {
                 SoundManager.instance.BloodSource();
                 Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
+                hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
+            }
+            else if (hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Shootable"))
+            {
+                //隨機破碎聲
+                /*
+                int ran = Random.Range(0, 1);
+                if(ran == 0)
+                {
+                    SoundManager.instance.Glass1Source();
+                }
+                else
+                {
+                    SoundManager.instance.Glass2Source();
+                }
+                */
+                SoundManager.instance.Glass2Source();
+                //Instantiate(bloodEffect, hitInfo.point, Quaternion.identity);
                 hitInfo.rigidbody.AddForce(-hitInfo.normal * impactForce);
             }
             lineRenderer.SetPosition(0, firePoint.position);

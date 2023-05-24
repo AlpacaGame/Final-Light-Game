@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("玩家音效")]
     public AudioSource Player_audioSource;
-    public AudioClip Fire, Reload, No_Bullets, FlashLightOn, FlashLightOff, Pant , PickUp , Move;
+    public AudioClip Fire, Reload, No_Bullets, FlashLightOn, FlashLightOff, Pant , PickUp , Move, Glass1, Glass2;
     [Header("敵人音效")]
     public AudioSource Enemy_audioSource;
     //public AudioClip Enemy_Idle, Enemy_Attack, Enemy_Hurt, Enemy_Death;
@@ -228,7 +228,23 @@ public class SoundManager : MonoBehaviour
         Player_audioSource.Play();
     }
 
-    
+    /// <summary>
+    /// 東西碎裂音效1
+    /// </summary>
+    public void Glass1Source()
+    {
+        Player_audioSource.clip = Glass1;
+        Player_audioSource.Play();
+    }
+
+    /// <summary>
+    /// 東西碎裂音效2
+    /// </summary>
+    public void Glass2Source()
+    {
+        Player_audioSource.clip = Glass2;
+        Player_audioSource.Play();
+    }
 
     //敵人音效區域
     /*
