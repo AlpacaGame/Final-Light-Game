@@ -55,8 +55,8 @@ public class Spore_Boos_random : MonoBehaviour
         {
             Spore_Boos.回血 = false;
             無敵 = false;
+            Spore_Boos.回血數字 = 0;
 
-            
         }
         
         if(一次回滿)
@@ -65,12 +65,12 @@ public class Spore_Boos_random : MonoBehaviour
             {
                 if (State1 || State2)
                 {
-                    Spore_Boos.回血數字 = 5;
+                    //Spore_Boos.回血數字 = 5;
                 }
 
                 if (State3 || State4)
                 {
-                    Spore_Boos.回血數字 = 20;
+                    //Spore_Boos.回血數字 = 20;
                 }
 
             }
@@ -78,16 +78,17 @@ public class Spore_Boos_random : MonoBehaviour
             if (State5 && !階段五不重複)
             {
                 Spore_Boos.回血數字 = 250;
-
+                
                 無敵 = true;
                 
-                //Invoke("一次回滿MAX", 7.5f);
+                Invoke("一次回滿MAX", 7f);
             }
-
+            /*
             if (Spore_Boos.on_hp >= 1800 && !階段五不重複)
             {
                 一次回滿 = false;
             }
+            */
         }
 
         
