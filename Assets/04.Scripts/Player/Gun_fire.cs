@@ -25,7 +25,7 @@ public class Gun_fire : MonoBehaviour
 
     public  bool 跳板機 = false;
 
-    public bool 偵測一開始拿的是哪一把 = true;
+    public static bool 偵測一開始拿的是哪一把 = true;
 
     [Space(5)]
     [Header("無限子彈模式")]

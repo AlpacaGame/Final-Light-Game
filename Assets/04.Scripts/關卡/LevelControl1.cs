@@ -39,7 +39,7 @@ public class LevelControl1 : MonoBehaviour
         black = GameObject.Find("屏幕黑幕").GetComponent<Image>();
         anim = GameObject.Find("屏幕黑幕").GetComponent<Animator>();
 
-        if (Input.GetKey(KeyCode.E) && 直接開門開關)
+        if (Input.GetKey(KeyCode.E) && 直接開門開關 && Player.health >= 0)
         {
             StartCoroutine(Fading());
         }
@@ -70,7 +70,7 @@ public class LevelControl1 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D Fade)
     {
-        if (Fade.CompareTag("Player"))
+        if (Fade.CompareTag("Player") && Player.health >= 0)
         {
             anim_Door.SetBool("門開", true);
             anim互動.SetBool("門開", true);
